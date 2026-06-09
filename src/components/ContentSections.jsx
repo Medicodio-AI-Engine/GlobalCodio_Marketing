@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 import { FileText, RefreshCw, ClipboardList, PenLine, CalendarClock, Megaphone } from 'lucide-react';
 import { GlobeIcon, MessageCircleIcon, TrendingUpIcon } from '@animateicons/react/lucide';
 import { Logo } from '../../components/layout/Nav';
-import { SectionEyebrow } from '../../components/ui/PageKit';
+import { SectionEyebrow, SmartLink } from '../../components/ui/PageKit';
 import { FOOTER_COLUMNS, SUPPORT_EMAIL, SUPPORT_MAILTO, SITE_URL, AUDIT_URL } from '../../lib/navigation';
 import { ICON_PALETTE } from '../../lib/tokens';
 
@@ -228,6 +228,7 @@ export const Testimonial = () => (
         {[
           {
             title: 'Immigration Law Firms',
+            href: '/for-law-firms',
             quote: 'GlobalCodio handles everything - AI agents for case prep, deadlines, client comms, and renewals, plus audit, consulting, configuration, and managed operations - so your attorneys focus on what matters.',
             body: 'Solo, mid-size, and large law firms practicing immigration law. Pain points: manual case preparation, scaling case volume, growing revenue from existing clients, and managing technology.',
             services: [
@@ -239,6 +240,7 @@ export const Testimonial = () => (
           },
           {
             title: 'Corporate Immigration Departments',
+            href: '/for-corporate-teams',
             quote: 'GlobalCodio handles everything - AI agents for visa tracking, compliance monitoring, and vendor coordination, plus audit, consulting, configuration, and managed operations - so your mobility team focuses on strategy.',
             body: 'In-house mobility, HR, and legal operations teams at mid-to-large employers managing employee visa cases. Pain points: scaling case volume, compliance, vendor management, and cost predictability.',
             services: [
@@ -263,7 +265,16 @@ export const Testimonial = () => (
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: 'var(--text-body-sm)', color: 'var(--ink-3)', lineHeight: 1.6 }}>{a.body}</p>
+            <p style={{ fontSize: 'var(--text-body-sm)', color: 'var(--ink-3)', lineHeight: 1.6 }}>
+              {a.body}
+              {' '}
+              <SmartLink href={a.href} className="feature-card-link" style={{ fontWeight: 600, display: 'inline-flex', verticalAlign: 'middle' }}>
+                Learn more
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 12, height: 12 }} aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </SmartLink>
+            </p>
           </article>
         ))}
       </div>
