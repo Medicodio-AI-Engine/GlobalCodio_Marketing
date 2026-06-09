@@ -5,4 +5,8 @@ export default defineCliConfig({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   },
+  studioHost: 'globalcodio-ai',
+  deployment: {
+    appId: 'jr96niafdappau0j4ddpwzwd',
+  },
 });

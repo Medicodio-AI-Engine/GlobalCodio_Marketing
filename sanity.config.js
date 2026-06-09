@@ -5,8 +5,11 @@ import { schemaTypes } from './sanity/schemas/index';
 export default defineConfig({
   name: 'globalcodio',
   title: 'GlobalCodio',
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  // projectId/dataset are public (they ship in the browser bundle), so hardcode
+  // them with an env fallback. Env vars aren't available in the hosted
+  // *.sanity.studio build, so the literals are what make the deployed Studio work.
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '1ll6raj6',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
 
   plugins: [
     structureTool({
