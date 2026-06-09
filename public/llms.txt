@@ -1,0 +1,200 @@
+# GlobalCodio
+
+> AI Workforce for Global Immigration. Deployed and Managed.
+
+GlobalCodio gives immigration law firms and corporate immigration departments their own AI workforce - built, deployed, and managed end-to-end. Our AI Agents handle case management, client communications, renewals, and business development, while our team runs the entire technology operation. Connected to a global ecosystem of immigration partners, we help your team cut costs and grow revenue - without ever managing technology again.
+
+## What is GlobalCodio?
+
+GlobalCodio is an AI-powered managed technology operation purpose-built for global immigration practice. Unlike traditional software vendors, GlobalCodio deploys, configures, and fully manages an AI workforce for immigration law firms and corporate mobility teams. The platform combines proprietary case management software (CodioCMS), a global immigration forms engine (CodioForms), a team of 10 specialized AI agents, a dedicated operations team (CodioOps), and a curated worldwide service provider network (CodioNetwork).
+
+## Three Pillars
+
+### Pillar 1: AI Agents
+A suite of 10 autonomous AI workers handling every stage of the immigration workflow - case management, document processing, form preparation, deadline tracking, client communications, renewals, and business development. Purpose-built for immigration, integrated natively with CodioCMS, and managed by GlobalCodio's team. No configuration required from the firm.
+
+### Pillar 2: Managed Technology Operations (CodioOps)
+GlobalCodio deploys, configures, monitors, and optimizes the entire platform and agent ecosystem within each client firm. Every engagement includes CodioOps - a dedicated Case Management Operations team that sets up workflows, builds templates, documents processes, activates automations, and continuously tunes the platform as the firm evolves. Clients never manage technology themselves.
+
+### Pillar 3: Global Immigration Ecosystem (CodioNetwork)
+A curated B2B network of pre-vetted immigration service providers worldwide - certified translators (40+ languages), USCIS-approved immigration physicians, apostille and document authentication services, foreign attorneys and in-country counsel, specialized couriers, and consular coordinators - all accessible and coordinated through CodioCMS.
+
+## Platform Products
+
+### CodioCMS
+Next-generation immigration case management software built by the founder of INSZoom - the world's leading immigration case management platform. Key capabilities:
+- End-to-end case lifecycle management for every immigration matter type
+- Applicant portal: foreign nationals track status, submit documents, complete questionnaires
+- HR/Employer portal: corporate mobility teams manage employee visa pipelines and analytics
+- Service provider portal: controlled access for translators, physicians, attorneys
+- Role-based access control across 27 modules and 7 action types
+- Client questionnaires with conditional logic and attorney review workflows
+- Multi-country support with new countries added on demand
+- Customizable playbook templates and workflow automations
+- Executive reporting, analytics dashboards, renewal pipeline, and bottleneck alerts
+- Immigration Passport Vault: applicants own their document record, portable across employers and firms
+- Cross-case awareness for family, derivative, and corporate transfer cases
+
+### CodioForms
+Global immigration forms and questionnaires engine. Key capabilities:
+- Online (government portal direct) and offline (PDF) form completion
+- 180+ US forms (USCIS-synced), Canadian IRCC suite, Netherlands MVV & permits, India visa & OCI
+- Authority-synced: every edition tracked to USCIS, IRCC, IND, and MEA releases
+- Prefilled from CodioCMS case data (847+ fields mapped)
+- New countries scoped and built in days, not quarters, based on client priority
+
+## AI Agents (10 Specialists)
+
+### Agent 01: Intake Agent
+Captures client data, validates identity documents, opens and classifies cases, sends branded welcome packets automatically.
+- Performance: 45 minutes → 8 minutes per case
+
+### Agent 02: Document Extraction Agent
+Extracts structured data from passports, visas, foreign records, and supporting documents. Translates 40+ languages. Classifies files into cases.
+- Performance: 10× faster than manual document review
+
+### Agent 03: Document Validation Agent
+Cross-checks documents for completeness, flags missing or expired items, verifies authenticity before filing. Sends automated requests for missing documents.
+- Performance: Zero missing documents at filing
+
+### Agent 04: Forms Agent
+Auto-fills government immigration forms from CodioCMS case data. Cross-references data across all forms in a package. Always uses current authority-synced versions.
+- Performance: 70% less form preparation time
+
+### Agent 05: Deadline Agent
+Tracks every case milestone, visa expiration, and filing deadline. Sends tiered alerts at 90, 60, 30, and 7 days. Monitors RFE response windows and escalates overdue items.
+- Performance: Zero missed deadlines
+
+### Agent 06: Client Communications Agent
+Sends proactive case status updates, answers common immigration questions 24/7, schedules appointments on attorney calendars, collects missing documents via secure upload links. Communicates in the client's preferred language.
+- Performance: 80% reduction in inbound status calls
+
+### Agent 07: Renewal Agent
+Continuously scans client databases for expiring visas, green card upgrade eligibility, citizenship eligibility, and dormant cases worth reopening. Drafts and sends renewal outreach automatically.
+- Performance: $50,000–$300,000 recovered in annual renewal revenue per firm
+
+### Agent 08: BD (Business Development) Agent
+Runs targeted outreach to prospective clients, qualifies leads by case type and urgency, books consultations directly on attorney calendars, follows up with non-responders automatically.
+- Performance: 8–15 new cases per month
+
+### Agent 09: Ecosystem Agent
+Identifies the right CodioNetwork provider for each need, dispatches work orders to translators and couriers, coordinates medical exam scheduling, tracks apostille and authentication status in real time.
+- Performance: 30% faster case turnaround
+
+### Agent 10: Government Notice Update Agent
+Monitors USCIS, IRCC, IND, and other authority portals for policy changes, form version updates, and regulatory announcements. Alerts attorneys to anything affecting open cases.
+- Performance: Real-time policy alerts
+
+### Case Assistant (AI interface across all agents)
+Conversational AI built into every case in CodioCMS. Attorneys ask questions in plain English - the assistant surfaces answers grounded in actual case data, with cited sources. Eliminates status-update calls.
+
+## Audiences and Use Cases
+
+### Immigration Law Firms
+- Solo practices, mid-size, and enterprise immigration law firms
+- Firms seeking to reduce case preparation time (70% reduction typical)
+- Firms wanting to recover dormant renewal revenue ($50K–$300K typical year-one recovery)
+- Firms migrating from legacy platforms (INSZoom, other CMS vendors, spreadsheets)
+- Firms responding to corporate RFPs requiring deep technical answers
+
+### Corporate Immigration Teams
+- In-house mobility, HR, and legal operations teams
+- Companies managing employee visa programs across multiple countries
+- Teams needing executive-ready immigration reporting and analytics
+- Organizations coordinating multiple outside counsel firms
+- HR departments initiating immigration workflows before outside counsel is engaged
+
+## Key Outcomes and ROI
+
+- 70% reduction in case preparation time through AI automation
+- $50,000–$300,000 recovered in annual renewal revenue (dormant client reactivation)
+- $499,000 in annual staff costs replaced by AI agents (equivalent of 8 specialist roles)
+- 24/7 agent availability with zero overtime, sick days, or handoffs
+- Zero missed deadlines with automated monitoring
+- 80% fewer inbound status calls with proactive client communications
+- 8–15 new cases per month from automated business development
+- 3× average ROI in year one
+- ~6-week typical migration from legacy platforms
+
+## Pricing Model
+
+Base retainer plus value share tied to measurable cost savings and revenue growth. Outcome-aligned: GlobalCodio earns more when clients earn more. No per-seat fees for new AI agents released to existing clients.
+
+## Trust and Compliance
+
+Security and compliance certifications immigration firms evaluate during vendor due diligence:
+
+- SOC 2 Type II security attestation
+- ISO 27001 certified
+- GDPR and UK GDPR privacy controls
+- CCPA/CPRA compliance
+- HIPAA-ready safeguards for immigration medical records
+- AES-256 encryption at rest and TLS 1.3 in transit
+- ABA-aligned AI governance with mandatory attorney supervision
+- Attorney-client privilege safeguards: GlobalCodio never trains on client data
+- Enterprise SSO, MFA, and role-based access control
+- Immutable audit logs with cryptographic signing
+- AI agents operate within RBAC - cannot exceed human team permissions
+- Background-checked staff with signed confidentiality agreements
+- Standard DPA and full compliance documentation package available under NDA
+
+## Frequently Asked Questions
+
+**Q: We already have case management software. Do we need to switch?**
+A: No rip-and-replace required. GlobalCodio integrates with existing tools and layers the AI workforce on top. Firms keep their current systems and gain the outcomes.
+
+**Q: We don't have time to implement new software. How does implementation work?**
+A: GlobalCodio manages the full technology operation. The firm keeps working while GlobalCodio handles implementation, configuration, training, and go-live. CodioOps is bundled with every engagement.
+
+**Q: Will AI agents replace our immigration attorneys?**
+A: No. Agents augment the team by handling repetitive case preparation, client communications, and renewal outreach so attorneys focus on strategy, advocacy, and the work only humans can do. Every AI extraction and draft is attorney-reviewable before it leaves the firm.
+
+**Q: Is migration from our current platform safe?**
+A: Migration is planned and managed entirely by GlobalCodio's team. Client records are mapped before anything moves, active cases continue running during the transition, and GlobalCodio manages the data extraction from the current vendor so nothing is lost.
+
+**Q: What immigration forms does CodioForms support?**
+A: 180+ US government forms (USCIS-synced), the full IRCC suite for Canada, Netherlands MVV and residence permits, and India visa and OCI forms. New countries are scoped and built in days based on client priority.
+
+**Q: How does GlobalCodio handle attorney-client privilege?**
+A: GlobalCodio never trains AI models on client data. All agent outputs are flagged for attorney review before any action is taken. Agents operate within the firm's existing RBAC permissions and cannot take unauthorized actions.
+
+## Company History and Credentials
+
+GlobalCodio was founded in 2025 by Umesh Vaidyamath, who co-founded INSZoom in 1999 - the immigration industry's first cloud-based case management platform. INSZoom grew to serve 1,000+ law firms worldwide with 125+ professionals across Pleasanton, California and Bangalore, India, maintaining 2,000+ immigration forms within 24–48 hours of regulatory releases. INSZoom was acquired by Mitratech in November 2020. GlobalCodio represents the next chapter, built on 20+ years of direct operating experience inside immigration practice.
+
+## Pages and Resources
+
+- Home: https://www.globalcodio.ai/
+- Platform (CodioCMS & CodioForms): https://www.globalcodio.ai/platform
+- AI Agents: https://www.globalcodio.ai/ai-agents
+- CodioNetwork: https://www.globalcodio.ai/network
+- For Law Firms: https://www.globalcodio.ai/for-law-firms
+- For Corporate Teams: https://www.globalcodio.ai/for-corporate-teams
+- Security & Compliance: https://www.globalcodio.ai/security
+- Services: https://www.globalcodio.ai/services
+- CodioOps: https://www.globalcodio.ai/codioops
+- RFP Response: https://www.globalcodio.ai/rfp-response
+- About: https://www.globalcodio.ai/about
+- Letter from the Founder: https://www.globalcodio.ai/letter-from-the-founder
+- Blog: https://www.globalcodio.ai/blog
+- Free Tech Audit: https://www.globalcodio.ai/free-tech-audit
+- Contact: https://www.globalcodio.ai/contact
+- App Login: https://app.globalcodio.ai/login
+- Sitemap: https://www.globalcodio.ai/sitemap.xml
+
+## Contact
+
+- Website: https://www.globalcodio.ai/
+- Email: support@globalcodio.ai
+- Phone: +1 (800) GBL-CDIO
+- Free technology audit: https://www.globalcodio.ai/free-tech-audit
+
+## Keywords and Taxonomy
+
+**Primary:** AI workforce global immigration, AI agents global immigration, immigration law firm software, corporate immigration platform, managed technology operations, global immigration ecosystem, immigration automation, immigration case management software
+
+**Product terms:** CodioCMS, CodioForms, CodioOps, CodioNetwork, Codio AI Agents, Case Assistant, Immigration Passport Vault
+
+**Workflow terms:** immigration case management, visa case management, immigration document automation, I-130, I-485, N-400, H-1B, EB-5, USCIS forms, immigration RFP response, attorney-client privilege AI, immigration deadline tracking, renewal revenue recovery, corporate mobility software
+
+**Audience terms:** immigration law firm technology, corporate immigration team software, in-house mobility platform, HR immigration portal, immigration managed services

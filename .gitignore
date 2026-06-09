@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+
+# Vite build output
+dist/
+
+# Local env & secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Caches
+.cache/
+.parcel-cache/
+*.tsbuildinfo
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Editor / IDE
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+Main_Page.txt
+TASKS.md
+transcript.txt
+transcript2.txt
+
+# Next.js
+.next/
+next-env.d.ts
+.mcp.json

@@ -1,0 +1,18 @@
+{
+  "name": "GlobalCodio - AI Workforce for Global Immigration",
+  "short_name": "GlobalCodio",
+  "description": "Your own AI workforce for immigration - built, deployed, and managed end-to-end.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1950C6",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

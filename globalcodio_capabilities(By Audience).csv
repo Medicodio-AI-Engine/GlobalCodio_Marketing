@@ -1,0 +1,122 @@
+Capabilities by Audience,,
+"Same capabilities, regrouped by who benefits. Pull the right slice for your conversation.",,
+,,
+Pillar,Capability,Why this matters to them
+Attorney / Paralegal / Case Manager   ·   36 capabilities,,
+Multi-Portal Experience,Five Distinct Portals,"Every party in an immigration matter gets a purpose-built experience. No more 'attorney has full access, client gets a stripped-down view' design."
+Multi-Portal Experience,Attorney Portal,Attorneys see the whole case state at a glance and drive work without switching tools. No more paralegal opening 7 tabs.
+AI Agents,Case Assistant (Conversational),"Stop digging through tabs to answer 'what's blocking this case?' or 'when does the visa expire?' Ask in plain English, get an answer with sources."
+AI Agents,14 Specialist Sub-Agents,Complex questions get answered fast because work is split across specialized AI agents — each one expert in its domain.
+AI Agents,Document Agent (Extraction + Validation),"Upload a passport, see 30+ fields auto-extracted in 4 seconds. The case manager's most repetitive work becomes background work."
+AI Agents,Forms Agent (Auto-Fill + Confidence Scoring),DS-160 fills in seconds instead of 45 minutes. Low-confidence fields are flagged for review.
+AI Agents,Letter Agent (Drafting in Firm Voice),"Letters read like the firm wrote them, not like ChatGPT did. Multi-partner review is built in."
+AI Agents,Follow-Up Agent,Ends the inbox-as-todo-list problem case managers live with daily. Only escalates what truly needs human judgment.
+AI Agents,Portal Automation (Watch-and-Intervene),Government portal submissions are automated end-to-end where possible; attorneys are pulled in only at moments that need them. Screenshot-audited.
+Case & Workflow,Step State Machine with Validated Transitions,Cases progress predictably. The system enforces process — partners can't accidentally close a step that hasn't been approved.
+Case & Workflow,Cross-Case Dependencies,"Family cases, derivative cases, dependent cases are first-class — not 'remember to update this manually'."
+Case & Workflow,Step Drilldown with Deep Links,Send a colleague a link directly to the step that needs attention.
+Case & Workflow,Auto-Derived Case Status,Status reports stay accurate without manual updates. Reduces the most common case-data-quality problem.
+Documents & Forms,Document Upload with Version Lineage,Document history is queryable. 'Which version of the I-130 did we file last March?' is a one-click answer.
+Documents & Forms,Government Forms with Version Lifecycle,"When USCIS releases a new form version, tenants get it without an upgrade. Old in-flight cases keep using the old version."
+Documents & Forms,Form Auto-Fill with Confidence Scoring,"Trust the green-badge fields, double-check the amber-badge ones."
+Documents & Forms,Form Review & Approval Workflow,Reviewers approve confidently because they see where each field came from. Approved fields can't be silently changed.
+Documents & Forms,Questionnaire Engine with Branching,Applicants only answer questions relevant to their situation. Half-completed forms are never lost.
+Documents & Forms,Multi-Cycle Questionnaire Review,"Back-and-forth on questionnaires is structured, not ad-hoc email chains. Audit trail captures every cycle."
+Documents & Forms,Support Letters with Section-Level Review,"Senior partner can comment on a specific paragraph, not 'page 3 needs work'. Multi-reviewer flows are first-class."
+Documents & Forms,E-Signature Integration,"Letters move from drafted to signed without leaving the platform. Whatever e-sign provider you use, we integrate."
+Communication,Dynamic Merge Fields (92+),"Case updated at 3 PM, email sent at 5 PM uses the latest data. No stale copies."
+Communication,Beneficiary Auto-Invite,Applicant onboarding happens automatically. No more 'partner forgets to invite the client'.
+Communication,Document Comments with Anchors,"Comment on the exact passage, not a separate .docx revision. Threaded discussions stay attached to source material."
+Communication,Multi-Channel Notifications,Reach applicants where they actually look. No duplicates.
+Government Integration,Government Status Tracking,Status updates surface to attorneys and applicants automatically. No more manually checking government websites.
+Government Integration,Carrier-Integrated Shipment Tracking,Applicants see real shipment status on their portal timeline. No more 'has the package arrived?' email.
+Government Integration,Filing Packet Assembly,One-click packet assembly. The drudgery of collating filing documents is automated.
+Government Integration,Visa Expiry Alerts,"Renewal opportunities surface automatically. No more 'oops, the H-1B expired last week' moments."
+HR / Employer,Bottleneck Heatmap,See exactly which cases are stuck and why. Triage at a glance.
+Provider Network,Provider Assignment Workflow,"Outsourcing is a structured workflow, not an email. Deliverables and deadlines are tracked."
+Provider Network,Scoped Provider Data Visibility,"Send a translator the beneficiary name and job title, but not salary or passport details. Confidentiality enforced at field level."
+Provider Network,Deliverables with Revision Tracking,Provider work is reviewed with structured feedback. Revisions tracked for billing and quality assessment.
+Provider Network,Deadline-Extension Negotiation,Deadline negotiation is structured. Both parties have a record.
+Provider Network,Assignment History Ledger,Data-driven provider selection. 'Which translator is fastest for technical documents?' becomes a query.
+Reporting & Analytics,Attorney Analytics,"Firms see their own performance — which attorneys, which templates, which visa categories perform best."
+,,
+HR / Mobility / Corporate   ·   17 capabilities,,
+Multi-Portal Experience,Five Distinct Portals,"Every party in an immigration matter gets a purpose-built experience. No more 'attorney has full access, client gets a stripped-down view' design."
+Multi-Portal Experience,HR / Employer Portal,Corporate HR doesn't need a case manager UI — they need workforce insights. We give them a portal designed for that.
+Case & Workflow,Auto-Derived Case Status,Status reports stay accurate without manual updates. Reduces the most common case-data-quality problem.
+Communication,HR Onboarding Flow Independent of Case,Corporate HR can collect employee data weeks before engaging the law firm. No double data entry.
+Communication,Multi-Channel Notifications,Reach applicants where they actually look. No duplicates.
+Government Integration,Government Status Tracking,Status updates surface to attorneys and applicants automatically. No more manually checking government websites.
+Government Integration,Visa Expiry Alerts,"Renewal opportunities surface automatically. No more 'oops, the H-1B expired last week' moments."
+HR / Employer,Workforce Pipeline Dashboards,Corporate mobility teams see their entire population at a glance. No more requesting reports from the law firm.
+HR / Employer,Budget Tracking & Forecasting,"Mobility budgets stay on track. Surprises are flagged at 75% spent, not 100%."
+HR / Employer,Immigration Health Scores,One number per visa program tells you if it's healthy or in trouble. Drill in for the breakdown.
+HR / Employer,Bottleneck Heatmap,See exactly which cases are stuck and why. Triage at a glance.
+HR / Employer,Versioned Immigration Policies,"Corporate immigration policies live in the platform, not in a SharePoint doc."
+HR / Employer,Multi-Firm Performance Comparison,Corporate clients managing multiple law firms see who's actually delivering.
+Reporting & Analytics,HR Analytics Suite,Corporate HR gets the operational insights they need. No more requesting custom reports every quarter.
+Reporting & Analytics,Billing Engine,Outcome-based pricing is supported out of the box. Firms can charge what they want — not just per-seat.
+Reporting & Analytics,Executive PDF Reports,Stakeholders who don't log into the platform still get the data they need.
+Configuration,Organization Scoping Inside Firms,Multi-entity employers can structure their data the way they actually operate.
+,,
+Applicant / Beneficiary   ·   12 capabilities,,
+Multi-Portal Experience,Five Distinct Portals,"Every party in an immigration matter gets a purpose-built experience. No more 'attorney has full access, client gets a stripped-down view' design."
+Multi-Portal Experience,Applicant Portal,"Applicants see their case in language they understand, fill questionnaires in plain English, upload documents to the right slots."
+AI Agents,Document Agent (Extraction + Validation),"Upload a passport, see 30+ fields auto-extracted in 4 seconds. The case manager's most repetitive work becomes background work."
+Documents & Forms,Questionnaire Engine with Branching,Applicants only answer questions relevant to their situation. Half-completed forms are never lost.
+Documents & Forms,Multi-Cycle Questionnaire Review,"Back-and-forth on questionnaires is structured, not ad-hoc email chains. Audit trail captures every cycle."
+Documents & Forms,E-Signature Integration,"Letters move from drafted to signed without leaving the platform. Whatever e-sign provider you use, we integrate."
+Documents & Forms,Immigration Passport Vault,Applicants own their immigration history record. Consent is granular and revocable.
+Communication,Beneficiary Auto-Invite,Applicant onboarding happens automatically. No more 'partner forgets to invite the client'.
+Communication,Multi-Channel Notifications,Reach applicants where they actually look. No duplicates.
+Government Integration,Government Status Tracking,Status updates surface to attorneys and applicants automatically. No more manually checking government websites.
+Government Integration,Carrier-Integrated Shipment Tracking,Applicants see real shipment status on their portal timeline. No more 'has the package arrived?' email.
+Government Integration,Visa Expiry Alerts,"Renewal opportunities surface automatically. No more 'oops, the H-1B expired last week' moments."
+,,
+Compliance / Counsel / Security   ·   15 capabilities,,
+AI Agents,"Determinism, Audit, and Tool Safety","Your AI agents can't go rogue. They can only do what your permission system already allows, and every action is auditable forever."
+Documents & Forms,Document Upload with Version Lineage,Document history is queryable. 'Which version of the I-130 did we file last March?' is a one-click answer.
+Documents & Forms,Support Letters with Section-Level Review,"Senior partner can comment on a specific paragraph, not 'page 3 needs work'. Multi-reviewer flows are first-class."
+Documents & Forms,E-Signature Integration,"Letters move from drafted to signed without leaving the platform. Whatever e-sign provider you use, we integrate."
+Communication,Dynamic Merge Fields (92+),"Case updated at 3 PM, email sent at 5 PM uses the latest data. No stale copies."
+Compliance & Audit,Immutable Audit Log with Diffs,"Defensible audit trail for any regulator, client, or counsel question. Before/after diffs mean you can prove exactly what changed."
+Compliance & Audit,Break-Glass Admin Access,Platform admins can help firms in emergencies without permanent access. Every elevated action is reviewable.
+Compliance & Audit,Multi-Tenancy with Row-Level Security,Your firm's data is isolated at the database level — not just the application level. Competitors who skip this can leak between tenants on application bugs.
+Compliance & Audit,RBAC via Module Catalog,"Permissions are defined in one place, enforced everywhere. Roles can be edited without code changes."
+Compliance & Audit,PII Encryption & Masking,"Sensitive data is protected by default, surfaced only to roles that need it. Logs are safe to share with engineering."
+Compliance & Audit,MFA + Throttling on Sensitive Endpoints,Brute-force attacks blocked at the gate. MFA gates the most dangerous operations.
+Compliance & Audit,Automated Security Event Detection,Threats surface without manual log review. Reviewed and tracked like any other workflow.
+HR / Employer,Versioned Immigration Policies,"Corporate immigration policies live in the platform, not in a SharePoint doc."
+Provider Network,Scoped Provider Data Visibility,"Send a translator the beneficiary name and job title, but not salary or passport details. Confidentiality enforced at field level."
+Configuration,Feature Flags with Firm Rollout,New features can be rolled out to specific firms or percentages. Risk-managed deployment.
+,,
+Firm Admin / Platform Admin / Operations   ·   24 capabilities,,
+Multi-Portal Experience,Admin Portals (Two Tiers),Firm operations leaders configure their own setup without engineering tickets; platform admins maintain consistent governance.
+AI Agents,"Determinism, Audit, and Tool Safety","Your AI agents can't go rogue. They can only do what your permission system already allows, and every action is auditable forever."
+Case & Workflow,Configurable Playbook Engine,"Onboarding a new visa type takes days, not months. Firms customize playbooks without engineering tickets."
+Case & Workflow,Panel Preview Catalog,Firms configure playbooks visually and see what their applicants/employees will experience before publishing.
+Case & Workflow,Auto-Derived Case Status,Status reports stay accurate without manual updates. Reduces the most common case-data-quality problem.
+Documents & Forms,Government Forms with Version Lifecycle,"When USCIS releases a new form version, tenants get it without an upgrade. Old in-flight cases keep using the old version."
+Communication,Three-Tier Template Stacking,"Firms use platform defaults out of the box, override only what they want different. Templates stay in sync."
+Communication,Dynamic Merge Fields (92+),"Case updated at 3 PM, email sent at 5 PM uses the latest data. No stale copies."
+Government Integration,Government Agency Catalog,"Adding a new agency is configuration, not code."
+Compliance & Audit,Immutable Audit Log with Diffs,"Defensible audit trail for any regulator, client, or counsel question. Before/after diffs mean you can prove exactly what changed."
+Compliance & Audit,Break-Glass Admin Access,Platform admins can help firms in emergencies without permanent access. Every elevated action is reviewable.
+Compliance & Audit,RBAC via Module Catalog,"Permissions are defined in one place, enforced everywhere. Roles can be edited without code changes."
+Compliance & Audit,PII Encryption & Masking,"Sensitive data is protected by default, surfaced only to roles that need it. Logs are safe to share with engineering."
+Compliance & Audit,MFA + Throttling on Sensitive Endpoints,Brute-force attacks blocked at the gate. MFA gates the most dangerous operations.
+HR / Employer,Bottleneck Heatmap,See exactly which cases are stuck and why. Triage at a glance.
+Provider Network,Assignment History Ledger,Data-driven provider selection. 'Which translator is fastest for technical documents?' becomes a query.
+Reporting & Analytics,Attorney Analytics,"Firms see their own performance — which attorneys, which templates, which visa categories perform best."
+Reporting & Analytics,Billing Engine,Outcome-based pricing is supported out of the box. Firms can charge what they want — not just per-seat.
+Configuration,Per-Firm Branding,Applicants see firm branding in emails and the applicant portal — not GlobalCodio.
+Configuration,Per-Firm Playbook Overrides,Custom workflows are firm-private. Platform improvements still flow through.
+Configuration,Per-Firm Email/Letter/Document Templates,"Templates inherit from the platform, get overridden by firm choices, get further overridden by case-specific needs."
+Configuration,Organization Scoping Inside Firms,Multi-entity employers can structure their data the way they actually operate.
+Configuration,Feature Flags with Firm Rollout,New features can be rolled out to specific firms or percentages. Risk-managed deployment.
+Configuration,Three-Tier Override Pattern,Consistent override pattern across the entire platform. Customize anything at any level.
+,,
+External Providers   ·   3 capabilities,,
+Multi-Portal Experience,Five Distinct Portals,"Every party in an immigration matter gets a purpose-built experience. No more 'attorney has full access, client gets a stripped-down view' design."
+Multi-Portal Experience,Provider Portal,External providers get a real portal — not a shared email thread. Firms control exactly which case fields each provider sees.
+Provider Network,Deadline-Extension Negotiation,Deadline negotiation is structured. Both parties have a record.
