@@ -1,11 +1,24 @@
-export const metadata = {
+import { PAGE_SCHEMAS, buildPageMetadata } from '../../lib/seo.js';
+
+export const metadata = buildPageMetadata({
+  path: '/network',
   title: 'CodioNetwork - Global Immigration Service Provider Network',
   description: 'CodioNetwork is a curated B2B network of certified immigration service providers worldwide: translators (40+ languages), USCIS-approved physicians, apostille services, foreign attorneys, couriers, and consular coordinators - coordinated directly through CodioCMS.',
   keywords: ['immigration service provider network', 'immigration translators', 'USCIS immigration physicians', 'CodioNetwork', 'immigration apostille service', 'foreign immigration attorneys', 'immigration vendor management'],
-  openGraph: {
-    title: 'CodioNetwork - Global Immigration Service Network | GlobalCodio',
-    description: 'Curated network of certified translators, physicians, foreign attorneys, and apostille services - coordinated through CodioCMS with structured workflows and field-level confidentiality.',
-  },
-};
+  ogTitle: 'CodioNetwork - Global Immigration Service Network | GlobalCodio',
+  ogDescription: 'Curated network of certified translators, physicians, foreign attorneys, and apostille services - coordinated through CodioCMS with structured workflows and field-level confidentiality.',
+});
+
 import CodioNetwork from '../../src/views/Network';
-export default CodioNetwork;
+
+export default function NetworkPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(PAGE_SCHEMAS.network) }}
+      />
+      <CodioNetwork />
+    </>
+  );
+}

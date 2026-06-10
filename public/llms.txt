@@ -162,6 +162,13 @@ A: GlobalCodio never trains AI models on client data. All agent outputs are flag
 
 GlobalCodio was founded in 2025 by Umesh Vaidyamath, who co-founded INSZoom in 1999 - the immigration industry's first cloud-based case management platform. INSZoom grew to serve 1,000+ law firms worldwide with 125+ professionals across Pleasanton, California and Bangalore, India, maintaining 2,000+ immigration forms within 24–48 hours of regulatory releases. INSZoom was acquired by Mitratech in November 2020. GlobalCodio represents the next chapter, built on 20+ years of direct operating experience inside immigration practice.
 
+## Events (2026)
+
+GlobalCodio attends immigration industry conferences throughout 2026:
+
+- AILA Annual Conference & Webcast - June 17–20, 2026, San Diego, CA (Marriott Marquis San Diego Marina and Manchester Grand Hyatt San Diego). In-person and online webcast.
+- AILA California Chapters Conference - November 5–7, 2026, San Francisco, CA (Hyatt Regency San Francisco Downtown-SOMA). In-person and online webcast.
+
 ## Pages and Resources
 
 - Home: https://www.globalcodio.ai/
@@ -171,22 +178,29 @@ GlobalCodio was founded in 2025 by Umesh Vaidyamath, who co-founded INSZoom in 1
 - For Law Firms: https://www.globalcodio.ai/for-law-firms
 - For Corporate Teams: https://www.globalcodio.ai/for-corporate-teams
 - Security & Compliance: https://www.globalcodio.ai/security
-- Services: https://www.globalcodio.ai/services
+- Services (IT & Managed Operations): https://www.globalcodio.ai/it-services
 - CodioOps: https://www.globalcodio.ai/codioops
+- HRMS Integration: https://www.globalcodio.ai/hrms-integration
 - RFP Response: https://www.globalcodio.ai/rfp-response
+- Customer Support: https://www.globalcodio.ai/customer-support
 - About: https://www.globalcodio.ai/about
 - Letter from the Founder: https://www.globalcodio.ai/letter-from-the-founder
 - Blog: https://www.globalcodio.ai/blog
+- Events: https://www.globalcodio.ai/events
 - Free Tech Audit: https://www.globalcodio.ai/free-tech-audit
 - Contact: https://www.globalcodio.ai/contact
+- Privacy Policy: https://www.globalcodio.ai/privacy-policy
 - App Login: https://app.globalcodio.ai/login
 - Sitemap: https://www.globalcodio.ai/sitemap.xml
 
 ## Contact
 
 - Website: https://www.globalcodio.ai/
-- Email: support@globalcodio.ai
-- Phone: +1 (800) GBL-CDIO
+- Email: info@globalcodio.ai
+- LinkedIn: https://www.linkedin.com/company/globalcodio
+- US office: 2603 Camino Ramon #200, San Ramon, CA 94583
+- India office: B-Block, 8th Floor, Brigade Tech Park, 134/1 Whitefield Main Road, Bangalore 560066
+- Response time: within one business day
 - Free technology audit: https://www.globalcodio.ai/free-tech-audit
 
 ## Keywords and Taxonomy

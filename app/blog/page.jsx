@@ -1,4 +1,11 @@
-export const metadata = { title: 'Blog - GlobalCodio' };
+import { buildPageMetadata } from '../../lib/seo.js';
+
+export const metadata = buildPageMetadata({
+  path: '/blog',
+  title: 'Blog - Ideas for Immigration Teams',
+  description: 'Insights from GlobalCodio on AI in immigration workflows, managed technology operations, recovering renewal revenue, winning corporate RFPs, and building a modern immigration practice.',
+  keywords: ['immigration technology blog', 'AI immigration insights', 'immigration law firm technology', 'immigration case management blog', 'GlobalCodio blog'],
+});
 export const revalidate = 60; // ISR - revalidate every 60 seconds
 
 import { getAllPosts } from '../../lib/sanity';

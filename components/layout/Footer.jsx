@@ -54,6 +54,8 @@ export const Footer = () => (
           <span style={{ opacity: 0.4 }}>·</span>
           <FooterLink href="/privacy-policy" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Privacy Policy</FooterLink>
           <span style={{ opacity: 0.4 }}>·</span>
+          <FooterLink href="/terms" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Terms of Service</FooterLink>
+          <span style={{ opacity: 0.4 }}>·</span>
           <span>California, USA · Bangalore, India</span>
         </div>
         <div className="mono" style={{ letterSpacing: '.05em', color: 'var(--blue)' }}>Win Cases. We&rsquo;ll Handle All the Technology.</div>

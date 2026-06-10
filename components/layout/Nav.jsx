@@ -91,7 +91,7 @@ const MobileNavList = ({ items, onNavigate }) => {
 };
 
 export const Logo = ({ height, style, className, alt = 'GlobalCodio - AI Workforce for Global Immigration', wide }) => (
-  <img src="/logo.png" alt={alt} width={wide ? 720 : 180} height={wide ? 120 : (height ?? 30)} draggable={false} className={className}
+  <img src="/logo.svg" alt={alt} width={wide ? 720 : 180} height={wide ? 120 : (height ?? 30)} draggable={false} className={className}
     style={{ display: 'block', ...(wide ? { width: 'min(88%, 720px)', height: 'auto' } : className?.includes('nav-logo') || className?.includes('nav-mobile-logo') || className?.includes('ft-logo') ? { width: 'auto' } : { height: height ?? 30, width: 'auto' }), ...style }} />
 );
 

@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // ── Branded email template ────────────────────────────────────────────────────
 function buildEmailHtml({ fullName, workEmail, orgName, website, howHeard, message }) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  const logoUrl = `${siteUrl}/logo.png`;
+  const logoUrl = `${siteUrl}/logo.svg`;
 
   const field = (label, value, isLink = false) => `
     <tr>
