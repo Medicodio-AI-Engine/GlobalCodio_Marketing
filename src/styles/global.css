@@ -6590,7 +6590,8 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   /* Phase 1 - compact pill: only the "Event Reminder" label shows. The full
      content is display:none (below) so nothing is squeezed into the narrow pill. */
   width:calc(184px * var(--ui-scale));
-  max-width:calc(100vw - 24px);
+  max-width:calc(184px * var(--ui-scale));
+  min-height:calc(40px * var(--ui-scale));
   white-space:nowrap;
   overflow:hidden;
   padding:calc(10px * var(--ui-scale)) calc(18px * var(--ui-scale));
@@ -6604,16 +6605,18 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   font-family:var(--sans);
   font-size:calc(13.5px * var(--ui-scale));
   line-height:1.3;
-  /* Phase 2 - width expands when .is-expanded is added by JS (after EXPAND_DELAY). */
-  transition:width .55s cubic-bezier(.22,.7,.25,1),
-             padding .45s cubic-bezier(.22,.7,.25,1),
-             left .55s cubic-bezier(.22,.7,.25,1),
-             right .55s cubic-bezier(.22,.7,.25,1),
-             transform .55s cubic-bezier(.22,.7,.25,1),
-             border-radius .45s cubic-bezier(.22,.7,.25,1);
+  /* Phase 2 - width/height expand when .is-expanded is added by JS (after
+     EXPAND_DELAY). width is animated via max-width + min-height (the actual
+     `width:fit-content` cannot be interpolated, so the eased max-width/min-height
+     carry the motion and prevent the geometry from snapping). */
+  transition:max-width .85s cubic-bezier(.22,.7,.25,1),
+             min-height .7s cubic-bezier(.22,.7,.25,1),
+             padding .7s cubic-bezier(.22,.7,.25,1),
+             transform .7s cubic-bezier(.22,.7,.25,1),
+             border-radius .7s cubic-bezier(.22,.7,.25,1);
   /* On mount: pop up with a slight overshoot, then a continuous glow pulse. */
-  animation:eventBannerRise .55s cubic-bezier(.2,.85,.3,1.15) both,
-            eventBannerPulse 1.8s var(--ease-house) .9s infinite;
+  animation:eventBannerRise .7s cubic-bezier(.2,.85,.3,1.1) both,
+            eventBannerPulse 1.8s var(--ease-house) 1.1s infinite;
 }
 .event-banner:not(.is-expanded){
   justify-content:center;
@@ -6702,11 +6705,11 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
 .event-banner.is-expanded > .event-banner-compact{ display:none; }
 .event-banner.is-expanded > .event-banner-link,
 .event-banner.is-expanded > .event-banner-close{
-  animation:eventBannerContentIn .4s ease .12s both;
+  animation:eventBannerContentIn .55s ease .22s both;
 }
 @keyframes eventBannerContentIn{
-  from{ opacity:0; }
-  to{ opacity:1; }
+  from{ opacity:0; transform:translateX(calc(-6px * var(--ui-scale))); }
+  to{ opacity:1; transform:translateX(0); }
 }
 @keyframes eventBannerRise{
   0%{ opacity:0; transform:translateX(-50%) translateY(calc(34px * var(--ui-scale))) scale(.9); }
@@ -6851,13 +6854,13 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
     grid-template-columns:1fr auto;
     align-items:start;
     overflow:hidden;
-    transition:max-height .55s cubic-bezier(.22,.7,.25,1),
-               width .55s cubic-bezier(.22,.7,.25,1),
-               padding .45s cubic-bezier(.22,.7,.25,1),
-               left .55s cubic-bezier(.22,.7,.25,1),
-               right .55s cubic-bezier(.22,.7,.25,1),
-               transform .55s cubic-bezier(.22,.7,.25,1),
-               border-radius .45s cubic-bezier(.22,.7,.25,1);
+    transition:max-height .8s cubic-bezier(.22,.7,.25,1),
+               width .8s cubic-bezier(.22,.7,.25,1),
+               padding .7s cubic-bezier(.22,.7,.25,1),
+               left .8s cubic-bezier(.22,.7,.25,1),
+               right .8s cubic-bezier(.22,.7,.25,1),
+               transform .8s cubic-bezier(.22,.7,.25,1),
+               border-radius .7s cubic-bezier(.22,.7,.25,1);
   }
   /* Phase 1 — small centered pill; full link stays in layout but clipped */
   .event-banner:not(.is-expanded){
@@ -6865,20 +6868,19 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
     right:auto;
     grid-template-columns:1fr;
     transform:translateX(-50%);
-    width:calc(184px * var(--ui-scale));
+    width:auto;
     max-width:calc(100vw - 24px);
-    max-height:calc(44px * var(--ui-scale));
+    max-height:calc(48px * var(--ui-scale));
+    padding:calc(11px * var(--ui-scale)) calc(20px * var(--ui-scale));
     justify-content:center;
-    animation:eventBannerRise .55s cubic-bezier(.2,.85,.3,1.15) both,
-              eventBannerPulse 1.8s var(--ease-house) .9s infinite;
+    align-items:center;
+    animation:eventBannerRise .7s cubic-bezier(.2,.85,.3,1.1) both,
+              eventBannerPulse 1.8s var(--ease-house) 1.1s infinite;
   }
+  /* Keep the hidden full link out of layout entirely so it can't bleed through
+     the compact pill or get clipped behind the label. */
   .event-banner:not(.is-expanded) > .event-banner-link{
-    display:flex;
-    grid-column:1;
-    grid-row:1;
-    opacity:0;
-    pointer-events:none;
-    transition:opacity .2s ease;
+    display:none;
   }
   .event-banner:not(.is-expanded) > .event-banner-close{display:none;}
   .event-banner:not(.is-expanded) .event-banner-compact{
@@ -6888,6 +6890,7 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
     justify-self:center;
     align-self:center;
     width:auto;
+    opacity:1;
   }
   /* Phase 2 — full-width bar grows smoothly */
   .event-banner.is-expanded{
@@ -6896,14 +6899,18 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
     transform:none;
     width:auto;
     max-width:none;
-    max-height:calc(240px * var(--ui-scale));
+    /* max-height drives the open. Content is now deterministic (title clamped to
+       2 lines + a single-line meta row), so this cap sits just above true content
+       height - the eased cap and the real box finish growing together instead of
+       the box settling early then "snapping". */
+    max-height:calc(122px * var(--ui-scale));
     min-height:unset;
     white-space:normal;
     align-items:flex-start;
     gap:calc(8px * var(--ui-scale));
     padding:calc(12px * var(--ui-scale)) calc(10px * var(--ui-scale)) calc(12px * var(--ui-scale)) calc(14px * var(--ui-scale));
     border-radius:calc(16px * var(--ui-scale));
-    animation:eventBannerPulse 1.8s var(--ease-house) .9s infinite;
+    animation:eventBannerPulse 1.8s var(--ease-house) 1.1s infinite;
   }
   .event-banner.is-expanded > .event-banner-compact{
     display:flex;
@@ -6917,16 +6924,13 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   .event-banner.is-expanded > .event-banner-link{
     grid-column:1;
     grid-row:1;
-    opacity:1;
     pointer-events:auto;
-    animation:none;
-    transition:opacity .35s ease .15s;
+    animation:eventBannerContentIn .45s ease .22s both;
   }
   .event-banner.is-expanded > .event-banner-close{
     grid-column:2;
     grid-row:1;
-    animation:none;
-    transition:opacity .35s ease .15s;
+    animation:eventBannerContentIn .45s ease .22s both;
   }
   .event-banner.is-expanded .event-banner-link{
     flex-direction:column;
@@ -6942,7 +6946,11 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   .event-banner-meta-line{
     font-size:calc(11.5px * var(--ui-scale));
     line-height:1.35;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100%;
   }
   .event-banner-actions{
     display:inline-flex;
