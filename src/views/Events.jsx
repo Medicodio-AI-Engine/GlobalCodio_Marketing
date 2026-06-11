@@ -1,70 +1,10 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 
 import { PageHero, Section, CtaBand, SmartLink } from '../../components/ui/PageKit';
-import { Calendar, Clock } from 'lucide-react';
+import { EventCardGallery } from '../components/EventCardGallery';
+import { Calendar } from 'lucide-react';
 import { MapPinIcon, ExternalLinkIcon } from '@animateicons/react/lucide';
-
-/* ─── All events - past + upcoming ─── */
-const ALL_EVENTS = [
-  /* ── UPCOMING ── */
-  {
-    id: 'aila-ac26',
-    status: 'upcoming',
-    badge: 'National',
-    badgeTone: 'blue',
-    month: 'June 2026',
-    name: 'AILA Annual Conference & Webcast',
-    dates: 'June 17 – 20, 2026',
-    location: 'San Diego, CA',
-    venues: ['Marriott Marquis San Diego Marina', 'Manchester Grand Hyatt San Diego'],
-    format: 'In-person & online webcast',
-    topics: ['Family immigration', 'Business immigration', 'Removal defense'],
-    special: [
-      'Global Migration Forum - June 15–16',
-      'Welcome Taco Party - June 17',
-      'Saturday Night Party at the San Diego Zoo',
-    ],
-    website: 'https://www.aila.org/ac26',
-    websiteLabel: 'AILA AC26 Portal',
-  },
-  {
-    id: 'aila-ca26',
-    status: 'upcoming',
-    badge: 'Regional',
-    badgeTone: 'ink',
-    month: 'November 2026',
-    name: 'AILA California Chapters Conference',
-    dates: 'November 5 – 7, 2026',
-    location: 'San Francisco, CA',
-    venues: ['Hyatt Regency San Francisco Downtown-SOMA'],
-    format: 'In-person & online webcast',
-    topics: ['Ninth Circuit updates', 'Regional enforcement priorities', 'Compliance panels'],
-    special: [],
-    website: 'https://www.aila.org/shop/products/view/california-chapters-conference',
-    websiteLabel: 'AILA CA Chapters Page',
-  },
-  /* ── PAST ── */
-  {
-    id: 'aila-ac25',
-    status: 'past',
-    badge: 'National',
-    badgeTone: 'muted',
-    month: 'June 2025',
-    name: 'AILA Annual Conference & Webcast',
-    dates: 'June 2025',
-    location: 'Chicago, IL',
-    venues: [],
-    format: 'In-person & online webcast',
-    topics: [],
-    special: [],
-    website: 'https://www.aila.org/ac25',
-    websiteLabel: 'AILA AC25 Portal',
-  },
-];
-
-const UPCOMING = ALL_EVENTS.filter(e => e.status === 'upcoming');
-// const PAST = ALL_EVENTS.filter(e => e.status === 'past');
 
 function EventCard({ event, index }) {
   const isPast = event.status === 'past';
@@ -85,6 +25,9 @@ function EventCard({ event, index }) {
       <div className="event-card-meta">
         <div className="event-meta-row">
           <Calendar size={14} strokeWidth={1.75} aria-hidden="true" />
+          {event.booth && (
+            <span className="event-meta-booth mono">{event.booth}</span>
+          )}
           <span>{event.dates}</span>
         </div>
         <div className="event-meta-row">
@@ -96,30 +39,35 @@ function EventCard({ event, index }) {
       {!isPast && (
         <>
           <hr className="rule-blue" />
-          <div className="event-card-body">
-            {event.venues.length > 0 && (
-              <div className="event-venues">
-                <span className="event-section-label mono">Venue{event.venues.length > 1 ? 's' : ''}</span>
-                <ul className="event-venue-list">
-                  {event.venues.map(v => <li key={v}>{v}</li>)}
-                </ul>
-              </div>
-            )}
-            {event.topics.length > 0 && (
-              <div className="event-offerings">
-                <span className="event-section-label mono">Topics</span>
-                <ul className="event-topic-list">
-                  {event.topics.map(t => <li key={t}>{t}</li>)}
-                </ul>
-              </div>
-            )}
-            {event.special.length > 0 && (
-              <div className="event-special">
-                <span className="event-section-label mono">Special Events</span>
-                <ul className="event-special-list">
-                  {event.special.map(s => <li key={s}>{s}</li>)}
-                </ul>
-              </div>
+          <div className={`event-card-body${event.images?.length ? ' event-card-body--with-gallery' : ''}`}>
+            <div className="event-card-body-content">
+              {event.venues.length > 0 && (
+                <div className="event-venues">
+                  <span className="event-section-label mono">Venue{event.venues.length > 1 ? 's' : ''}</span>
+                  <ul className="event-venue-list">
+                    {event.venues.map(v => <li key={v}>{v}</li>)}
+                  </ul>
+                </div>
+              )}
+              {event.topics.length > 0 && (
+                <div className="event-offerings">
+                  <span className="event-section-label mono">Topics</span>
+                  <ul className="event-topic-list">
+                    {event.topics.map(t => <li key={t}>{t}</li>)}
+                  </ul>
+                </div>
+              )}
+              {event.special.length > 0 && (
+                <div className="event-special">
+                  <span className="event-section-label mono">Special Events</span>
+                  <ul className="event-special-list">
+                    {event.special.map(s => <li key={s}>{s}</li>)}
+                  </ul>
+                </div>
+              )}
+            </div>
+            {event.images?.length > 0 && (
+              <EventCardGallery images={event.images} eventName={event.name} />
             )}
           </div>
         </>
@@ -141,7 +89,11 @@ function EventCard({ event, index }) {
   );
 }
 
-export default function Events() {
+export default function Events({ sanityEvents }) {
+  // Events come from Sanity (see lib/sanity.js getUpcomingEvents). Default to an
+  // empty list so the page still renders if Sanity returns nothing.
+  const UPCOMING = (sanityEvents ?? []).filter(e => e.status === 'upcoming');
+
   return (
     <>
       <PageHero
@@ -161,11 +113,27 @@ export default function Events() {
         emphasis="be next."
         headAlign="center"
         headInline
-        intro="We'll be at the following events in 2026. Reach out before you arrive to schedule time with our team - or find us on the floor."
+        intro="Meet us in person at the following events in 2026. Reach out before you arrive to schedule time with our team - or find us on the floor."
       >
-        <div className="events-grid">
-          {UPCOMING.map((ev, i) => <EventCard key={ev.id} event={ev} index={i} />)}
-        </div>
+        {UPCOMING.length > 0 ? (
+          <div className="events-grid">
+            {UPCOMING.map((ev, i) => <EventCard key={ev.id} event={ev} index={i} />)}
+          </div>
+        ) : (
+          <div className="events-empty reveal" role="status">
+            <span className="events-empty-icon" aria-hidden="true">
+              <Calendar size={26} strokeWidth={1.5} />
+            </span>
+            <p className="events-empty-title display">No events on the calendar just yet</p>
+            <p className="events-empty-sub">
+              We don&rsquo;t have any events scheduled right now, but new dates land here often.
+              In the meantime, reach out and we&rsquo;ll set up a time to talk.
+            </p>
+            <SmartLink href="/contact" className="btn btn-primary events-empty-cta">
+              Schedule a meeting
+            </SmartLink>
+          </div>
+        )}
       </Section>
 
       {/* Past */}

@@ -28,6 +28,14 @@ export default defineConfig({
             S.listItem()
               .title('Authors')
               .child(S.documentList().title('Authors').filter('_type == "author"')),
+            S.listItem()
+              .title('Events')
+              .child(
+                S.documentList()
+                  .title('Events')
+                  .filter('_type == "event"')
+                  .defaultOrdering([{ field: 'startDate', direction: 'asc' }])
+              ),
             S.divider(),
             S.listItem()
               .title('Form Submissions')

@@ -1,6 +1,7 @@
 'use client';
 import React, { useRef } from 'react';
 import { Hero } from '../components/Hero.jsx';
+import { EventBanner } from '../components/EventBanner.jsx';
 // import { OperatingSystem } from '../components/OperatingSystem.jsx';
 import { AgentOrbit, Testimonial, Metrics, ValueLevers, Certifications, CTA } from '../components/ContentSections.jsx';
 
@@ -377,9 +378,10 @@ const AiSavings = () => (
   </Section>
 );
 
-export default function Home() {
+export default function Home({ nextEvent } = {}) {
   return (
     <>
+      <EventBanner event={nextEvent} />
       <Hero />
       <FounderBand />
       <PainRecognition />

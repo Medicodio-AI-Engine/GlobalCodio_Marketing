@@ -6,17 +6,25 @@ export const metadata = buildPageMetadata({
   description: 'Meet the GlobalCodio team at immigration industry events in 2026, including the AILA Annual Conference in San Diego (June 17-20, 2026) and the AILA California Chapters Conference in San Francisco (November 5-7, 2026).',
   keywords: ['AILA conference 2026', 'immigration conferences 2026', 'AILA Annual Conference San Diego', 'immigration technology events', 'GlobalCodio events'],
 });
+export const revalidate = 60; // ISR - revalidate every 60 seconds
 
+import { getUpcomingEvents } from '../../lib/sanity';
 import Events from '../../src/views/Events';
 
-export default function EventsPage() {
+export default async function EventsPage() {
+  let events = [];
+  try {
+    events = await getUpcomingEvents();
+  } catch {
+    // Sanity not reachable at build time - fall through to static data in Events.jsx
+  }
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PAGE_SCHEMAS.events) }}
       />
-      <Events />
+      <Events sanityEvents={events} />
     </>
   );
 }
