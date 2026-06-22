@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { SmartLink } from '../../components/ui/PageKit';
+import { isWithinBannerWindow } from '../../lib/events.js';
 
 /* Timings for the entrance choreography (ms). */
 const APPEAR_DELAY = 1200;  // wait after page load before the pill pops in
@@ -13,8 +14,8 @@ const EVENTS_HREF = '/events';
  * Slim, dismissible announcement bar shown above the hero on the home page.
  * Tells visitors which event GlobalCodio is attending next and links to /events.
  *
- * `event` is the soonest upcoming event from Sanity (getNextEvent), passed down
- * from the home page. When no upcoming event exists, the banner renders nothing.
+ * `event` is the soonest upcoming event within 10 days of its start date
+ * (see getNextEvent). When no event is in that window, the banner renders nothing.
  *
  * Dismissal is intentionally in-memory only - closing it hides the banner for the
  * current view, but it reappears on every reload or whenever the visitor returns
@@ -38,8 +39,8 @@ export function EventBanner({ event }) {
     return () => clearTimeout(expandTimer);
   }, [visible]);
 
-  // Only render when there is a real upcoming event and the entrance has fired.
-  if (!event || !visible || dismissed) return null;
+  // Only render when the event is inside the 10-day pre-start window.
+  if (!event || !isWithinBannerWindow(event.startDate) || !visible || dismissed) return null;
 
   const dismiss = () => setDismissed(true);
 

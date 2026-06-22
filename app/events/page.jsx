@@ -8,15 +8,15 @@ export const metadata = buildPageMetadata({
 });
 export const revalidate = 60; // ISR - revalidate every 60 seconds
 
-import { getUpcomingEvents } from '../../lib/sanity';
+import { getAllEvents } from '../../lib/sanity';
 import Events from '../../src/views/Events';
 
 export default async function EventsPage() {
   let events = [];
   try {
-    events = await getUpcomingEvents();
+    events = await getAllEvents();
   } catch {
-    // Sanity not reachable at build time - fall through to static data in Events.jsx
+    // Sanity not reachable at build time - fall through with an empty list.
   }
   return (
     <>

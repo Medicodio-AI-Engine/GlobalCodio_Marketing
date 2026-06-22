@@ -3,6 +3,7 @@ import React from 'react';
 
 import { PageHero, Section, CtaBand, SmartLink } from '../../components/ui/PageKit';
 import { EventCardGallery } from '../components/EventCardGallery';
+import { sortEventsForDisplay } from '../../lib/events.js';
 import { Calendar } from 'lucide-react';
 import { MapPinIcon, ExternalLinkIcon } from '@animateicons/react/lucide';
 
@@ -13,10 +14,12 @@ function EventCard({ event, index }) {
       className={`event-card reveal d${(index % 3) + 1}${isPast ? ' event-card--past' : ''}`}
       aria-labelledby={`event-title-${event.id}`}
     >
+      {isPast && (
+        <span className="event-card-past-tag mono" aria-label="Past event">Past</span>
+      )}
       <div className="event-card-top">
         <div className="event-card-badges">
           <span className={`event-badge event-badge--${event.badgeTone}`}>{event.badge}</span>
-          {isPast && <span className="event-badge event-badge--past">Past</span>}
           <span className="event-month mono">{event.month}</span>
         </div>
         <h3 className="display event-card-title" id={`event-title-${event.id}`}>{event.name}</h3>
@@ -36,7 +39,7 @@ function EventCard({ event, index }) {
         </div>
       </div>
 
-      {!isPast && (
+      {(event.venues.length > 0 || event.topics.length > 0 || event.special.length > 0 || event.images?.length > 0) && (
         <>
           <hr className="rule-blue" />
           <div className={`event-card-body${event.images?.length ? ' event-card-body--with-gallery' : ''}`}>
@@ -90,9 +93,7 @@ function EventCard({ event, index }) {
 }
 
 export default function Events({ sanityEvents }) {
-  // Events come from Sanity (see lib/sanity.js getUpcomingEvents). Default to an
-  // empty list so the page still renders if Sanity returns nothing.
-  const UPCOMING = (sanityEvents ?? []).filter(e => e.status === 'upcoming');
+  const EVENTS = sortEventsForDisplay(sanityEvents ?? []);
 
   return (
     <>
@@ -105,19 +106,18 @@ export default function Events({ sanityEvents }) {
         secondary={{ href: '/free-tech-audit', label: 'Book a free tech audit' }}
       />
 
-      {/* Upcoming */}
       <Section
-        id="upcoming"
-        eyebrow="Upcoming Events"
+        id="events"
+        eyebrow="Events"
         lead="Where we'll"
         emphasis="be next."
         headAlign="center"
         headInline
-        intro="Meet us in person at the following events in 2026. Reach out before you arrive to schedule time with our team - or find us on the floor."
+        intro="Upcoming conferences appear first, followed by events we've already attended."
       >
-        {UPCOMING.length > 0 ? (
+        {EVENTS.length > 0 ? (
           <div className="events-grid">
-            {UPCOMING.map((ev, i) => <EventCard key={ev.id} event={ev} index={i} />)}
+            {EVENTS.map((ev, i) => <EventCard key={ev.id} event={ev} index={i} />)}
           </div>
         ) : (
           <div className="events-empty reveal" role="status">
@@ -135,40 +135,6 @@ export default function Events({ sanityEvents }) {
           </div>
         )}
       </Section>
-
-      {/* Past */}
-      {/*
-      <Section
-        id="past"
-        tone="sec-surface"
-        eyebrow="Past Events"
-        lead="Where we've"
-        emphasis="been."
-        headAlign="center"
-        headInline
-      >
-        <div className="events-past-grid reveal" style={{ marginTop: 'var(--space-3xl)' }}>
-          {PAST.map((ev, i) => (
-            <div key={ev.id} className="event-past-row">
-              <div className="event-past-meta">
-                <span className="mono event-past-month">{ev.month}</span>
-                <div>
-                  <p className="event-past-name">{ev.name}</p>
-                  <span className="event-past-loc">
-                    <MapPinIcon size={11} strokeWidth={1.75} aria-hidden="true" />
-                    {ev.location}
-                  </span>
-                </div>
-              </div>
-              <SmartLink href={ev.website} className="event-website-link">
-                <ExternalLinkIcon size={12} strokeWidth={1.75} aria-hidden="true" />
-                {ev.websiteLabel}
-              </SmartLink>
-            </div>
-          ))}
-        </div>
-      </Section>
-      */}
 
       <CtaBand
         lead="Want to meet our team"
