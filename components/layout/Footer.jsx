@@ -65,7 +65,7 @@ export const Footer = () => (
           <span className="ft-bar-sep" aria-hidden="true">·</span>
           <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
           <span className="ft-bar-sep" aria-hidden="true">·</span>
-          <FooterLink href="/terms">Terms of Service</FooterLink>
+          <FooterLink href="/terms">Terms of Use</FooterLink>
           <span className="ft-bar-sep" aria-hidden="true">·</span>
           <button type="button" className="ft-legal-btn" onClick={openPreferences}>
             Cookie Preferences

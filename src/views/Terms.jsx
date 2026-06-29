@@ -3,24 +3,22 @@ import React, { useState } from 'react';
 
 import { PageHero, Section } from '../../components/ui/PageKit';
 
-const LAST_UPDATED = 'June 10, 2026';
+const LAST_UPDATED = 'June 29, 2026';
 
 const TOC = [
   { id: 'acceptance',    label: '1. Acceptance of Terms' },
-  { id: 'accounts',      label: '2. Accounts' },
-  { id: 'google',        label: '3. Links to Third-Party Accounts' },
-  { id: 'ip',            label: '4. Intellectual Property' },
-  { id: 'data',          label: '5. Data & Privacy' },
-  { id: 'acceptable',    label: '6. Acceptable Use' },
-  { id: 'disclaimers',   label: '7. Disclaimers & No Warranties' },
-  { id: 'liability',     label: '8. Limitation of Liability' },
-  { id: 'indemnity',     label: '9. Indemnification' },
-  { id: 'arbitration',   label: '10. Dispute Resolution & Arbitration' },
-  { id: 'governing',     label: '11. Governing Law & Venue' },
-  { id: 'electronic',    label: '12. Electronic Communications' },
-  { id: 'changes',       label: '13. Changes to These Terms' },
-  { id: 'notices',       label: '14. Notices' },
-  { id: 'contact',       label: '15. Contact Us' },
+  { id: 'use',           label: '2. Use of the Website' },
+  { id: 'ip',            label: '3. Intellectual Property' },
+  { id: 'privacy',       label: '4. Privacy' },
+  { id: 'disclaimers',   label: '5. Disclaimers & No Warranties' },
+  { id: 'liability',     label: '6. Limitation of Liability' },
+  { id: 'indemnity',     label: '7. Indemnification' },
+  { id: 'arbitration',   label: '8. Dispute Resolution & Arbitration' },
+  { id: 'governing',     label: '9. Governing Law & Venue' },
+  { id: 'electronic',    label: '10. Electronic Communications' },
+  { id: 'changes',       label: '11. Changes to These Terms' },
+  { id: 'notices',       label: '12. Notices' },
+  { id: 'contact',       label: '13. Contact Us' },
 ];
 
 export default function Terms() {
@@ -30,10 +28,10 @@ export default function Terms() {
     <>
       <PageHero
         eyebrow="Legal"
-        lead="Terms of "
-        emphasis="Service."
+        lead="Website Terms of "
+        emphasis="Use."
         headInline
-        sub={`Effective date: ${LAST_UPDATED}. These Terms govern your access to and use of GlobalCodio, a platform operated by Medicodio Inc.`}
+        sub={`Effective date: ${LAST_UPDATED}. These Terms govern your access to and use of the public GlobalCodio website at www.globalcodio.ai. They apply to the website only — not to our products or platform.`}
       />
 
       <Section id="terms-content" style={{ paddingTop: 'var(--space-2xl)' }}>
@@ -80,116 +78,87 @@ export default function Terms() {
             <div id="acceptance">
               <h2 className="legal-section-title">1. Acceptance of Terms</h2>
               <p className="legal-prose">
-                GlobalCodio is a platform operated by Medicodio Inc. ("Company," "GlobalCodio," "we," "our," or "us"), a Delaware corporation. These Terms of Service ("Terms") govern your access to and use of our website at <strong>www.globalcodio.ai</strong>, our platform (CodioCMS, CodioForms, Codio AI Agents, CodioNetwork), and related services (collectively, the "Services").
+                These Terms of Use ("Terms") govern your access to and use of the public GlobalCodio website at <strong>www.globalcodio.ai</strong> (the "Website"), operated by Medicodio Inc. ("Company," "GlobalCodio," "we," "our," or "us"), a Delaware corporation. They apply to the Website only and do <strong>not</strong> govern our products, platform, or any account-based services, which are covered by separate terms provided with those services.
               </p>
               <p className="legal-prose">
-                By accessing or using the Services, or by clicking to accept these Terms, you agree to be bound by these Terms and by our <a href="/privacy-policy" style={{ color: 'var(--blue)' }}>Privacy Policy</a>, which is incorporated by reference. If you are entering into these Terms on behalf of an organization, you represent that you have authority to bind that organization. If you do not agree, do not use the Services.
+                By accessing or using the Website, you agree to be bound by these Terms and by our <a href="/privacy-policy" style={{ color: 'var(--blue)' }}>Privacy Policy</a>, which is incorporated by reference. If you do not agree, please do not use the Website.
               </p>
             </div>
 
-            {/* 2. Accounts */}
-            <div id="accounts">
-              <h2 className="legal-section-title">2. Accounts</h2>
+            {/* 2. Use of the Website */}
+            <div id="use">
+              <h2 className="legal-section-title">2. Use of the Website</h2>
               <p className="legal-prose">
-                To use certain features, you must create an account. You agree to provide accurate, current, and complete information and to keep it up to date. You are responsible for safeguarding your credentials and for all activity that occurs under your account.
+                The Website is provided for general informational and business purposes, such as learning about our products and services and contacting us. You agree to use the Website only for lawful purposes and not to:
               </p>
               <ul className="legal-list">
-                <li>You must be at least 18 years old and capable of forming a binding contract.</li>
-                <li>You are responsible for maintaining the confidentiality of your password and account.</li>
-                <li>Notify us promptly at <a href="mailto:info@globalcodio.ai" style={{ color: 'var(--blue)' }}>info@globalcodio.ai</a> of any unauthorized use of your account or any other breach of security.</li>
-                <li>We may suspend or terminate accounts that violate these Terms or that we reasonably believe present a security or legal risk.</li>
+                <li>Use the Website in violation of any applicable law or regulation.</li>
+                <li>Upload or transmit malware, or interfere with or disrupt the integrity or performance of the Website.</li>
+                <li>Attempt to gain unauthorized access to the Website or its related systems.</li>
+                <li>Use the Website or its forms to send unlawful, infringing, deceptive, or unsolicited communications.</li>
+                <li>Scrape, harvest, or collect data from the Website, or use it to build a competing product, without our authorization.</li>
               </ul>
             </div>
 
-            {/* 3. Third-party / Google */}
-            <div id="google">
-              <h2 className="legal-section-title">3. Links to Third-Party Accounts</h2>
-              <p className="legal-prose">
-                The Services let you link third-party accounts, including your Google account, to enable features such as signing in with Google and sending case-status and notification emails from your own Gmail mailbox. By linking a third-party account, you authorize us to access and use information from that account as described in our <a href="/privacy-policy" style={{ color: 'var(--blue)' }}>Privacy Policy</a>.
-              </p>
-              <p className="legal-prose">
-                Your use of Google services through GlobalCodio is also subject to Google&rsquo;s applicable terms and policies. GlobalCodio&rsquo;s use and transfer of information received from Google APIs to any other app will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--blue)' }}>Google API Services User Data Policy</a>, including the Limited Use requirements. You may unlink your Google account at any time through your account settings or by contacting us; doing so may disable features that depend on it.
-              </p>
-              <p className="legal-prose">
-                We are not responsible for the content, policies, or practices of any third-party service, and your dealings with third parties are solely between you and that third party.
-              </p>
-            </div>
-
-            {/* 4. IP */}
+            {/* 3. Intellectual Property */}
             <div id="ip">
-              <h2 className="legal-section-title">4. Intellectual Property</h2>
+              <h2 className="legal-section-title">3. Intellectual Property</h2>
               <p className="legal-prose">
-                The Services, including all software, text, designs, graphics, logos, and other content we provide (excluding your data), are owned by or licensed to Medicodio Inc. and are protected by intellectual property laws. We grant you a limited, non-exclusive, non-transferable, revocable license to access and use the Services for your internal business purposes in accordance with these Terms.
+                The Website and its content — including software, text, designs, graphics, logos, and trademarks (excluding any information you submit to us) — are owned by or licensed to Medicodio Inc. and are protected by intellectual property laws. We grant you a limited, non-exclusive, non-transferable, revocable license to access and view the Website for your personal or internal business purposes in accordance with these Terms.
               </p>
               <p className="legal-prose">
-                You retain all rights in the data and content you submit to the Services ("Your Content"). You grant us a limited license to host, process, and transmit Your Content solely to provide and support the Services. You may not copy, modify, reverse engineer, resell, or create derivative works from the Services except as expressly permitted.
-              </p>
-              <p className="legal-prose">
-                We respect intellectual property rights and will respond to notices of alleged infringement that comply with the U.S. Digital Millennium Copyright Act (DMCA). Send DMCA notices to <a href="mailto:info@globalcodio.ai" style={{ color: 'var(--blue)' }}>info@globalcodio.ai</a>.
+                You may not copy, modify, reverse engineer, resell, or create derivative works from the Website or its content except as expressly permitted. We respect intellectual property rights and will respond to notices of alleged infringement that comply with the U.S. Digital Millennium Copyright Act (DMCA). Send DMCA notices to <a href="mailto:info@globalcodio.ai" style={{ color: 'var(--blue)' }}>info@globalcodio.ai</a>.
               </p>
             </div>
 
-            {/* 5. Data & Privacy */}
-            <div id="data">
-              <h2 className="legal-section-title">5. Data & Privacy</h2>
+            {/* 4. Privacy */}
+            <div id="privacy">
+              <h2 className="legal-section-title">4. Privacy</h2>
               <p className="legal-prose">
-                Our collection and use of personal information is described in our <a href="/privacy-policy" style={{ color: 'var(--blue)' }}>Privacy Policy</a>. We implement reasonable technical and organizational measures designed to protect data processed through the Services, including encryption in transit and at rest and role-based access controls. You are responsible for ensuring that your use of the Services, and the data you submit, complies with all laws applicable to you and your clients.
+                Our collection and use of personal information through the Website is described in our <a href="/privacy-policy" style={{ color: 'var(--blue)' }}>Privacy Policy</a>. By using the Website, you acknowledge that information you provide or that is collected automatically will be handled as described there.
               </p>
             </div>
 
-            {/* 6. Acceptable Use */}
-            <div id="acceptable">
-              <h2 className="legal-section-title">6. Acceptable Use</h2>
-              <p className="legal-prose">You agree not to:</p>
-              <ul className="legal-list">
-                <li>Use the Services in violation of any applicable law or regulation.</li>
-                <li>Upload or transmit malware, or interfere with or disrupt the integrity or performance of the Services.</li>
-                <li>Attempt to gain unauthorized access to the Services or related systems.</li>
-                <li>Use the Services to send unlawful, infringing, deceptive, or unsolicited communications.</li>
-                <li>Use the Services to build a competing product or to scrape or harvest data without authorization.</li>
-              </ul>
-            </div>
-
-            {/* 7. Disclaimers */}
+            {/* 5. Disclaimers */}
             <div id="disclaimers">
-              <h2 className="legal-section-title">7. Disclaimers & No Warranties</h2>
+              <h2 className="legal-section-title">5. Disclaimers & No Warranties</h2>
               <p className="legal-prose">
-                THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. We do not warrant that the Services will be uninterrupted, error-free, or secure, or that defects will be corrected.
+                THE WEBSITE AND ITS CONTENT ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. We do not warrant that the Website will be uninterrupted, error-free, or secure, or that its content is accurate, current, or complete.
               </p>
               <p className="legal-prose">
-                GlobalCodio is a technology platform and does not provide legal advice. Nothing in the Services constitutes legal advice or creates an attorney-client relationship. You are solely responsible for the legal sufficiency of any case work, filing, or communication produced using the Services.
+                Content on the Website is provided for general information only and does not constitute legal advice. Nothing on the Website creates an attorney-client relationship.
               </p>
             </div>
 
-            {/* 8. Limitation of Liability */}
+            {/* 6. Limitation of Liability */}
             <div id="liability">
-              <h2 className="legal-section-title">8. Limitation of Liability</h2>
+              <h2 className="legal-section-title">6. Limitation of Liability</h2>
               <p className="legal-prose">
-                TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT WILL MEDICODIO INC. OR ITS AFFILIATES, OFFICERS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUES, DATA, OR GOODWILL, ARISING OUT OF OR RELATED TO YOUR USE OF THE SERVICES.
+                TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT WILL MEDICODIO INC. OR ITS AFFILIATES, OFFICERS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUES, DATA, OR GOODWILL, ARISING OUT OF OR RELATED TO YOUR USE OF THE WEBSITE.
               </p>
               <p className="legal-prose">
-                OUR TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICES WILL NOT EXCEED THE GREATER OF (A) THE AMOUNTS YOU PAID US FOR THE SERVICES IN THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO THE CLAIM, OR (B) ONE HUNDRED U.S. DOLLARS ($100). Some jurisdictions do not allow certain limitations, so some of the above may not apply to you.
+                OUR TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THESE TERMS OR THE WEBSITE WILL NOT EXCEED ONE HUNDRED U.S. DOLLARS ($100). Some jurisdictions do not allow certain limitations, so some of the above may not apply to you.
               </p>
             </div>
 
-            {/* 9. Indemnification */}
+            {/* 7. Indemnification */}
             <div id="indemnity">
-              <h2 className="legal-section-title">9. Indemnification</h2>
+              <h2 className="legal-section-title">7. Indemnification</h2>
               <p className="legal-prose">
-                You agree to defend, indemnify, and hold harmless Medicodio Inc. and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys&rsquo; fees) arising out of or related to: (a) your use of the Services; (b) Your Content; (c) your violation of these Terms or applicable law; or (d) your violation of the rights of any third party.
+                You agree to defend, indemnify, and hold harmless Medicodio Inc. and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys&rsquo; fees) arising out of or related to: (a) your use of the Website; (b) your violation of these Terms or applicable law; or (c) your violation of the rights of any third party.
               </p>
             </div>
 
-            {/* 10. Arbitration */}
+            {/* 8. Arbitration */}
             <div id="arbitration">
-              <h2 className="legal-section-title">10. Dispute Resolution & Arbitration</h2>
+              <h2 className="legal-section-title">8. Dispute Resolution & Arbitration</h2>
               <h3 className="legal-subsection-title">Informal Resolution First</h3>
               <p className="legal-prose">
                 Before filing a claim, you agree to try to resolve the dispute informally by contacting us at <a href="mailto:info@globalcodio.ai" style={{ color: 'var(--blue)' }}>info@globalcodio.ai</a>. We will attempt to resolve the dispute by email. If the dispute is not resolved within fifteen (15) days, either party may bring a formal proceeding.
               </p>
               <h3 className="legal-subsection-title">Binding Arbitration</h3>
               <p className="legal-prose">
-                You and the Company agree to resolve any disputes arising out of or relating to these Terms or the Services through final and binding arbitration, except that either party may bring an individual claim in small-claims court or seek injunctive relief for infringement or misuse of intellectual property. Disputes will be resolved on an individual basis; class actions and class-wide arbitration are not permitted.
+                You and the Company agree to resolve any disputes arising out of or relating to these Terms or the Website through final and binding arbitration, except that either party may bring an individual claim in small-claims court or seek injunctive relief for infringement or misuse of intellectual property. Disputes will be resolved on an individual basis; class actions and class-wide arbitration are not permitted.
               </p>
               <h3 className="legal-subsection-title">30-Day Opt-Out</h3>
               <p className="legal-prose">
@@ -197,33 +166,33 @@ export default function Terms() {
               </p>
             </div>
 
-            {/* 11. Governing Law */}
+            {/* 9. Governing Law */}
             <div id="governing">
-              <h2 className="legal-section-title">11. Governing Law & Venue</h2>
+              <h2 className="legal-section-title">9. Governing Law & Venue</h2>
               <p className="legal-prose">
                 These Terms and the relationship between you and the Company are governed by the laws of the State of California, without regard to its conflict-of-law provisions. Subject to the arbitration provisions above, you and the Company agree that any judicial proceeding will be brought exclusively in the state or federal courts located in San Francisco, California, and you consent to the personal jurisdiction of those courts.
               </p>
             </div>
 
-            {/* 12. Electronic Communications */}
+            {/* 10. Electronic Communications */}
             <div id="electronic">
-              <h2 className="legal-section-title">12. Electronic Communications</h2>
+              <h2 className="legal-section-title">10. Electronic Communications</h2>
               <p className="legal-prose">
-                By using the Services or contacting us electronically, you consent to receive communications from us electronically, including by email and through the Services. You agree that all agreements, notices, disclosures, and other communications we provide electronically satisfy any legal requirement that such communications be in writing.
+                By using the Website or contacting us electronically, you consent to receive communications from us electronically, including by email. You agree that all agreements, notices, disclosures, and other communications we provide electronically satisfy any legal requirement that such communications be in writing.
               </p>
             </div>
 
-            {/* 13. Changes */}
+            {/* 11. Changes */}
             <div id="changes">
-              <h2 className="legal-section-title">13. Changes to These Terms</h2>
+              <h2 className="legal-section-title">11. Changes to These Terms</h2>
               <p className="legal-prose">
-                We may update these Terms from time to time. When we make material changes, we will update the "Effective date" above and, where appropriate, notify registered users. Your continued use of the Services after the updated Terms take effect constitutes acceptance of the revised Terms.
+                We may update these Terms from time to time. When we make material changes, we will update the "Effective date" above and, where appropriate, post a notice on the Website. Your continued use of the Website after the updated Terms take effect constitutes acceptance of the revised Terms.
               </p>
             </div>
 
-            {/* 14. Notices */}
+            {/* 12. Notices */}
             <div id="notices">
-              <h2 className="legal-section-title">14. Notices</h2>
+              <h2 className="legal-section-title">12. Notices</h2>
               <p className="legal-prose">
                 Legal notices to the Company must be sent to <a href="mailto:info@globalcodio.ai" style={{ color: 'var(--blue)' }}>info@globalcodio.ai</a> and, where written notice is required, to our registered office:
               </p>
@@ -243,9 +212,9 @@ export default function Terms() {
               </div>
             </div>
 
-            {/* 15. Contact */}
+            {/* 13. Contact */}
             <div id="contact">
-              <h2 className="legal-section-title">15. Contact Us</h2>
+              <h2 className="legal-section-title">13. Contact Us</h2>
               <p className="legal-prose">
                 Questions about these Terms? Email us at <a href="mailto:info@globalcodio.ai" style={{ color: 'var(--blue)' }}>info@globalcodio.ai</a>.
               </p>

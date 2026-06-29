@@ -6552,7 +6552,7 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
 }
 .legal-section-title{
   font-family:var(--display);
-  font-size:calc(15px * var(--ui-scale));
+  font-size:calc(19.5px * var(--ui-scale));
   font-weight:600;
   color:var(--ink-2);
   letter-spacing:var(--nav-tracking);
