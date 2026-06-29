@@ -6,6 +6,7 @@ import { HowItWorks } from '../components/MarketingSections.jsx';
 import { Navigation, ArrowRight } from 'lucide-react';
 import { MailIcon, MapPinIcon, ExternalLinkIcon } from '@animateicons/react/lucide';
 import { ICON_PALETTE, ICON_SHADOW_LG } from '../../lib/tokens';
+import { getAttribution } from '../../lib/attribution';
 
 const OFFICES = [
   {
@@ -144,10 +145,14 @@ export default function Contact() {
     setLoading(true);
     setError('');
     try {
+      const meta = {
+        ...getAttribution(),
+        submittedFrom: typeof window !== 'undefined' ? window.location.pathname : '',
+      };
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, meta }),
       });
       if (!res.ok) throw new Error('Send failed');
       setSubmitted(true);
@@ -304,8 +309,14 @@ export default function Contact() {
               )}
 
               {/* Submit row */}
-              <div style={{ paddingTop: 'calc(4px * var(--ui-scale))' }}>
-                <button type="submit" className="btn btn-primary" disabled={loading} style={{ opacity: loading ? 0.7 : 1 }}>
+              <div style={{ paddingTop: 'calc(4px * var(--ui-scale))', display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
+                <p style={{ fontSize: 'calc(12px * var(--ui-scale))', color: 'var(--ink-3)', lineHeight: 1.55, margin: 0 }}>
+                  By submitting this form, you agree that GlobalCodio (operated by Medicodio Inc.) may
+                  use the details you provide to respond to your enquiry, in accordance with our{' '}
+                  <a href="/privacy-policy" style={{ color: 'var(--blue)' }}>Privacy Policy</a>. We do
+                  not sell your personal information.
+                </p>
+                <button type="submit" className="btn btn-primary" disabled={loading} style={{ opacity: loading ? 0.7 : 1, alignSelf: 'flex-start' }}>
                   {loading ? 'Sending…' : 'Send Message'}
                 </button>
               </div>

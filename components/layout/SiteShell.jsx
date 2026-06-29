@@ -7,6 +7,9 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Nav } from './Nav';
 import { Footer } from './Footer';
+import { ConsentManager } from '../consent/ConsentManager';
+import { ConsentScripts } from '../consent/ConsentScripts';
+import { captureAttribution } from '../../lib/attribution';
 
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ limitCallbacks: true });
@@ -177,6 +180,11 @@ export function SiteShell({ children }) {
     requestAnimationFrame(() => ScrollTrigger.refresh());
   }, [pathname]);
 
+  // Capture first-touch acquisition source once per session (for lead context).
+  useEffect(() => {
+    captureAttribution();
+  }, []);
+
   // Edit mode bridge
   useEffect(() => {
     const onMsg = (e) => {
@@ -195,6 +203,8 @@ export function SiteShell({ children }) {
       <Nav />
       <main id="main-content">{children}</main>
       <Footer />
+      <ConsentManager />
+      <ConsentScripts />
     </>
   );
 }

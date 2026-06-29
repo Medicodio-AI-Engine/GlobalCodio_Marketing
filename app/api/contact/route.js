@@ -4,9 +4,29 @@ import { saveFormSubmission } from '../../../lib/sanity';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // ── Branded email template ────────────────────────────────────────────────────
-function buildEmailHtml({ fullName, workEmail, orgName, website, howHeard, message }) {
+function buildEmailHtml({ fullName, workEmail, orgName, website, howHeard, message, context = {} }) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const logoUrl = `${siteUrl}/logo.svg`;
+
+  // Compose human-readable lead-context lines, omitting anything blank.
+  const locationParts = [context.city, context.region, context.country].filter(Boolean);
+  const locationStr = locationParts.join(', ');
+  const utmParts = [
+    context.utmSource && `source: ${context.utmSource}`,
+    context.utmMedium && `medium: ${context.utmMedium}`,
+    context.utmCampaign && `campaign: ${context.utmCampaign}`,
+    context.utmTerm && `term: ${context.utmTerm}`,
+    context.utmContent && `content: ${context.utmContent}`,
+  ].filter(Boolean);
+  const campaignStr = utmParts.join(' · ');
+  const contextRows = [
+    ['Location', locationStr],
+    ['Time zone', context.timezone],
+    ['Referrer', context.referrer ? context.referrer.replace(/^https?:\/\//, '') : ''],
+    ['Landing page', context.landingPage],
+    ['Submitted from', context.submittedFrom],
+    ['Campaign', campaignStr],
+  ].filter(([, v]) => v);
 
   const field = (label, value, isLink = false) => `
     <tr>
@@ -98,6 +118,26 @@ function buildEmailHtml({ fullName, workEmail, orgName, website, howHeard, messa
                 <p style="margin:0;font-size:15px;color:#282b31;line-height:1.65;white-space:pre-wrap;">${message}</p>
               </div>` : ''}
 
+              ${contextRows.length ? `
+              <!-- Lead context block -->
+              <div style="margin-top:28px;padding:20px 24px;background:#f7f9ff;
+                          border-radius:10px;border:1px solid #e8eefc;">
+                <p style="margin:0 0 12px;font-size:11px;font-weight:700;letter-spacing:.08em;
+                           text-transform:uppercase;color:#5b616e;">Lead context</p>
+                <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                  ${contextRows.map(([label, value]) => `
+                    <tr>
+                      <td style="padding:5px 0;vertical-align:top;width:130px;font-size:12px;
+                                 font-weight:600;color:#5b616e;white-space:nowrap;">${label}</td>
+                      <td style="padding:5px 0;vertical-align:top;font-size:13px;color:#282b31;
+                                 line-height:1.5;word-break:break-word;">${value}</td>
+                    </tr>`).join('')}
+                </table>
+                <p style="margin:12px 0 0;font-size:11px;color:#8a8f99;line-height:1.5;">
+                  Location is approximate (derived from IP at the edge). Source is first-touch for this session.
+                </p>
+              </div>` : ''}
+
               <!-- CTA -->
               <div style="margin-top:32px;padding-top:28px;border-top:1px solid #e8eefc;
                           display:flex;gap:12px;">
@@ -134,17 +174,46 @@ function buildEmailHtml({ fullName, workEmail, orgName, website, howHeard, messa
 </html>`;
 }
 
+// Build the lead-context record: approximate location (from Vercel edge geo
+// headers) + first-touch acquisition source (sent by the client). Both are
+// best-effort — fields are simply blank when unavailable (e.g. on localhost).
+function buildContext(request, meta = {}) {
+  const h = request.headers;
+  const decode = (v) => {
+    if (!v) return '';
+    try { return decodeURIComponent(v); } catch { return v; }
+  };
+  return {
+    // Location (populated in production on Vercel; empty locally)
+    city: decode(h.get('x-vercel-ip-city')),
+    region: decode(h.get('x-vercel-ip-country-region')),
+    country: decode(h.get('x-vercel-ip-country')),
+    timezone: decode(h.get('x-vercel-ip-timezone')),
+    // Acquisition source (first-touch, from the client)
+    utmSource: meta.utmSource || '',
+    utmMedium: meta.utmMedium || '',
+    utmCampaign: meta.utmCampaign || '',
+    utmTerm: meta.utmTerm || '',
+    utmContent: meta.utmContent || '',
+    referrer: meta.referrer || '',
+    landingPage: meta.landingPage || '',
+    submittedFrom: meta.submittedFrom || '',
+  };
+}
+
 export async function POST(request) {
   const body = await request.json();
-  const { fullName, workEmail, orgName, website, howHeard, message } = body;
+  const { fullName, workEmail, orgName, website, howHeard, message, meta } = body;
 
   if (!fullName || !workEmail || !orgName || !website || !howHeard) {
     return Response.json({ error: 'Missing required fields' }, { status: 400 });
   }
 
+  const context = buildContext(request, meta);
+
   // Save to Sanity first (non-blocking on failure - email is the critical path)
   try {
-    await saveFormSubmission({ fullName, workEmail, orgName, website, howHeard, message });
+    await saveFormSubmission({ fullName, workEmail, orgName, website, howHeard, message, context });
   } catch (err) {
     console.error('[contact] Sanity write failed (non-fatal):', err.message);
   }
@@ -156,7 +225,7 @@ export async function POST(request) {
       to: process.env.CONTACT_TO_EMAIL,
       replyTo: workEmail,
       subject: `New enquiry from ${fullName} - ${orgName}`,
-      html: buildEmailHtml({ fullName, workEmail, orgName, website, howHeard, message }),
+      html: buildEmailHtml({ fullName, workEmail, orgName, website, howHeard, message, context }),
     });
     return Response.json({ ok: true });
   } catch (err) {

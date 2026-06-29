@@ -4,6 +4,13 @@ export const formSubmission = {
   type: 'document',
   // Read-only in Studio - nobody edits these, they only review them
   __experimental_actions: ['update', 'publish', 'delete'],
+  fieldsets: [
+    {
+      name: 'context',
+      title: 'Lead Context (location & source)',
+      options: { collapsible: true, collapsed: true },
+    },
+  ],
   fields: [
     {
       name: 'submittedAt',
@@ -71,6 +78,20 @@ export const formSubmission = {
       rows: 4,
       description: 'Internal notes for follow-up. Not visible to the submitter.',
     },
+
+    // ── Lead context — captured automatically, read-only ──────────────────────
+    { name: 'locationCity', title: 'City (approx.)', type: 'string', readOnly: true, fieldset: 'context' },
+    { name: 'locationRegion', title: 'Region (approx.)', type: 'string', readOnly: true, fieldset: 'context' },
+    { name: 'locationCountry', title: 'Country (approx.)', type: 'string', readOnly: true, fieldset: 'context' },
+    { name: 'timezone', title: 'Time Zone', type: 'string', readOnly: true, fieldset: 'context' },
+    { name: 'utmSource', title: 'UTM Source', type: 'string', readOnly: true, fieldset: 'context' },
+    { name: 'utmMedium', title: 'UTM Medium', type: 'string', readOnly: true, fieldset: 'context' },
+    { name: 'utmCampaign', title: 'UTM Campaign', type: 'string', readOnly: true, fieldset: 'context' },
+    { name: 'utmTerm', title: 'UTM Term', type: 'string', readOnly: true, fieldset: 'context' },
+    { name: 'utmContent', title: 'UTM Content', type: 'string', readOnly: true, fieldset: 'context' },
+    { name: 'referrer', title: 'Referrer', type: 'string', readOnly: true, fieldset: 'context' },
+    { name: 'landingPage', title: 'Landing Page', type: 'string', readOnly: true, fieldset: 'context' },
+    { name: 'submittedFrom', title: 'Submitted From', type: 'string', readOnly: true, fieldset: 'context' },
   ],
 
   orderings: [

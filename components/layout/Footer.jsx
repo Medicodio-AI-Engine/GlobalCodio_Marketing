@@ -2,11 +2,18 @@
 
 import Link from 'next/link';
 import { FOOTER_COLUMNS, SUPPORT_EMAIL, SUPPORT_MAILTO, SITE_URL } from '../../lib/navigation';
+import { OPEN_PREFERENCES_EVENT } from '../../lib/consent';
 import { Logo } from './Nav';
 
 const FooterLink = ({ href, children, ...rest }) => {
   const internal = href && href.startsWith('/') && !href.startsWith('//');
   return internal ? <Link href={href} {...rest}>{children}</Link> : <a href={href} {...rest}>{children}</a>;
+};
+
+const openPreferences = () => {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent(OPEN_PREFERENCES_EVENT));
+  }
 };
 
 export const Footer = () => (
@@ -59,6 +66,10 @@ export const Footer = () => (
           <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
           <span className="ft-bar-sep" aria-hidden="true">·</span>
           <FooterLink href="/terms">Terms of Service</FooterLink>
+          <span className="ft-bar-sep" aria-hidden="true">·</span>
+          <button type="button" className="ft-legal-btn" onClick={openPreferences}>
+            Cookie Preferences
+          </button>
           <span className="ft-bar-sep" aria-hidden="true">·</span>
           <span>California, USA · Bangalore, India</span>
         </div>

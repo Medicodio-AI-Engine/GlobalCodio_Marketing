@@ -100,6 +100,8 @@ export default function PrivacyPolicy() {
               <h3 className="legal-subsection-title">Information Collected Automatically</h3>
               <ul className="legal-list">
                 <li><strong>Log data</strong> - IP address, browser type, pages visited, time spent, and referring URLs.</li>
+                <li><strong>Approximate location</strong> - city, region, and country derived from your IP address (for example, to add context to a contact form submission). This is coarse, IP-based location and not precise GPS location.</li>
+                <li><strong>Referral and campaign data</strong> - the website that referred you and any campaign parameters (e.g., UTM tags) in the link you arrived through, so we can understand how enquiries reach us.</li>
                 <li><strong>Device information</strong> - hardware model, operating system, and browser version.</li>
                 <li><strong>Usage data</strong> - features used, actions taken, and performance metrics within our platform.</li>
                 <li><strong>Cookies and tracking technologies</strong> - see Section 10 for details.</li>
@@ -286,9 +288,9 @@ export default function PrivacyPolicy() {
               <p className="legal-prose">
                 You can control cookies through your browser settings. Disabling non-essential cookies will not affect your ability to use our core services. Where required by law, we obtain consent before placing non-essential cookies.
               </p>
-              <h3 className="legal-subsection-title">Google Analytics &amp; Advertising</h3>
+              <h3 className="legal-subsection-title">Google Analytics</h3>
               <p className="legal-prose">
-                We may use Google Analytics and Google advertising products to measure and promote our public website. These tools apply <strong>only to website visitors</strong> &mdash; for example, to analyze website traffic and to display relevant advertising about GlobalCodio on third-party websites. They are <strong>never</strong> applied to, and never combined with, data obtained through Google OAuth sign-in or Gmail scopes (see Section 3). Data obtained through Google APIs is never used for interest-based advertising, remarketing, or audience building. You can opt out of Google Analytics using Google&rsquo;s <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--blue)' }}>browser add-on</a>.
+                We may use Google Analytics to measure and improve our public website &mdash; for example, to analyze website traffic and understand how visitors use our pages. Where analytics is enabled, it is loaded <strong>only after you consent</strong> via our cookie banner, applies <strong>only to website visitors</strong>, and is <strong>never</strong> applied to, or combined with, data obtained through Google OAuth sign-in or Gmail scopes (see Section 3). We do <strong>not</strong> use Google advertising products and do not engage in interest-based advertising, remarketing, audience building, or the &ldquo;sale&rdquo; or &ldquo;sharing&rdquo; of personal information for cross-context behavioral advertising. You can manage your choice any time via the &ldquo;Cookie Preferences&rdquo; link in our footer, or opt out of Google Analytics using Google&rsquo;s <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--blue)' }}>browser add-on</a>.
               </p>
             </div>
 
