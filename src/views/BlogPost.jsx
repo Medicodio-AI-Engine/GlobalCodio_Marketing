@@ -258,11 +258,16 @@ function LegacyContent({ content }) {
 }
 
 // ── Author section (bottom of article) ───────────────────────────────────────
+// Section shows only when the toggle is enabled (defaults to true for legacy
+// authors) AND the author has a bio to show.
+function shouldShowAuthorSection(author) {
+  return !!author && author.showAuthorSection !== false && !!author.bio;
+}
+
 function AuthorSection({ author }) {
-  if (!author) return null;
+  if (!shouldShowAuthorSection(author)) return null;
 
   const imageUrl = resolveImageUrl(author.image, 160);
-  const authorLink = author.link || '/letter-from-the-founder';
 
   return (
     <div className="author-signoff reveal">
@@ -283,13 +288,15 @@ function AuthorSection({ author }) {
         {author.designation && (
           <p className="author-signoff-role">{author.designation}</p>
         )}
-        {author.bio && <p className="author-signoff-bio">{author.bio}</p>}
-        <SmartLink href={authorLink} className="feature-card-link author-signoff-link">
-          {author.link ? 'Learn more' : 'Read the founder\'s letter'}
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M3 8h10M9 4l4 4-4 4" />
-          </svg>
-        </SmartLink>
+        <p className="author-signoff-bio">{author.bio}</p>
+        {author.link && (
+          <SmartLink href={author.link} className="feature-card-link author-signoff-link">
+            Learn more
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
+          </SmartLink>
+        )}
       </div>
     </div>
   );
@@ -422,10 +429,13 @@ export default function BlogPost({ sanityPost, slug }) {
             <LegacyContent content={post.content} />
           )}
 
-          <hr className="rule-blue reveal" style={{ marginTop: 'var(--space-2xl)' }} />
-
-          {/* Author section */}
-          <AuthorSection author={post.author} />
+          {/* Author section — only when the author opts in and has a bio */}
+          {shouldShowAuthorSection(post.author) && (
+            <>
+              <hr className="rule-blue reveal" style={{ marginTop: 'var(--space-2xl)' }} />
+              <AuthorSection author={post.author} />
+            </>
+          )}
 
         </div>
       </Section>

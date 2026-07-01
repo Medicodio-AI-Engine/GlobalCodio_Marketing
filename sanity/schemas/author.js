@@ -31,18 +31,25 @@ export const author = {
       validation: Rule => Rule.required(),
     },
     {
+      name: 'showAuthorSection',
+      title: "Show \"About the Author\" section",
+      type: 'boolean',
+      description: 'When off, the "About the Author" section is hidden on blog posts by this author. It is also hidden automatically if no bio is set.',
+      initialValue: true,
+    },
+    {
       name: 'bio',
       title: 'Short Bio',
       type: 'text',
       rows: 4,
-      description: 'Shown in the author section at the end of each blog post.',
-      validation: Rule => Rule.required().max(400),
+      description: 'Shown in the "About the Author" section at the end of each blog post. Leave blank to hide the section.',
+      validation: Rule => Rule.max(400),
     },
     {
       name: 'link',
       title: 'Author Link (optional)',
       type: 'url',
-      description: 'Defaults to /letter-from-the-founder if left blank.',
+      description: 'Optional "Learn more" link shown in the author section. Left blank, no link is shown.',
     },
   ],
   preview: {
