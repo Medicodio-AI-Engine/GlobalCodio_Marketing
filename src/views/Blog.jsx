@@ -175,7 +175,6 @@ function resolveImageUrl(img, width = 800) {
 
 /* ── Real post card ───────────────────────────────────── */
 const PostCard = ({ post, featured = false }) => {
-  const imageUrl = resolveImageUrl(post.featuredImage ?? post.image, featured ? 1200 : 600);
   const authorImageUrl = resolveImageUrl(post.author?.image, 80);
   const rawDate = post.date ?? post.publishedAt ?? '';
   const parsedDate = rawDate ? new Date(rawDate) : null;
@@ -200,13 +199,6 @@ const PostCard = ({ post, featured = false }) => {
       onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(calc(-3px * var(--ui-scale)))'; e.currentTarget.style.borderColor = 'var(--line-blue)'; e.currentTarget.style.boxShadow = 'var(--shadow-blue-lift)'; }}
       onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--line-2)'; e.currentTarget.style.boxShadow = ''; }}
     >
-      {imageUrl && (
-        <div style={{
-          height: featured ? 'calc(320px * var(--ui-scale))' : 'calc(180px * var(--ui-scale))',
-          background: `url(${imageUrl}) center/cover no-repeat`,
-          flexShrink: 0,
-        }} />
-      )}
       <div style={{ padding: 'calc(24px * var(--ui-scale))', display: 'flex', flexDirection: 'column', gap: 'calc(10px * var(--ui-scale))', flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 'calc(10px * var(--ui-scale))' }}>
           <span style={{
