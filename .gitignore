@@ -56,3 +56,14 @@ transcript2.txt
 .next/
 next-env.d.ts
 .mcp.json
+
+# Claude Code local config, skills, commands
+.claude/
+
+# Marketing drafts / posters (local working files)
+aila-conference-recap-poster.html
+immigration-blog-slider.html
+immigration-blog-posts-june-2026.md
+
+# Sanity seed draft scripts (local content-seeding, not app code)
+sanity/seed-*-draft.mjs
