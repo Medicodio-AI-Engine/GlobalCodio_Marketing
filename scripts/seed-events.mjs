@@ -97,7 +97,7 @@ async function seed() {
       ...rest,
     };
     const res = await client.createOrReplace(doc);
-    console.log(`  ✓ ${res._id}  —  ${res.name} (${res.status})`);
+    console.log(`  ✓ ${res._id}  -  ${res.name} (${res.status})`);
   }
   console.log('\nDone.');
 }

@@ -3625,7 +3625,7 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   .forms-statband--foot .forms-stat-label{white-space:normal;}
 }
 
-/* ── HRMS Integration — platform card grid ── */
+/* ── HRMS Integration - platform card grid ── */
 .hrms-platform-cards{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -6026,7 +6026,7 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
 .event-card-gallery{
   position:relative;
   width:100%;
-  /* 4/3 ratio + 25% taller, then +10% — portrait event photos fit better */
+  /* 4/3 ratio + 25% taller, then +10% - portrait event photos fit better */
   aspect-ratio:32 / 33;
   border-radius:calc(14px * var(--ui-scale));
   overflow:hidden;
@@ -6536,7 +6536,7 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   .blog-posts-grid{grid-template-columns:1fr;}
 }
 
-/* Legal pages — privacy policy & terms */
+/* Legal pages - privacy policy & terms */
 .legal-layout{
   display:grid;
   grid-template-columns:calc(240px * var(--ui-scale)) 1fr;
@@ -6561,14 +6561,22 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   margin-bottom:var(--space-lg);
 }
 .legal-layout article > div:first-child .legal-section-title{margin-top:0;}
+
+/* USCIS API production-access criteria require every element on the privacy
+ * policy / terms pages to render at 14px or larger. --ui-scale (0.84) is the
+ * site-wide density variable roughly 190 other rules depend on, so it isn't
+ * touched here - .legal-prose/.legal-list/.legal-subsection-title are pinned
+ * to explicit px values instead. Safe to scope this way because all three
+ * classes are only ever used inside .legal-layout (privacy-policy and terms). */
 .legal-prose{
-  font-size:calc(16px * var(--ui-scale));
+  font-size:16px;
+  max-width:70ch;
   color:var(--ink-3);
   line-height:1.75;
   margin-top:var(--space-md);
 }
 .legal-subsection-title{
-  font-size:calc(14px * var(--ui-scale));
+  font-size:14px;
   font-weight:700;
   color:var(--ink-2);
   letter-spacing:.04em;
@@ -6581,15 +6589,50 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   display:grid;
   gap:calc(6px * var(--ui-scale));
   margin-top:var(--space-sm);
-  font-size:calc(16px * var(--ui-scale));
+  font-size:16px;
+  max-width:70ch;
   color:var(--ink-3);
   line-height:1.7;
+}
+
+/* Callout at the top of the website privacy policy / terms pointing to the
+ * platform documents that actually govern account and case data. See
+ * uscis-remediation-checklist.md §4.1 - highest-return item in the audit. */
+.legal-callout{
+  display:flex;
+  gap:calc(12px * var(--ui-scale));
+  align-items:flex-start;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-left:3px solid var(--blue);
+  border-radius:calc(10px * var(--ui-scale));
+  padding:calc(18px * var(--ui-scale)) calc(20px * var(--ui-scale));
+  margin-bottom:var(--space-2xl);
+  max-width:70ch;
+}
+.legal-callout p{
+  margin:0;
+  font-size:16px;
+  line-height:1.6;
+  color:var(--ink-2);
+}
+.legal-callout a{color:var(--blue);font-weight:600;}
+
+/* Legal-page hero subhead: same 14px-floor fix, scoped to these two pages only
+ * so every other page's .page-hero-sub keeps its normal --ui-scale sizing. */
+.page-legal-doc .page-hero-sub{
+  font-size:clamp(15px,1.1vw,18px);
+  max-width:60ch;
 }
 
 /* ── Privacy Policy & Terms layout: sidebar collapses on mobile ── */
 @media(max-width:768px){
   .legal-layout{grid-template-columns:1fr !important;}
   .legal-toc{display:none;}
+  .page-legal-doc .page-hero-sub{
+    font-size:15px;
+    max-width:100%;
+  }
 }
 
 /* ── Home event announcement - floating glass toast (bottom, navbar-style) ── */
@@ -6877,7 +6920,7 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
                transform .8s cubic-bezier(.22,.7,.25,1),
                border-radius .7s cubic-bezier(.22,.7,.25,1);
   }
-  /* Phase 1 — small centered pill; full link stays in layout but clipped */
+  /* Phase 1 - small centered pill; full link stays in layout but clipped */
   .event-banner:not(.is-expanded){
     left:50%;
     right:auto;
@@ -6907,7 +6950,7 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
     width:auto;
     opacity:1;
   }
-  /* Phase 2 — full-width bar grows smoothly */
+  /* Phase 2 - full-width bar grows smoothly */
   .event-banner.is-expanded{
     left:max(calc(12px * var(--ui-scale)), env(safe-area-inset-left, 0px));
     right:max(calc(12px * var(--ui-scale)), env(safe-area-inset-right, 0px));

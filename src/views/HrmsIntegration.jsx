@@ -95,7 +95,7 @@ const HR_PLATFORMS = [
   },
   {
     name: 'BambooHR',
-    desc: 'Automate the full employee lifecycle — new hire intake, status changes, and offboarding — across HR and immigration.',
+    desc: 'Automate the full employee lifecycle - new hire intake, status changes, and offboarding - across HR and immigration.',
     tag: 'HRIS',
     i: 2,
     logo: '/assets/hrms/bamboohr.svg',
@@ -116,7 +116,7 @@ const HR_PLATFORMS = [
   },
   {
     name: 'ATS & Custom APIs',
-    desc: 'Connect applicant tracking systems or proprietary HR platforms via API — sponsored hires trigger cases at the moment of offer.',
+    desc: 'Connect applicant tracking systems or proprietary HR platforms via API - sponsored hires trigger cases at the moment of offer.',
     tag: 'Custom',
     i: 2,
     logo: null,
@@ -164,7 +164,7 @@ export default function HrmsIntegration() {
         secondary={{ href: '/it-services', label: 'See all services' }}
       />
 
-      {/* Why This Matters — heading + platform cards */}
+      {/* Why This Matters - heading + platform cards */}
       <section className="sec" id="the-case">
         <div className="container">
 
@@ -181,7 +181,7 @@ export default function HrmsIntegration() {
             />
             <p className="section-intro" style={{ maxWidth: '72ch', marginLeft: 'auto', marginRight: 'auto' }}>
               GlobalCodio connects your case management directly to your corporate clients'
-              HR systems — so employee data flows automatically and your firm meets the
+              HR systems - so employee data flows automatically and your firm meets the
               integration standard that corporate RFPs now require.
             </p>
           </div>

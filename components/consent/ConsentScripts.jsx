@@ -43,7 +43,7 @@ export function ConsentScripts() {
           function gtag(){ dataLayer.push(arguments); }
           window.gtag = gtag;
           gtag('js', new Date());
-          // Consent Mode v2 — deny analytics storage until the user opts in.
+          // Consent Mode v2 - deny analytics storage until the user opts in.
           gtag('consent', 'default', {
             analytics_storage: 'denied',
             wait_for_update: 500

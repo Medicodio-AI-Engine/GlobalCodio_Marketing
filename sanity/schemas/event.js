@@ -75,7 +75,7 @@ export const event = {
       name: 'location',
       title: 'Location',
       type: 'string',
-      description: 'City, state — e.g. "San Diego, CA".',
+      description: 'City, state - e.g. "San Diego, CA".',
       validation: Rule => Rule.required(),
     },
     {

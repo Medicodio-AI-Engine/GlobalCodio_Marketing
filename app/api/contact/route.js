@@ -176,7 +176,7 @@ function buildEmailHtml({ fullName, workEmail, orgName, website, howHeard, messa
 
 // Build the lead-context record: approximate location (from Vercel edge geo
 // headers) + first-touch acquisition source (sent by the client). Both are
-// best-effort — fields are simply blank when unavailable (e.g. on localhost).
+// best-effort - fields are simply blank when unavailable (e.g. on localhost).
 function buildContext(request, meta = {}) {
   const h = request.headers;
   const decode = (v) => {

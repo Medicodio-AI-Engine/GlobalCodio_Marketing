@@ -429,7 +429,7 @@ export default function BlogPost({ sanityPost, slug }) {
             <LegacyContent content={post.content} />
           )}
 
-          {/* Author section — only when the author opts in and has a bio */}
+          {/* Author section - only when the author opts in and has a bio */}
           {shouldShowAuthorSection(post.author) && (
             <>
               <hr className="rule-blue reveal" style={{ marginTop: 'var(--space-2xl)' }} />

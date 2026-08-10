@@ -168,13 +168,13 @@ export function ConsentManager() {
 
             {!TRACKING_ENABLED && (
               <div className="gc-note gc-note-info">
-                This site currently uses <strong>only essential, first-party cookies</strong> — no
+                This site currently uses <strong>only essential, first-party cookies</strong> - no
                 analytics technologies are active. Your selection below will be saved and applied
                 automatically if analytics is introduced.
               </div>
             )}
 
-            {/* Essential — always on */}
+            {/* Essential - always on */}
             <div className="gc-cat">
               <div className="gc-cat-text">
                 <div className="gc-cat-title">Strictly necessary</div>

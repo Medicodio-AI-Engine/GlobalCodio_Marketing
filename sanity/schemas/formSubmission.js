@@ -79,7 +79,7 @@ export const formSubmission = {
       description: 'Internal notes for follow-up. Not visible to the submitter.',
     },
 
-    // ── Lead context — captured automatically, read-only ──────────────────────
+    // ── Lead context - captured automatically, read-only ──────────────────────
     { name: 'locationCity', title: 'City (approx.)', type: 'string', readOnly: true, fieldset: 'context' },
     { name: 'locationRegion', title: 'Region (approx.)', type: 'string', readOnly: true, fieldset: 'context' },
     { name: 'locationCountry', title: 'Country (approx.)', type: 'string', readOnly: true, fieldset: 'context' },

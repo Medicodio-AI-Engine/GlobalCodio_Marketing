@@ -329,7 +329,7 @@ function AgentPanel() {
     const tab = tabRefs.current[active];
     const scroller = tabsScrollRef.current;
     if (!scroller || !tab) return;
-    // Scroll only within the tab strip — never let the browser scroll the page
+    // Scroll only within the tab strip - never let the browser scroll the page
     const tabLeft = tab.offsetLeft;
     const tabWidth = tab.offsetWidth;
     const scrollerWidth = scroller.clientWidth;

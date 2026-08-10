@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 
 import { PageHero, Section } from '../../components/ui/PageKit';
+import { PLATFORM_PRIVACY_URL } from '../../lib/navigation';
 
 const LAST_UPDATED = 'June 29, 2026';
 
@@ -24,13 +25,13 @@ export default function PrivacyPolicy() {
   const [hoveredSection, setHoveredSection] = useState(null);
 
   return (
-    <>
+    <div className="page-legal-doc">
       <PageHero
         eyebrow="Legal"
         lead="Website Privacy "
         emphasis="Policy."
         headInline
-        sub={`Effective date: ${LAST_UPDATED}. This policy explains how the GlobalCodio website (operated by Medicodio Inc.) collects, uses, and protects the personal information of visitors to www.globalcodio.ai. It applies to the public website only — not to our products or platform.`}
+        sub={`Effective date: ${LAST_UPDATED}. This policy explains how the GlobalCodio website (operated by Medicodio Inc.) collects, uses, and protects the personal information of visitors to www.globalcodio.ai. It applies to the public website only - not to our products or platform.`}
       />
 
       <Section id="privacy-content" style={{ paddingTop: 'var(--space-2xl)' }}>
@@ -51,7 +52,7 @@ export default function PrivacyPolicy() {
                   key={item.id}
                   href={`#${item.id}`}
                   style={{
-                    fontSize: 'calc(13px * var(--ui-scale))',
+                    fontSize: '14px',
                     color: active ? 'var(--blue)' : 'var(--ink-3)',
                     textDecoration: 'none',
                     padding: 'calc(5px * var(--ui-scale)) 0',
@@ -72,6 +73,13 @@ export default function PrivacyPolicy() {
 
           {/* Policy body */}
           <article style={{ minWidth: 0 }}>
+
+            <div className="legal-callout" role="note">
+              <p>
+                <strong>Using the GlobalCodio platform?</strong> This policy covers the public website only. Your account and case data are governed by the{' '}
+                <a href={PLATFORM_PRIVACY_URL} target="_blank" rel="noopener noreferrer">Platform Privacy Policy</a>.
+              </p>
+            </div>
 
             {/* 1. Overview */}
             <div id="overview">
@@ -96,7 +104,7 @@ export default function PrivacyPolicy() {
               <ul className="legal-list">
                 <li><strong>Log data</strong> - IP address, browser type, pages visited, time spent, and referring URLs.</li>
                 <li><strong>Approximate location</strong> - city, region, and country derived from your IP address (for example, to add context to a contact form submission). This is coarse, IP-based location and not precise GPS location.</li>
-                <li><strong>Referral and campaign data</strong> - the website that referred you and any campaign parameters (e.g., UTM tags) in the link you arrived through, so we can understand how enquiries reach us.</li>
+                <li><strong>Referral and campaign data</strong> - the website that referred you and any campaign parameters (e.g., UTM tags) in the link you arrived through, so we can understand how inquiries reach us.</li>
                 <li><strong>Device information</strong> - hardware model, operating system, and browser version.</li>
                 <li><strong>Cookies and similar technologies</strong> - see Section 4 for details.</li>
               </ul>
@@ -113,15 +121,15 @@ export default function PrivacyPolicy() {
               <p className="legal-prose">We use the personal information collected through the Website to:</p>
               <ul className="legal-list">
                 <li>Respond to inquiries, demo requests, and contact form submissions.</li>
-                <li>Send service-related communications about your enquiry.</li>
+                <li>Send service-related communications about your inquiry.</li>
                 <li>Send marketing communications where you have opted in or where permitted by law.</li>
-                <li>Operate, maintain, analyse, and improve the Website and user experience.</li>
-                <li>Understand how enquiries and visitors reach us (referral and campaign attribution).</li>
+                <li>Operate, maintain, analyze, and improve the Website and user experience.</li>
+                <li>Understand how inquiries and visitors reach us (referral and campaign attribution).</li>
                 <li>Detect, prevent, and investigate fraud, abuse, and security incidents.</li>
                 <li>Comply with legal obligations.</li>
               </ul>
               <p className="legal-prose">
-                <strong>Legal bases (GDPR):</strong> We process this personal data on the basis of consent (e.g., for non-essential cookies and marketing), legitimate interests (e.g., responding to enquiries, securing and improving the Website), and compliance with legal obligations.
+                <strong>Legal bases (GDPR):</strong> We process this personal data on the basis of consent (e.g., for non-essential cookies and marketing), legitimate interests (e.g., responding to inquiries, securing and improving the Website), and compliance with legal obligations.
               </p>
             </div>
 
@@ -138,7 +146,10 @@ export default function PrivacyPolicy() {
               </p>
               <h3 className="legal-subsection-title">Google Analytics</h3>
               <p className="legal-prose">
-                We may use Google Analytics to measure and improve our public Website &mdash; for example, to analyze website traffic and understand how visitors use our pages. Where analytics is enabled, it is loaded <strong>only after you consent</strong> via our cookie banner and applies <strong>only to Website visitors</strong>. We do <strong>not</strong> use Google advertising products and do not engage in interest-based advertising, remarketing, audience building, or the &ldquo;sale&rdquo; or &ldquo;sharing&rdquo; of personal information for cross-context behavioral advertising. You can manage your choice any time via the &ldquo;Cookie Preferences&rdquo; link in our footer, or opt out of Google Analytics using Google&rsquo;s <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--blue)' }}>browser add-on</a>.
+                We may use Google Analytics to measure and improve our public Website &mdash; for example, to analyze website traffic and understand how visitors use our pages. Where analytics is enabled, it is loaded <strong>only after you consent</strong> via our cookie banner, and it applies <strong>only to Website visitors</strong>.
+              </p>
+              <p className="legal-prose">
+                We do <strong>not</strong> use Google advertising products and do not engage in interest-based advertising, remarketing, audience building, or the &ldquo;sale&rdquo; or &ldquo;sharing&rdquo; of personal information for cross-context behavioral advertising. You can manage your choice any time via the &ldquo;Cookie Preferences&rdquo; link in our footer, or opt out of Google Analytics using Google&rsquo;s <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--blue)' }}>browser add-on</a>.
               </p>
             </div>
 
@@ -167,10 +178,10 @@ export default function PrivacyPolicy() {
             <div id="retention">
               <h2 className="legal-section-title">6. Data Retention</h2>
               <p className="legal-prose">
-                We retain personal information collected through the Website only for as long as necessary for the purposes described in this policy, after which we securely delete or anonymise it.
+                We retain personal information collected through the Website only for as long as necessary for the purposes described in this policy, after which we securely delete or anonymize it.
               </p>
               <ul className="legal-list">
-                <li><strong>Contact &amp; enquiry data</strong> - retained to handle your enquiry and for a reasonable follow-up period, then deleted.</li>
+                <li><strong>Contact &amp; inquiry data</strong> - retained to handle your inquiry and for a reasonable follow-up period, then deleted.</li>
                 <li><strong>Marketing data</strong> - retained until you opt out or withdraw consent.</li>
                 <li><strong>Log and analytics data</strong> - retained for up to 12 months.</li>
               </ul>
@@ -227,7 +238,7 @@ export default function PrivacyPolicy() {
             <div id="security">
               <h2 className="legal-section-title">9. Security</h2>
               <p className="legal-prose">
-                We implement industry-standard technical and organisational measures to protect personal information, including:
+                We implement industry-standard technical and organizational measures to protect personal information, including:
               </p>
               <ul className="legal-list">
                 <li>Encryption in transit (TLS 1.2+).</li>
@@ -293,7 +304,7 @@ export default function PrivacyPolicy() {
                   Email: <a href="mailto:info@globalcodio.ai" style={{ color: 'var(--blue)' }}>info@globalcodio.ai</a>
                 </div>
                 <div style={{ marginTop: 'calc(4px * var(--ui-scale))', fontSize: 'calc(13px * var(--ui-scale))', color: 'var(--ink-3)' }}>
-                  We aim to respond to all privacy enquiries within 30 days.
+                  We aim to respond to all privacy inquiries within 30 days.
                 </div>
               </div>
             </div>
@@ -301,6 +312,6 @@ export default function PrivacyPolicy() {
           </article>
         </div>
       </Section>
-    </>
+    </div>
   );
 }

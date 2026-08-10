@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 
 import { PageHero, Section } from '../../components/ui/PageKit';
+import { PLATFORM_TERMS_URL } from '../../lib/navigation';
 
 const LAST_UPDATED = 'June 29, 2026';
 
@@ -25,13 +26,13 @@ export default function Terms() {
   const [hoveredSection, setHoveredSection] = useState(null);
 
   return (
-    <>
+    <div className="page-legal-doc">
       <PageHero
         eyebrow="Legal"
         lead="Website Terms of "
         emphasis="Use."
         headInline
-        sub={`Effective date: ${LAST_UPDATED}. These Terms govern your access to and use of the public GlobalCodio website at www.globalcodio.ai. They apply to the website only — not to our products or platform.`}
+        sub={`Effective date: ${LAST_UPDATED}. These Terms govern your access to and use of the public GlobalCodio website at www.globalcodio.ai. They apply to the website only - not to our products or platform.`}
       />
 
       <Section id="terms-content" style={{ paddingTop: 'var(--space-2xl)' }}>
@@ -52,7 +53,7 @@ export default function Terms() {
                   key={item.id}
                   href={`#${item.id}`}
                   style={{
-                    fontSize: 'calc(13px * var(--ui-scale))',
+                    fontSize: '14px',
                     color: active ? 'var(--blue)' : 'var(--ink-3)',
                     textDecoration: 'none',
                     padding: 'calc(5px * var(--ui-scale)) 0',
@@ -74,11 +75,18 @@ export default function Terms() {
           {/* Terms body */}
           <article style={{ minWidth: 0 }}>
 
+            <div className="legal-callout" role="note">
+              <p>
+                <strong>Using the GlobalCodio platform?</strong> These terms cover the public website only. Your account and case data are governed by the{' '}
+                <a href={PLATFORM_TERMS_URL} target="_blank" rel="noopener noreferrer">Platform Terms of Service</a>.
+              </p>
+            </div>
+
             {/* 1. Acceptance */}
             <div id="acceptance">
               <h2 className="legal-section-title">1. Acceptance of Terms</h2>
               <p className="legal-prose">
-                These Terms of Use ("Terms") govern your access to and use of the public GlobalCodio website at <strong>www.globalcodio.ai</strong> (the "Website"), operated by Medicodio Inc. ("Company," "GlobalCodio," "we," "our," or "us"), a Delaware corporation. They apply to the Website only and do <strong>not</strong> govern our products, platform, or any account-based services, which are covered by separate terms provided with those services.
+                These Terms of Use ("Terms") govern your access to and use of the public GlobalCodio website at <strong>www.globalcodio.ai</strong> (the "Website"). The Website is operated by Medicodio Inc. ("Company," "GlobalCodio," "we," "our," or "us"), a Delaware corporation. These Terms apply to the Website only and do <strong>not</strong> govern our products, platform, or any account-based services, which are covered by separate terms provided with those services.
               </p>
               <p className="legal-prose">
                 By accessing or using the Website, you agree to be bound by these Terms and by our <a href="/privacy-policy" style={{ color: 'var(--blue)' }}>Privacy Policy</a>, which is incorporated by reference. If you do not agree, please do not use the Website.
@@ -104,7 +112,10 @@ export default function Terms() {
             <div id="ip">
               <h2 className="legal-section-title">3. Intellectual Property</h2>
               <p className="legal-prose">
-                The Website and its content — including software, text, designs, graphics, logos, and trademarks (excluding any information you submit to us) — are owned by or licensed to Medicodio Inc. and are protected by intellectual property laws. We grant you a limited, non-exclusive, non-transferable, revocable license to access and view the Website for your personal or internal business purposes in accordance with these Terms.
+                The Website and its content - including software, text, designs, graphics, logos, and trademarks, but excluding any information you submit to us - are owned by or licensed to Medicodio Inc. This content is protected by intellectual property laws.
+              </p>
+              <p className="legal-prose">
+                We grant you a limited, non-exclusive, non-transferable, revocable license to access and view the Website for your personal or internal business purposes in accordance with these Terms.
               </p>
               <p className="legal-prose">
                 You may not copy, modify, reverse engineer, resell, or create derivative works from the Website or its content except as expressly permitted. We respect intellectual property rights and will respond to notices of alleged infringement that comply with the U.S. Digital Millennium Copyright Act (DMCA). Send DMCA notices to <a href="mailto:info@globalcodio.ai" style={{ color: 'var(--blue)' }}>info@globalcodio.ai</a>.
@@ -123,7 +134,7 @@ export default function Terms() {
             <div id="disclaimers">
               <h2 className="legal-section-title">5. Disclaimers & No Warranties</h2>
               <p className="legal-prose">
-                THE WEBSITE AND ITS CONTENT ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. We do not warrant that the Website will be uninterrupted, error-free, or secure, or that its content is accurate, current, or complete.
+                <strong>The Website and its content are provided &ldquo;as is&rdquo; and &ldquo;as available,&rdquo; without warranties of any kind, whether express, implied, or statutory.</strong> This includes the implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement. We do not warrant that the Website will be uninterrupted, error-free, or secure, or that its content is accurate, current, or complete.
               </p>
               <p className="legal-prose">
                 Content on the Website is provided for general information only and does not constitute legal advice. Nothing on the Website creates an attorney-client relationship.
@@ -134,10 +145,10 @@ export default function Terms() {
             <div id="liability">
               <h2 className="legal-section-title">6. Limitation of Liability</h2>
               <p className="legal-prose">
-                TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT WILL MEDICODIO INC. OR ITS AFFILIATES, OFFICERS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUES, DATA, OR GOODWILL, ARISING OUT OF OR RELATED TO YOUR USE OF THE WEBSITE.
+                <strong>To the maximum extent permitted by law, Medicodio Inc. and its affiliates, officers, employees, and agents will not be liable for indirect, incidental, special, consequential, or punitive damages.</strong> This includes any loss of profits, revenue, data, or goodwill related to your use of the Website.
               </p>
               <p className="legal-prose">
-                OUR TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THESE TERMS OR THE WEBSITE WILL NOT EXCEED ONE HUNDRED U.S. DOLLARS ($100). Some jurisdictions do not allow certain limitations, so some of the above may not apply to you.
+                <strong>Our total aggregate liability arising out of or related to these Terms or the Website will not exceed one hundred U.S. dollars ($100).</strong> Some jurisdictions do not allow certain limitations, so some of the above may not apply to you.
               </p>
             </div>
 
@@ -145,8 +156,13 @@ export default function Terms() {
             <div id="indemnity">
               <h2 className="legal-section-title">7. Indemnification</h2>
               <p className="legal-prose">
-                You agree to defend, indemnify, and hold harmless Medicodio Inc. and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys&rsquo; fees) arising out of or related to: (a) your use of the Website; (b) your violation of these Terms or applicable law; or (c) your violation of the rights of any third party.
+                You agree to defend, indemnify, and hold harmless Medicodio Inc. and its affiliates, officers, directors, employees, and agents from claims, liabilities, damages, losses, and expenses (including reasonable attorneys&rsquo; fees) arising from:
               </p>
+              <ul className="legal-list">
+                <li>your use of the Website;</li>
+                <li>your violation of these Terms or applicable law; or</li>
+                <li>your violation of the rights of any third party.</li>
+              </ul>
             </div>
 
             {/* 8. Arbitration */}
@@ -158,7 +174,7 @@ export default function Terms() {
               </p>
               <h3 className="legal-subsection-title">Binding Arbitration</h3>
               <p className="legal-prose">
-                You and the Company agree to resolve any disputes arising out of or relating to these Terms or the Website through final and binding arbitration, except that either party may bring an individual claim in small-claims court or seek injunctive relief for infringement or misuse of intellectual property. Disputes will be resolved on an individual basis; class actions and class-wide arbitration are not permitted.
+                You and the Company agree to resolve any disputes arising out of or relating to these Terms or the Website through final and binding arbitration. The only exceptions: either party may bring an individual claim in small-claims court, or seek injunctive relief for infringement or misuse of intellectual property. Disputes will be resolved on an individual basis; class actions and class-wide arbitration are not permitted.
               </p>
               <h3 className="legal-subsection-title">30-Day Opt-Out</h3>
               <p className="legal-prose">
@@ -170,7 +186,7 @@ export default function Terms() {
             <div id="governing">
               <h2 className="legal-section-title">9. Governing Law & Venue</h2>
               <p className="legal-prose">
-                These Terms and the relationship between you and the Company are governed by the laws of the State of California, without regard to its conflict-of-law provisions. Subject to the arbitration provisions above, you and the Company agree that any judicial proceeding will be brought exclusively in the state or federal courts located in San Francisco, California, and you consent to the personal jurisdiction of those courts.
+                These Terms and the relationship between you and the Company are governed by the laws of the State of California, without regard to its conflict-of-law provisions. Subject to the arbitration provisions above, you and the Company agree that any judicial proceeding will be brought exclusively in the state or federal courts located in San Francisco, California. You consent to the personal jurisdiction of those courts.
               </p>
             </div>
 
@@ -223,6 +239,6 @@ export default function Terms() {
           </article>
         </div>
       </Section>
-    </>
+    </div>
   );
 }

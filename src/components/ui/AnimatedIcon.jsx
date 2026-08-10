@@ -11,7 +11,7 @@ import { useRef, useCallback } from 'react';
  *   </article>
  *
  * The icon uses isAnimated={false} so only card hover (not icon hover) triggers it.
- * For standalone icons (not in a card), just render normally with no ref — animateicons
+ * For standalone icons (not in a card), just render normally with no ref - animateicons
  * handles hover natively.
  */
 export function useCardIconRef() {

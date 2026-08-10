@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FOOTER_COLUMNS, SUPPORT_EMAIL, SUPPORT_MAILTO, SITE_URL } from '../../lib/navigation';
+import { FOOTER_COLUMNS, SUPPORT_EMAIL, SUPPORT_MAILTO, SITE_URL, PLATFORM_PRIVACY_URL, PLATFORM_TERMS_URL } from '../../lib/navigation';
 import { OPEN_PREFERENCES_EVENT } from '../../lib/consent';
 import { Logo } from './Nav';
 
@@ -66,6 +66,10 @@ export const Footer = () => (
           <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
           <span className="ft-bar-sep" aria-hidden="true">·</span>
           <FooterLink href="/terms">Terms of Use</FooterLink>
+          <span className="ft-bar-sep" aria-hidden="true">·</span>
+          <FooterLink href={PLATFORM_PRIVACY_URL} target="_blank" rel="noopener noreferrer">Platform Privacy Policy</FooterLink>
+          <span className="ft-bar-sep" aria-hidden="true">·</span>
+          <FooterLink href={PLATFORM_TERMS_URL} target="_blank" rel="noopener noreferrer">Platform Terms</FooterLink>
           <span className="ft-bar-sep" aria-hidden="true">·</span>
           <button type="button" className="ft-legal-btn" onClick={openPreferences}>
             Cookie Preferences
