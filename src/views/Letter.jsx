@@ -124,7 +124,7 @@ export default function Letter() {
 
           <div className="letter-signature reveal">
             <img
-              src="/assets/founder.png"
+              src="/assets/founder-avatar.webp"
               alt="Umesh Vaidyamath, Founder and CEO of GlobalCodio"
               className="letter-signature-photo"
               width={80}

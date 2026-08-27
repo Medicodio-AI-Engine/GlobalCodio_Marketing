@@ -30,6 +30,7 @@ export default function robots() {
       ...AI_CRAWLERS.map((userAgent) => ({ userAgent, allow: '/' })),
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
+    // No `host` directive: it was only ever honoured by Yandex, Google ignores it,
+    // and the canonical host is already declared per-page via rel=canonical.
   };
 }

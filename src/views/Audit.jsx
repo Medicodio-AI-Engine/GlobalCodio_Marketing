@@ -109,9 +109,11 @@ export default function Audit() {
             <div className="audit-founder-portrait-wrap reveal d1">
               <div className="audit-founder-portrait-frame">
                 <img
-                  src="/assets/founder.png"
+                  src="/assets/founder-portrait.webp"
                   alt="Umesh Vaidyamath, Founder and CEO of GlobalCodio"
                   className="audit-founder-portrait-img"
+                  width={840}
+                  height={1050}
                   loading="lazy"
                   decoding="async"
                 />

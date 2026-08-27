@@ -409,10 +409,10 @@ export const ValueLevers = () => (
 /* Real certification badge artwork lives in /public/assets.
    `href` points to each standard's authoritative source. */
 const CERT_BADGES = [
-  { id: 'soc2', src: 'SOC-2-Type-2.png', name: 'SOC 2 Type II', label: 'SOC 2 Type II', sub: 'Audited annually', href: 'https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2' },
-  { id: 'iso', src: 'ISO.png', name: 'ISO/IEC 27001', label: 'ISO/IEC 27001', sub: 'Information security', href: 'https://www.iso.org/standard/27001' },
-  { id: 'gdpr', src: 'GDPR.png', name: 'GDPR', label: 'GDPR', sub: 'EU data protection', href: 'https://commission.europa.eu/law/law-topic/data-protection_en' },
-  { id: 'ccpa', src: 'CCPA.png', name: 'CCPA / CPRA', label: 'CCPA / CPRA', sub: 'US privacy law', href: 'https://oag.ca.gov/privacy/ccpa' },
+  { id: 'soc2', src: 'SOC-2-Type-2.webp', name: 'SOC 2 Type II', label: 'SOC 2 Type II', sub: 'Audited annually', href: 'https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2' },
+  { id: 'iso', src: 'ISO.webp', name: 'ISO/IEC 27001', label: 'ISO/IEC 27001', sub: 'Information security', href: 'https://www.iso.org/standard/27001' },
+  { id: 'gdpr', src: 'GDPR.webp', name: 'GDPR', label: 'GDPR', sub: 'EU data protection', href: 'https://commission.europa.eu/law/law-topic/data-protection_en' },
+  { id: 'ccpa', src: 'CCPA.webp', name: 'CCPA / CPRA', label: 'CCPA / CPRA', sub: 'US privacy law', href: 'https://oag.ca.gov/privacy/ccpa' },
 ];
 
 const CERT_ASSET = (src) => `/assets/${src}`;

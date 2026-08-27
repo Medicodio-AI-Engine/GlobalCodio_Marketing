@@ -335,7 +335,7 @@ export default function CodioOps() {
                 }}
               >
                 <img
-                  src="/assets/founder.png"
+                  src="/assets/founder-avatar.webp"
                   alt="Umesh Vaidyamath"
                   width={48}
                   height={48}

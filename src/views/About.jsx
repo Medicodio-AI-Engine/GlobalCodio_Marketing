@@ -140,7 +140,7 @@ export default function About() {
               <div className="about-founder-header">
                 <div className="about-founder-portrait">
                   <img
-                    src="/assets/founder.png"
+                    src="/assets/founder-avatar.webp"
                     alt="Umesh Vaidyamath, Founder and CEO"
                     width={72}
                     height={72}
