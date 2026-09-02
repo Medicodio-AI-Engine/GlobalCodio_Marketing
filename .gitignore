@@ -67,3 +67,6 @@ immigration-blog-posts-june-2026.md
 
 # Sanity seed draft scripts (local content-seeding, not app code)
 sanity/seed-*-draft.mjs
+
+# Firecrawl local scrape cache
+.firecrawl/

@@ -398,20 +398,8 @@ export default function BlogPost({ sanityPost, slug }) {
               <img
                 src={featuredImageUrl}
                 alt={post.title}
-                /* Sanity crops to whatever the source ratio is, so there is no
-                   intrinsic height to declare. A fixed 16:9 box reserves the
-                   space before the image arrives - without it the article text
-                   below shifts down on load, which is a Core Web Vitals (CLS)
-                   penalty on the most-shared template on the site. */
-                width={1400}
-                height={788}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
                 style={{
                   width: '100%',
-                  height: 'auto',
-                  aspectRatio: '16 / 9',
                   borderRadius: 'calc(16px * var(--ui-scale))',
                   objectFit: 'cover',
                   maxHeight: 'calc(480px * var(--ui-scale))',
