@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 import { PageHero, Section } from '../../components/ui/PageKit';
-import { PLATFORM_PRIVACY_URL } from '../../lib/navigation';
+import { PLATFORM_PRIVACY_PATH } from '../../lib/navigation';
 
 const LAST_UPDATED = 'June 29, 2026';
 
@@ -42,7 +42,7 @@ export default function PrivacyPolicy() {
             aria-label="Table of contents"
             className="legal-toc"
           >
-            <div style={{ fontSize: 'calc(10px * var(--ui-scale))', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 'var(--space-sm)', fontFamily: 'var(--mono)' }}>
+            <div className="legal-toc-title">
               Contents
             </div>
             {TOC.map((item) => {
@@ -74,10 +74,16 @@ export default function PrivacyPolicy() {
           {/* Policy body */}
           <article style={{ minWidth: 0 }}>
 
-            <div className="legal-callout" role="note">
+            <div className="legal-callout legal-callout--lead" role="note">
               <p>
-                <strong>Using the GlobalCodio platform?</strong> This policy covers the public website only. Your account and case data are governed by the{' '}
-                <a href={PLATFORM_PRIVACY_URL} target="_blank" rel="noopener noreferrer">Platform Privacy Policy</a>.
+                <strong>Using the GlobalCodio platform? Read the Platform Privacy Policy instead.</strong>
+              </p>
+              <p>
+                This document covers visitors to the public marketing website only &mdash; contact
+                forms, cookies, and website analytics. Your account, immigration case data,
+                documents, and integrations are governed by the{' '}
+                <a href={PLATFORM_PRIVACY_PATH}>Platform Privacy Policy</a>, which controls for the
+                application wherever the two differ.
               </p>
             </div>
 
@@ -96,17 +102,17 @@ export default function PrivacyPolicy() {
 
               <h3 className="legal-subsection-title">Information You Provide Directly</h3>
               <ul className="legal-list">
-                <li><strong>Contact &amp; demo form submissions</strong> - full name, work email, organization name, company website, how you heard about us, and any message you send via our forms.</li>
-                <li><strong>Communications</strong> - emails and other messages you send to us, and our correspondence with you.</li>
+                <li><strong>Contact &amp; demo form submissions</strong> &mdash; full name, work email, organization name, company website, how you heard about us, and any message you send via our forms.</li>
+                <li><strong>Communications</strong> &mdash; emails and other messages you send to us, and our correspondence with you.</li>
               </ul>
 
               <h3 className="legal-subsection-title">Information Collected Automatically</h3>
               <ul className="legal-list">
-                <li><strong>Log data</strong> - IP address, browser type, pages visited, time spent, and referring URLs.</li>
-                <li><strong>Approximate location</strong> - city, region, and country derived from your IP address (for example, to add context to a contact form submission). This is coarse, IP-based location and not precise GPS location.</li>
-                <li><strong>Referral and campaign data</strong> - the website that referred you and any campaign parameters (e.g., UTM tags) in the link you arrived through, so we can understand how inquiries reach us.</li>
-                <li><strong>Device information</strong> - hardware model, operating system, and browser version.</li>
-                <li><strong>Cookies and similar technologies</strong> - see Section 4 for details.</li>
+                <li><strong>Log data</strong> &mdash; IP address, browser type, pages visited, time spent, and referring URLs.</li>
+                <li><strong>Approximate location</strong> &mdash; city, region, and country derived from your IP address (for example, to add context to a contact form submission). This is coarse, IP-based location and not precise GPS location.</li>
+                <li><strong>Referral and campaign data</strong> &mdash; the website that referred you and any campaign parameters (e.g., UTM tags) in the link you arrived through, so we can understand how inquiries reach us.</li>
+                <li><strong>Device information</strong> &mdash; hardware model, operating system, and browser version.</li>
+                <li><strong>Cookies and similar technologies</strong> &mdash; see Section 4 for details.</li>
               </ul>
 
               <h3 className="legal-subsection-title">Information from Third Parties</h3>
@@ -129,7 +135,7 @@ export default function PrivacyPolicy() {
                 <li>Comply with legal obligations.</li>
               </ul>
               <p className="legal-prose">
-                <strong>Legal bases (GDPR):</strong> We process this personal data on the basis of consent (e.g., for non-essential cookies and marketing), legitimate interests (e.g., responding to inquiries, securing and improving the Website), and compliance with legal obligations.
+                <strong>Legal bases (GDPR):</strong> We process this personal data on three bases. We rely on your <strong>consent</strong> for non-essential cookies and marketing. We rely on our <strong>legitimate interests</strong> to respond to inquiries and to secure and improve the Website. We also process data where necessary to <strong>comply with legal obligations</strong>.
               </p>
             </div>
 
@@ -138,8 +144,8 @@ export default function PrivacyPolicy() {
               <h2 className="legal-section-title">4. Cookies, Analytics &amp; Tracking</h2>
               <p className="legal-prose">We use the following types of cookies and similar technologies on the Website:</p>
               <ul className="legal-list">
-                <li><strong>Essential cookies</strong> - required for the Website to function (security, session, load balancing, and remembering your cookie choice). Cannot be disabled.</li>
-                <li><strong>Analytics cookies</strong> - help us understand how visitors interact with the Website (e.g., page views, traffic sources). Loaded only with your consent.</li>
+                <li><strong>Essential cookies</strong> &mdash; required for the Website to function (security, session, load balancing, and remembering your cookie choice). Cannot be disabled.</li>
+                <li><strong>Analytics cookies</strong> &mdash; help us understand how visitors interact with the Website (e.g., page views, traffic sources). Loaded only with your consent.</li>
               </ul>
               <p className="legal-prose">
                 Where required by law, we obtain your consent before placing non-essential cookies. You can accept or decline non-essential cookies when you first visit, and change your choice at any time via the <strong>&ldquo;Cookie Preferences&rdquo;</strong> link in our footer. Declining non-essential cookies will not affect your ability to use the Website.
@@ -181,9 +187,9 @@ export default function PrivacyPolicy() {
                 We retain personal information collected through the Website only for as long as necessary for the purposes described in this policy, after which we securely delete or anonymize it.
               </p>
               <ul className="legal-list">
-                <li><strong>Contact &amp; inquiry data</strong> - retained to handle your inquiry and for a reasonable follow-up period, then deleted.</li>
-                <li><strong>Marketing data</strong> - retained until you opt out or withdraw consent.</li>
-                <li><strong>Log and analytics data</strong> - retained for up to 12 months.</li>
+                <li><strong>Contact &amp; inquiry data</strong> &mdash; retained to handle your inquiry and for a reasonable follow-up period, then deleted.</li>
+                <li><strong>Marketing data</strong> &mdash; retained until you opt out or withdraw consent.</li>
+                <li><strong>Log and analytics data</strong> &mdash; retained for up to 12 months.</li>
               </ul>
             </div>
 
@@ -194,19 +200,19 @@ export default function PrivacyPolicy() {
 
               <h3 className="legal-subsection-title">All Users</h3>
               <ul className="legal-list">
-                <li><strong>Access</strong> - request a copy of the personal data we hold about you.</li>
-                <li><strong>Correction</strong> - request correction of inaccurate or incomplete data.</li>
-                <li><strong>Deletion</strong> - request deletion of your personal data where no longer necessary.</li>
-                <li><strong>Opt-out of marketing</strong> - unsubscribe from marketing emails at any time via the link in any email.</li>
+                <li><strong>Access</strong> &mdash; request a copy of the personal data we hold about you.</li>
+                <li><strong>Correction</strong> &mdash; request correction of inaccurate or incomplete data.</li>
+                <li><strong>Deletion</strong> &mdash; request deletion of your personal data where no longer necessary.</li>
+                <li><strong>Opt-out of marketing</strong> &mdash; unsubscribe from marketing emails at any time via the link in any email.</li>
               </ul>
 
               <h3 className="legal-subsection-title">EEA, UK &amp; Switzerland (GDPR / UK GDPR)</h3>
               <ul className="legal-list">
-                <li><strong>Portability</strong> - receive your data in a structured, machine-readable format.</li>
-                <li><strong>Restriction</strong> - request that we limit how we process your data.</li>
-                <li><strong>Objection</strong> - object to processing based on legitimate interests.</li>
-                <li><strong>Withdraw consent</strong> - where processing is based on consent, withdraw at any time.</li>
-                <li><strong>Lodge a complaint</strong> - with your local supervisory authority.</li>
+                <li><strong>Portability</strong> &mdash; receive your data in a structured, machine-readable format.</li>
+                <li><strong>Restriction</strong> &mdash; request that we limit how we process your data.</li>
+                <li><strong>Objection</strong> &mdash; object to processing based on legitimate interests.</li>
+                <li><strong>Withdraw consent</strong> &mdash; where processing is based on consent, withdraw at any time.</li>
+                <li><strong>Lodge a complaint</strong> &mdash; with your local supervisory authority.</li>
               </ul>
 
               <h3 className="legal-subsection-title">California Residents (CCPA / CPRA)</h3>
@@ -276,34 +282,24 @@ export default function PrivacyPolicy() {
               <p className="legal-prose">
                 The GlobalCodio website is operated by Medicodio Inc. If you have questions about this Privacy Policy, wish to exercise your rights, or have a privacy concern, please email <a href="mailto:info@globalcodio.ai" style={{ color: 'var(--blue)' }}>info@globalcodio.ai</a> or write to us at any of the addresses below:
               </p>
-              <div style={{
-                background: 'var(--surface)',
-                borderRadius: 'calc(14px * var(--ui-scale))',
-                padding: 'calc(28px * var(--ui-scale))',
-                marginTop: 'var(--space-lg)',
-                display: 'grid',
-                gap: 'calc(16px * var(--ui-scale))',
-                fontSize: 'calc(15px * var(--ui-scale))',
-                color: 'var(--ink-2)',
-                lineHeight: 1.7,
-              }}>
+              <div className="legal-contact-card">
                 <div><strong>Medicodio Inc.</strong> (operator of GlobalCodio), a Delaware corporation</div>
                 <div>
-                  <div style={{ fontSize: 'calc(11px * var(--ui-scale))', fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--muted)', fontFamily: 'var(--mono)' }}>Registered office (Delaware)</div>
+                  <div className="legal-contact-label">Registered office (Delaware)</div>
                   <div>16192 Coastal Hwy, Lewes, DE 19958, USA</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: 'calc(11px * var(--ui-scale))', fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--muted)', fontFamily: 'var(--mono)' }}>US office (California)</div>
+                  <div className="legal-contact-label">US office (California)</div>
                   <div>2603 Camino Ramon #200, San Ramon, CA 94583, USA</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: 'calc(11px * var(--ui-scale))', fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--muted)', fontFamily: 'var(--mono)' }}>India operations (Bangalore)</div>
+                  <div className="legal-contact-label">India operations (Bangalore)</div>
                   <div>B-Block, 8th Floor, Brigade Tech Park, 134/1, Whitefield, Bangalore &ndash; 560 066, India</div>
                 </div>
                 <div>
                   Email: <a href="mailto:info@globalcodio.ai" style={{ color: 'var(--blue)' }}>info@globalcodio.ai</a>
                 </div>
-                <div style={{ marginTop: 'calc(4px * var(--ui-scale))', fontSize: 'calc(13px * var(--ui-scale))', color: 'var(--ink-3)' }}>
+                <div className="legal-contact-note">
                   We aim to respond to all privacy inquiries within 30 days.
                 </div>
               </div>

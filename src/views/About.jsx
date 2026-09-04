@@ -184,6 +184,31 @@ export default function About() {
         </div>
       </section>
 
+      {/* Corporate structure disclosure. A reviewer (USCIS, corporate
+          procurement, or security due diligence) that lands on /about should be
+          able to establish the legal entity behind the product without having
+          to read a legal page. */}
+      <Section id="corporate" tone="sec-surface">
+        <div className="about-disclosure reveal">
+          <SectionEyebrow>Corporate Information</SectionEyebrow>
+          <p className="about-disclosure-body">
+            GlobalCodio is a product of <strong>Medicodio Inc.</strong>, a Delaware corporation, which
+            operates this website and is the contracting entity for all GlobalCodio products and
+            services. Medicodio Inc. holds ISO 27001 certification and maintains offices in San Ramon,
+            California and Bangalore, India. Its registered office is 16192 Coastal Hwy, Lewes,
+            DE 19958, USA.
+          </p>
+          <p className="about-disclosure-body">
+            Website terms and privacy practices are described in our{' '}
+            <SmartLink href="/terms">Website Terms of Use</SmartLink> and{' '}
+            <SmartLink href="/privacy-policy">Website Privacy Policy</SmartLink>. Use of the
+            GlobalCodio platform is governed by the{' '}
+            <SmartLink href="/platform-terms">Platform Terms of Service</SmartLink> and{' '}
+            <SmartLink href="/platform-privacy">Platform Privacy Policy</SmartLink>.
+          </p>
+        </div>
+      </Section>
+
       <CtaBand
         lead="Read the letter"
         emphasis="from the founder."

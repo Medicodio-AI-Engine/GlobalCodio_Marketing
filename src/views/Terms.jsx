@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 import { PageHero, Section } from '../../components/ui/PageKit';
-import { PLATFORM_TERMS_URL } from '../../lib/navigation';
+import { PLATFORM_TERMS_PATH } from '../../lib/navigation';
 
 const LAST_UPDATED = 'June 29, 2026';
 
@@ -43,7 +43,7 @@ export default function Terms() {
             aria-label="Table of contents"
             className="legal-toc"
           >
-            <div style={{ fontSize: 'calc(10px * var(--ui-scale))', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 'var(--space-sm)', fontFamily: 'var(--mono)' }}>
+            <div className="legal-toc-title">
               Contents
             </div>
             {TOC.map((item) => {
@@ -75,10 +75,15 @@ export default function Terms() {
           {/* Terms body */}
           <article style={{ minWidth: 0 }}>
 
-            <div className="legal-callout" role="note">
+            <div className="legal-callout legal-callout--lead" role="note">
               <p>
-                <strong>Using the GlobalCodio platform?</strong> These terms cover the public website only. Your account and case data are governed by the{' '}
-                <a href={PLATFORM_TERMS_URL} target="_blank" rel="noopener noreferrer">Platform Terms of Service</a>.
+                <strong>Using the GlobalCodio platform? Read the Platform Terms of Service instead.</strong>
+              </p>
+              <p>
+                These Terms cover browsing the public marketing website only. Your access to and use
+                of the GlobalCodio application &mdash; accounts, fees, data ownership, and dispute
+                resolution &mdash; is governed by the{' '}
+                <a href={PLATFORM_TERMS_PATH}>Platform Terms of Service</a>.
               </p>
             </div>
 
@@ -112,7 +117,7 @@ export default function Terms() {
             <div id="ip">
               <h2 className="legal-section-title">3. Intellectual Property</h2>
               <p className="legal-prose">
-                The Website and its content - including software, text, designs, graphics, logos, and trademarks, but excluding any information you submit to us - are owned by or licensed to Medicodio Inc. This content is protected by intellectual property laws.
+                The Website and its content &mdash; including software, text, designs, graphics, logos, and trademarks, but excluding any information you submit to us &mdash; are owned by or licensed to Medicodio Inc. This content is protected by intellectual property laws.
               </p>
               <p className="legal-prose">
                 We grant you a limited, non-exclusive, non-transferable, revocable license to access and view the Website for your personal or internal business purposes in accordance with these Terms.
@@ -212,17 +217,7 @@ export default function Terms() {
               <p className="legal-prose">
                 Legal notices to the Company must be sent to <a href="mailto:info@globalcodio.ai" style={{ color: 'var(--blue)' }}>info@globalcodio.ai</a> and, where written notice is required, to our registered office:
               </p>
-              <div style={{
-                background: 'var(--surface)',
-                borderRadius: 'calc(14px * var(--ui-scale))',
-                padding: 'calc(28px * var(--ui-scale))',
-                marginTop: 'var(--space-lg)',
-                display: 'grid',
-                gap: 'calc(8px * var(--ui-scale))',
-                fontSize: 'calc(15px * var(--ui-scale))',
-                color: 'var(--ink-2)',
-                lineHeight: 1.7,
-              }}>
+              <div className="legal-contact-card legal-contact-card--tight">
                 <div><strong>Medicodio Inc.</strong> (operator of GlobalCodio)</div>
                 <div>16192 Coastal Hwy, Lewes, DE 19958, USA</div>
               </div>

@@ -235,7 +235,7 @@ export default function Firms() {
           },
           {
             q: 'How does GlobalCodio help immigration firms respond to corporate RFPs?',
-            a: 'GlobalCodio provides an RFP Response service that helps immigration law firms answer complex technical, security, and compliance questions from corporate clients. Firms on GlobalCodio can credibly document SOC 2 Type II, ISO 27001, GDPR, HIPAA-ready controls, and AI governance standards - exactly what corporate procurement teams require.',
+            a: 'GlobalCodio provides an RFP Response service that helps immigration law firms answer complex technical, security, and compliance questions from corporate clients. Firms on GlobalCodio can credibly document a SOC 2 Type II examination report, the ISO 27001 certificate held by Medicodio Inc. (which operates the platform), GDPR, HIPAA-ready controls, and AI governance standards - exactly what corporate procurement teams require.',
             meta: ['SOC 2 Type II', 'RFP response support'],
           },
           {

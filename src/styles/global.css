@@ -686,6 +686,30 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,input:focus-v
   color:var(--ink-2);
   font-weight:600;
 }
+.cert-item-status{
+  margin:calc(2px * var(--ui-scale)) 0;
+  display:inline-flex;
+  align-items:center;
+  gap:calc(5px * var(--ui-scale));
+  padding:calc(2px * var(--ui-scale)) calc(9px * var(--ui-scale));
+  border:1px solid var(--amber-a20);
+  border-radius:999px;
+  background:var(--amber-soft);
+  color:var(--amber);
+  font-family:var(--mono);
+  font-size:calc(10px * var(--ui-scale));
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  font-weight:600;
+  white-space:nowrap;
+}
+.cert-item-status::before{
+  content:'';
+  width:calc(5px * var(--ui-scale));
+  height:calc(5px * var(--ui-scale));
+  border-radius:50%;
+  background:var(--amber-bright);
+}
 .cert-item-link{
   display:inline-flex;
   align-items:center;
@@ -5709,9 +5733,13 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
 @media (min-width:1025px){
   .site-footer{--ft-font-scale:1.1;}
 }
+/* Brand block plus six link columns (Products, Services, Solutions, Company,
+   Legal, Connect). The track count has to match FOOTER_COLUMNS in
+   lib/navigation.js - a short count silently wraps the last column into an
+   implicit row under the brand block. */
 .ft-grid{
   display:grid;
-  grid-template-columns:minmax(0,2fr) repeat(5,minmax(0,1fr));
+  grid-template-columns:minmax(0,1.7fr) repeat(6,minmax(0,1fr));
   gap:calc(var(--space-2xl) * var(--ft-font-scale));
   margin-bottom:calc(var(--space-4xl) * var(--ft-font-scale));
 }
@@ -5741,6 +5769,16 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   line-height:1.8;
 }
 .ft-brand-links a{color:var(--ink-3);}
+/* Corporate disclosure under the footer brand block. Deliberately quiet but
+   not smaller than the surrounding footer links - it is a compliance
+   statement, not fine print. */
+.ft-brand-disclosure{
+  margin:var(--space-md) 0 0;
+  font-size:calc(13.5px * var(--ui-scale) * var(--ft-font-scale));
+  line-height:1.6;
+  color:var(--muted);
+}
+.ft-brand-disclosure strong{color:var(--ink-3);font-weight:600;}
 .ft-col-title{
   font-size:calc(10.5px * var(--ui-scale) * var(--ft-font-scale));
   letter-spacing:.14em;
@@ -6550,9 +6588,13 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   flex-direction:column;
   gap:calc(4px * var(--ui-scale));
 }
+/* Pinned, not --ui-scale-multiplied: at 0.84 scale this rendered at 16.38px
+ * against 16px body prose, which left a section heading the same size as the
+ * paragraph under it. These documents are navigated by section, so the heading
+ * needs to read as one. */
 .legal-section-title{
   font-family:var(--display);
-  font-size:calc(19.5px * var(--ui-scale));
+  font-size:24px;
   font-weight:600;
   color:var(--ink-2);
   letter-spacing:var(--nav-tracking);
@@ -6576,7 +6618,7 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   margin-top:var(--space-md);
 }
 .legal-subsection-title{
-  font-size:14px;
+  font-size:15px;
   font-weight:700;
   color:var(--ink-2);
   letter-spacing:.04em;
@@ -6617,6 +6659,167 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   color:var(--ink-2);
 }
 .legal-callout a{color:var(--blue);font-weight:600;}
+
+/* Lead variant of the callout, used at the top of /privacy-policy and /terms.
+ * We deliberately defer to the platform documents rather than duplicating their
+ * text here, which only holds up if a reviewer cannot miss the pointer - so this
+ * variant is louder than the base callout: tinted ground, a heavier accent rail,
+ * and a bold first line that states the conclusion before the explanation.
+ * Base .legal-callout is a flex row, so the direction is reset for the two
+ * stacked paragraphs. */
+.legal-callout--lead{
+  flex-direction:column;
+  gap:calc(8px * var(--ui-scale));
+  background:color-mix(in srgb, var(--blue) 6%, var(--surface));
+  border-color:color-mix(in srgb, var(--blue) 22%, var(--line));
+  border-left-width:4px;
+  padding:calc(22px * var(--ui-scale)) calc(24px * var(--ui-scale));
+}
+.legal-callout--lead p:first-child{
+  font-size:17px;
+  line-height:1.45;
+  color:var(--ink);
+}
+.legal-callout--lead p:first-child strong{font-weight:700;}
+.legal-callout--lead a{text-decoration:underline;text-underline-offset:2px;}
+
+/* ── Mirrored platform legal documents (/platform-privacy, /platform-terms) ──
+ * The source markup is re-emitted by lib/platformLegal.js with this site's own
+ * legal classes, so it inherits .legal-prose / .legal-list / .legal-section-title
+ * above. These rules cover the three elements the platform documents use that
+ * the hand-written pages do not: data tables, inline callouts, and links inside
+ * mirrored prose. All type here holds the same 14px floor the USCIS review
+ * requires; the tables sit at 15px so a wide retention grid still fits. */
+.legal-table-wrap{
+  overflow-x:auto;
+  max-width:70ch;
+  margin-top:var(--space-md);
+  border:1px solid var(--line);
+  border-radius:calc(10px * var(--ui-scale));
+  -webkit-overflow-scrolling:touch;
+}
+.legal-table{
+  width:100%;
+  min-width:min(100%, calc(520px * var(--ui-scale)));
+  border-collapse:collapse;
+  font-size:15px;
+  line-height:1.6;
+  color:var(--ink-3);
+}
+.legal-table th,
+.legal-table td{
+  padding:calc(10px * var(--ui-scale)) calc(14px * var(--ui-scale));
+  text-align:left;
+  vertical-align:top;
+  border-bottom:1px solid var(--line);
+}
+.legal-table thead th{
+  font-size:14px;
+  font-weight:700;
+  color:var(--ink-2);
+  background:var(--surface);
+  white-space:nowrap;
+}
+.legal-table tbody tr:last-child td{border-bottom:0;}
+
+.legal-note{
+  display:block;
+  max-width:70ch;
+  margin-top:var(--space-md);
+  padding:calc(14px * var(--ui-scale)) calc(16px * var(--ui-scale));
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-left:3px solid var(--blue);
+  border-radius:calc(8px * var(--ui-scale));
+  font-size:15px;
+  line-height:1.65;
+  color:var(--ink-2);
+}
+.legal-note > .legal-prose:first-child{margin-top:0;}
+
+.legal-quote{
+  max-width:70ch;
+  margin:var(--space-md) 0 0;
+  padding-left:calc(16px * var(--ui-scale));
+  border-left:2px solid var(--line);
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-3);
+}
+
+/* Links inside mirrored prose. The hand-written pages set link colour inline;
+   the mirror cannot, so it is set here for the whole document body. */
+.legal-prose a,
+.legal-list a,
+.legal-table a,
+.legal-note a{color:var(--blue);}
+
+.legal-unavailable{max-width:70ch;}
+.legal-unavailable a{color:var(--blue);font-weight:500;}
+
+/* Provenance line closing a mirrored document. Quiet, but not below the 14px
+   floor - it is the statement that ties this URL to the canonical source. */
+.legal-source-note{
+  max-width:70ch;
+  margin-top:var(--space-4xl);
+  padding-top:var(--space-lg);
+  border-top:1px solid var(--line);
+  font-size:14px;
+  line-height:1.65;
+  color:var(--muted);
+}
+.legal-source-note a{color:var(--ink-3);}
+
+/* ── Remaining 14px-floor fixes on the legal pages ──────────────────────────
+ * A rendered audit of /privacy-policy, /terms and the two mirrored platform
+ * pages found three elements still below the 14px USCIS floor because they were
+ * multiplied by --ui-scale (0.84): the hero eyebrow pill (8.4px), the table-of-
+ * contents heading (8.4px), and the whole contact / notices address block
+ * (12.6px, with 9.24px uppercase labels). The address block matters most - it
+ * carries the privacy contact of record. Each is pinned to an explicit px value
+ * and scoped to .page-legal-doc so the rest of the site keeps its own density. */
+/* !important is required only because the base .hero-eyebrow-pill rule uses
+   it; this override cannot win on specificity alone. */
+.page-legal-doc .hero-eyebrow-pill{font-size:14px !important;letter-spacing:.06em;}
+
+.legal-toc-title{
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:var(--space-sm);
+  font-family:var(--mono);
+}
+
+.legal-contact-card{
+  background:var(--surface);
+  border-radius:calc(14px * var(--ui-scale));
+  padding:calc(28px * var(--ui-scale));
+  margin-top:var(--space-lg);
+  max-width:70ch;
+  display:grid;
+  gap:calc(16px * var(--ui-scale));
+  font-size:16px;
+  color:var(--ink-2);
+  line-height:1.7;
+}
+.legal-contact-card--tight{gap:calc(8px * var(--ui-scale));}
+.legal-contact-card a{color:var(--blue);}
+.legal-contact-label{
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-family:var(--mono);
+  margin-bottom:calc(2px * var(--ui-scale));
+}
+.legal-contact-note{
+  margin-top:calc(4px * var(--ui-scale));
+  font-size:14px;
+  color:var(--ink-3);
+}
 
 /* Legal-page hero subhead: same 14px-floor fix, scoped to these two pages only
  * so every other page's .page-hero-sub keeps its normal --ui-scale sizing. */
@@ -7156,3 +7359,16 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   .gc-modal-actions{justify-content:stretch;}
   .gc-modal-actions .btn{flex:1;}
 }
+
+/* About page corporate-structure disclosure. 16px floor and a 70ch measure, the
+   same readability rules the legal pages use - it carries the same kind of
+   information and gets read by the same kind of reviewer. */
+.about-disclosure{max-width:70ch;}
+.about-disclosure-body{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--ink-3);
+  margin:var(--space-md) 0 0;
+}
+.about-disclosure-body strong{color:var(--ink-2);font-weight:600;}
+.about-disclosure-body a{color:var(--blue);font-weight:500;}

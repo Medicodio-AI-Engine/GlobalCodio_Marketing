@@ -32,6 +32,8 @@ const STATIC_ROUTES = [
   '/free-tech-audit',
   '/privacy-policy',
   '/terms',
+  '/platform-privacy',
+  '/platform-terms',
 ];
 
 /** Coerce a Sanity date string to a Date, or undefined if absent/unparseable. */

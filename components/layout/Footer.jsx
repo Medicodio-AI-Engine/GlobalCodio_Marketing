@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FOOTER_COLUMNS, SUPPORT_EMAIL, SUPPORT_MAILTO, SITE_URL, PLATFORM_PRIVACY_URL, PLATFORM_TERMS_URL } from '../../lib/navigation';
+import { FOOTER_COLUMNS, SUPPORT_EMAIL, SUPPORT_MAILTO, SITE_URL, PLATFORM_PRIVACY_PATH, PLATFORM_TERMS_PATH } from '../../lib/navigation';
 import { OPEN_PREFERENCES_EVENT } from '../../lib/consent';
 import { Logo } from './Nav';
 
@@ -31,6 +31,13 @@ export const Footer = () => (
             <a href={SITE_URL}>www.globalcodio.ai</a>
             <a href={SUPPORT_MAILTO}>{SUPPORT_EMAIL}</a>
           </div>
+          {/* Corporate disclosure. GlobalCodio is a product line, not a legal
+              entity - Medicodio Inc. is the contracting party named in every
+              legal document on this site and in regulatory filings. Stated
+              site-wide so it is visible without having to open a legal page. */}
+          <p className="ft-brand-disclosure">
+            GlobalCodio is a product of <strong>Medicodio Inc.</strong>, a Delaware corporation.
+          </p>
         </div>
         {FOOTER_COLUMNS.map((col) => (
           <div key={col.title} className="ft-col">
@@ -61,15 +68,15 @@ export const Footer = () => (
       </div>
       <div className="ft-bar">
         <div className="ft-bar-legal">
-          <span>© 2026 GlobalCodio. All rights reserved.</span>
+          <span>© 2026 GlobalCodio, a product of Medicodio Inc. All rights reserved.</span>
           <span className="ft-bar-sep" aria-hidden="true">·</span>
           <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
           <span className="ft-bar-sep" aria-hidden="true">·</span>
           <FooterLink href="/terms">Terms of Use</FooterLink>
           <span className="ft-bar-sep" aria-hidden="true">·</span>
-          <FooterLink href={PLATFORM_PRIVACY_URL} target="_blank" rel="noopener noreferrer">Platform Privacy Policy</FooterLink>
+          <FooterLink href={PLATFORM_PRIVACY_PATH}>Platform Privacy Policy</FooterLink>
           <span className="ft-bar-sep" aria-hidden="true">·</span>
-          <FooterLink href={PLATFORM_TERMS_URL} target="_blank" rel="noopener noreferrer">Platform Terms</FooterLink>
+          <FooterLink href={PLATFORM_TERMS_PATH}>Platform Terms</FooterLink>
           <span className="ft-bar-sep" aria-hidden="true">·</span>
           <button type="button" className="ft-legal-btn" onClick={openPreferences}>
             Cookie Preferences

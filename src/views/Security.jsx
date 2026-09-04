@@ -92,8 +92,8 @@ const layers = [
 ];
 
 const docs = [
-  'SOC 2 Type II Report',
-  'ISO 27001 Certificate and Statement of Applicability',
+  'SOC 2 Type II Examination Report',
+  'ISO 27001 Certificate and Statement of Applicability (Medicodio Inc.)',
   'Security Architecture Documentation',
   'Incident Response Plan',
   'Data Processing Agreements',
@@ -131,6 +131,12 @@ export default function Security() {
             </div>
             <div className="cert-panel">
               <CertLogos className="reveal d1" />
+              <p className="reveal d3 cert-footnote">
+                SOC 2 Type II is an independent attestation report, not a certification. ISO 27001 is
+                certified to Medicodio Inc., which operates GlobalCodio on the same infrastructure and
+                information security management system. GDPR and CCPA/CPRA readiness programmes are in
+                progress. Certificates and reports are available on request.
+              </p>
             </div>
           </div>
         </div>
@@ -336,9 +342,9 @@ export default function Security() {
         emphasis="security and compliance."
         items={[
           {
-            q: 'What security certifications does GlobalCodio hold?',
-            a: 'GlobalCodio is SOC 2 Type II certified and ISO 27001 certified. The platform meets GDPR, UK GDPR, and CCPA/CPRA requirements, implements HIPAA-ready safeguards for immigration medical records, and follows ABA-aligned AI governance standards. Full compliance documentation is available to qualified prospects under NDA.',
-            meta: ['SOC 2 Type II', 'ISO 27001'],
+            q: 'What security certifications and audit reports does GlobalCodio hold?',
+            a: 'GlobalCodio has completed a SOC 2 Type II examination, which produces an independent attestation report rather than a certificate. GlobalCodio is a product of Medicodio Inc., which holds ISO 27001 certification, and runs on the same infrastructure and under the same information security management system; the certificate is issued to Medicodio Inc. and is available on request. The platform meets GDPR, UK GDPR, and CCPA/CPRA requirements, implements HIPAA-ready safeguards for immigration medical records, and follows ABA-aligned AI governance standards. Full compliance documentation is available to qualified prospects under NDA.',
+            meta: ['SOC 2 Type II examined', 'ISO 27001 (Medicodio Inc.)'],
           },
           {
             q: 'How does GlobalCodio protect attorney-client privilege when using AI?',
@@ -357,7 +363,7 @@ export default function Security() {
           },
           {
             q: 'What compliance documentation is available for vendor due diligence?',
-            a: 'GlobalCodio provides a full trust package to qualified prospects under NDA: SOC 2 Type II report, ISO 27001 certificate and Statement of Applicability, security architecture documentation, incident response plan, data processing agreements, and subprocessor list with vendor risk assessments.',
+            a: 'GlobalCodio provides a full trust package to qualified prospects under NDA: SOC 2 Type II examination report, the Medicodio Inc. ISO 27001 certificate and Statement of Applicability, security architecture documentation, incident response plan, data processing agreements, and subprocessor list with vendor risk assessments.',
             meta: ['Full trust package', 'Available under NDA'],
           },
         ]}

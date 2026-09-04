@@ -81,7 +81,7 @@ const WHAT_IT_DELIVERS = [
 const HR_PLATFORMS = [
   {
     name: 'Workday',
-    desc: 'Sync employee records, org structure, cost centres, and employment status directly into case management.',
+    desc: 'Sync employee records, org structure, cost centers, and employment status directly into case management.',
     tag: 'HCM',
     i: 0,
     logo: '/assets/hrms/workday.svg',

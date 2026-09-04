@@ -410,9 +410,9 @@ export const ValueLevers = () => (
    `href` points to each standard's authoritative source. */
 const CERT_BADGES = [
   { id: 'soc2', src: 'SOC-2-Type-2.webp', name: 'SOC 2 Type II', label: 'SOC 2 Type II', sub: 'Audited annually', href: 'https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2' },
-  { id: 'iso', src: 'ISO.webp', name: 'ISO/IEC 27001', label: 'ISO/IEC 27001', sub: 'Information security', href: 'https://www.iso.org/standard/27001' },
-  { id: 'gdpr', src: 'GDPR.webp', name: 'GDPR', label: 'GDPR', sub: 'EU data protection', href: 'https://commission.europa.eu/law/law-topic/data-protection_en' },
-  { id: 'ccpa', src: 'CCPA.webp', name: 'CCPA / CPRA', label: 'CCPA / CPRA', sub: 'US privacy law', href: 'https://oag.ca.gov/privacy/ccpa' },
+  { id: 'iso', src: 'ISO.webp', name: 'ISO/IEC 27001', label: 'ISO/IEC 27001', sub: 'Information security - certified to Medicodio Inc.', href: 'https://www.iso.org/standard/27001' },
+  { id: 'gdpr', src: 'GDPR.webp', name: 'GDPR', label: 'GDPR', sub: 'EU data protection', status: 'In Progress', href: 'https://commission.europa.eu/law/law-topic/data-protection_en' },
+  { id: 'ccpa', src: 'CCPA.webp', name: 'CCPA / CPRA', label: 'CCPA / CPRA', sub: 'US privacy law', status: 'In Progress', href: 'https://oag.ca.gov/privacy/ccpa' },
 ];
 
 const CERT_ASSET = (src) => `/assets/${src}`;
@@ -428,19 +428,20 @@ const CertArrow = () => (
  *  Each logo has its standard name + a "Details →" link to the source. */
 export const CertLogos = ({ className = '', style }) => (
   <div className={`cert-logos ${className}`.trim()} style={style}>
-    {CERT_BADGES.map(({ id, src, name, label, sub, href }) => (
+    {CERT_BADGES.map(({ id, src, name, label, sub, status, href }) => (
       <figure key={id} className="cert-item">
         <img
           className="cert-logo-img"
           src={CERT_ASSET(src)}
-          alt={`${label} - ${sub}`}
-          title={`${label} - ${sub}`}
+          alt={`${label} - ${sub}${status ? ` (${status})` : ''}`}
+          title={`${label} - ${sub}${status ? ` (${status})` : ''}`}
           loading="lazy"
           decoding="async"
           draggable={false}
         />
         <figcaption className="cert-item-cap">
           <span className="cert-item-name">{name}</span>
+          {status && <span className="cert-item-status">{status}</span>}
           <a
             className="cert-item-link"
             href={href}
@@ -472,7 +473,9 @@ export const Certifications = () => (
           <CertLogos className="reveal d1" />
 
           <p className="reveal d3 cert-footnote">
-            SOC 2 report, standard DPA, and security questionnaire available on request.{' '}
+            SOC 2 Type II examination report, standard DPA, and security questionnaire available on
+            request. ISO 27001 is certified to Medicodio Inc., which operates GlobalCodio on the same
+            infrastructure.{' '}
             <a href={SUPPORT_MAILTO}>Request security pack</a>
           </p>
         </div>
