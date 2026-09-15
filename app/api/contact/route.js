@@ -218,18 +218,44 @@ export async function POST(request) {
     console.error('[contact] Sanity write failed (non-fatal):', err.message);
   }
 
-  // Send email notification
+  // Send email notification.
+  // Misconfigured env vars are the usual cause of a silent no-send: the write
+  // to Sanity succeeds and nothing is delivered. Fail loudly instead.
+  const from = process.env.RESEND_FROM_EMAIL;
+  const to = process.env.CONTACT_TO_EMAIL;
+  if (!process.env.RESEND_API_KEY || !from || !to) {
+    console.error('[contact] Email not sent - missing env:', {
+      RESEND_API_KEY: Boolean(process.env.RESEND_API_KEY),
+      RESEND_FROM_EMAIL: Boolean(from),
+      CONTACT_TO_EMAIL: Boolean(to),
+    });
+    return Response.json({ error: 'Failed to send email' }, { status: 500 });
+  }
+
   try {
-    await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL,
-      to: process.env.CONTACT_TO_EMAIL,
+    // The Resend SDK resolves with { data, error } - it does not throw on an
+    // API error - so the error branch has to be checked explicitly.
+    const { data, error } = await resend.emails.send({
+      from,
+      to,
       replyTo: workEmail,
       subject: `New enquiry from ${fullName} - ${orgName}`,
       html: buildEmailHtml({ fullName, workEmail, orgName, website, howHeard, message, context }),
     });
+    if (error) {
+      console.error('[contact] Resend rejected the send:', {
+        name: error.name,
+        statusCode: error.statusCode,
+        message: error.message,
+        from,
+        to,
+      });
+      return Response.json({ error: 'Failed to send email' }, { status: 500 });
+    }
+    console.log('[contact] Email queued:', data?.id, '->', to);
     return Response.json({ ok: true });
   } catch (err) {
-    console.error('[contact] Email send failed:', err.message);
+    console.error('[contact] Email send threw:', err.message);
     return Response.json({ error: 'Failed to send email' }, { status: 500 });
   }
 }
