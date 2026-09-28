@@ -54,7 +54,9 @@ export function ConsentScripts() {
       <Script
         id="gc-gtag-loader"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
+        // Deferred until the browser is idle after load: gtag.js is ~170 KiB and was
+        // competing with hydration. Queued dataLayer calls above are replayed on load.
+        strategy="lazyOnload"
       />
     </>
   );

@@ -752,7 +752,7 @@ export default function Platform() {
       <CtaBand
         lead="We demo the features that solve"
         emphasis="your challenges. Not a generic demo."
-        primary={{ href: '/contact', label: 'Book your free tech audit' }}
+        primary={{ href: '/free-tech-audit', label: 'Book your free tech audit' }}
         secondary={{ href: '/ai-agents', label: 'Explore the AI Agents' }}
       />
     </>

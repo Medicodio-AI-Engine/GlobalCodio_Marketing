@@ -171,37 +171,37 @@ GlobalCodio attends immigration industry conferences throughout 2026:
 
 ## Pages and Resources
 
-- Home: https://www.globalcodio.ai/
-- Platform (CodioCMS & CodioForms): https://www.globalcodio.ai/platform
-- AI Agents: https://www.globalcodio.ai/ai-agents
-- CodioNetwork: https://www.globalcodio.ai/network
-- For Law Firms: https://www.globalcodio.ai/for-law-firms
-- For Corporate Teams: https://www.globalcodio.ai/for-corporate-teams
-- Security & Compliance: https://www.globalcodio.ai/security
-- Services (IT & Managed Operations): https://www.globalcodio.ai/it-services
-- CodioOps: https://www.globalcodio.ai/codioops
-- HRMS Integration: https://www.globalcodio.ai/hrms-integration
-- RFP Response: https://www.globalcodio.ai/rfp-response
-- Customer Support: https://www.globalcodio.ai/customer-support
-- About: https://www.globalcodio.ai/about
-- Letter from the Founder: https://www.globalcodio.ai/letter-from-the-founder
-- Blog: https://www.globalcodio.ai/blog
-- Events: https://www.globalcodio.ai/events
-- Free Tech Audit: https://www.globalcodio.ai/free-tech-audit
-- Contact: https://www.globalcodio.ai/contact
-- Privacy Policy: https://www.globalcodio.ai/privacy-policy
-- App Login: https://app.globalcodio.ai/login
-- Sitemap: https://www.globalcodio.ai/sitemap.xml
+- [Home](https://www.globalcodio.ai/)
+- [Platform (CodioCMS & CodioForms)](https://www.globalcodio.ai/platform)
+- [AI Agents](https://www.globalcodio.ai/ai-agents)
+- [CodioNetwork](https://www.globalcodio.ai/network)
+- [For Law Firms](https://www.globalcodio.ai/for-law-firms)
+- [For Corporate Teams](https://www.globalcodio.ai/for-corporate-teams)
+- [Security & Compliance](https://www.globalcodio.ai/security)
+- [Services (IT & Managed Operations)](https://www.globalcodio.ai/it-services)
+- [CodioOps](https://www.globalcodio.ai/codioops)
+- [HRMS Integration](https://www.globalcodio.ai/hrms-integration)
+- [RFP Response](https://www.globalcodio.ai/rfp-response)
+- [Customer Support](https://www.globalcodio.ai/customer-support)
+- [About](https://www.globalcodio.ai/about)
+- [Letter from the Founder](https://www.globalcodio.ai/letter-from-the-founder)
+- [Blog](https://www.globalcodio.ai/blog)
+- [Events](https://www.globalcodio.ai/events)
+- [Free Tech Audit](https://www.globalcodio.ai/free-tech-audit)
+- [Contact](https://www.globalcodio.ai/contact)
+- [Privacy Policy](https://www.globalcodio.ai/privacy-policy)
+- [App Login](https://app.globalcodio.ai/login)
+- [Sitemap](https://www.globalcodio.ai/sitemap.xml)
 
 ## Contact
 
-- Website: https://www.globalcodio.ai/
+- [Website](https://www.globalcodio.ai/)
 - Email: info@globalcodio.ai
-- LinkedIn: https://www.linkedin.com/company/globalcodio
+- [LinkedIn](https://www.linkedin.com/company/globalcodio)
 - US office: 2603 Camino Ramon #200, San Ramon, CA 94583
 - India office: B-Block, 8th Floor, Brigade Tech Park, 134/1 Whitefield Main Road, Bangalore 560066
 - Response time: within one business day
-- Free technology audit: https://www.globalcodio.ai/free-tech-audit
+- [Free technology audit](https://www.globalcodio.ai/free-tech-audit)
 
 ## Keywords and Taxonomy
 

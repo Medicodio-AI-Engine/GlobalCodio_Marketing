@@ -87,8 +87,8 @@ export const Footer = () => (
         <div className="ft-bar-tagline mono">Win Cases. We&rsquo;ll Handle All the Technology.</div>
       </div>
       <div className="ft-watermark" aria-hidden="true">
-        <div className="ft-watermark-text display">
-          GlobalCodio<span className="ft-watermark-accent">.ai</span>
+        <div className="ft-watermark-text display" data-text="GlobalCodio">
+          <span className="ft-watermark-accent" data-text=".ai" />
         </div>
         <div className="ft-watermark-fade" aria-hidden="true" />
       </div>

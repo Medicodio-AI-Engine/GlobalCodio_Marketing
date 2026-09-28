@@ -1,90 +1,15 @@
-'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
+import { AUDIT_URL } from '../../lib/navigation';
 
-const ease = [0.2, 0.7, 0.2, 1];
-
-/* ── Stagger containers ── */
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
-};
-const headlineStagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.02 } },
-};
-/* Word-by-word stagger for split text */
-const wordStagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.06, delayChildren: 0 } },
-};
-
-/* ── Variants ── */
-
-/* Primary headline words: blur(10px) + slide up + fade */
-const wordRise = {
-  hidden: { opacity: 0, y: 12, filter: 'blur(10px)' },
-  show: {
-    opacity: 1, y: 0, filter: 'blur(0px)',
-    transition: { duration: 0.55, ease },
-  },
-};
-
-/* Gradient headline words: no filter - blur breaks background-clip:text on the parent em */
-const wordRiseGradient = {
-  hidden: { opacity: 0, y: 12 },
-  show: {
-    opacity: 1, y: 0,
-    transition: { duration: 0.55, ease },
-  },
-};
-
-/* Body / sub-copy: lighter blur (7px) + smaller lift */
-const bodyRise = {
-  hidden: { opacity: 0, y: 10, filter: 'blur(7px)' },
-  show: {
-    opacity: 1, y: 0, filter: 'blur(0px)',
-    transition: { duration: 0.58, ease },
-  },
-};
-
-/* Pills / trust line: faintest blur (5px) */
-const subtleRise = {
-  hidden: { opacity: 0, y: 8, filter: 'blur(5px)' },
-  show: {
-    opacity: 1, y: 0, filter: 'blur(0px)',
-    transition: { duration: 0.52, ease },
-  },
-};
-
-/* Dashboard: lift from further below, slight perspective tilt */
-const dashRise = {
-  hidden: { opacity: 0, y: 40, filter: 'blur(6px)' },
-  show: {
-    opacity: 1, y: 0, filter: 'blur(0px)',
-    transition: { duration: 0.9, delay: 0.38, ease },
-  },
-};
-
-/* Helper: split a string into word-span elements */
-const Words = ({ text, className, style }) => (
-  <motion.span className={className} style={style} variants={wordStagger}>
-    {text.split(' ').map((word, i) => (
-      <motion.span
-        key={i}
-        variants={wordRise}
-        style={{ display: 'inline-block', whiteSpace: 'pre' }}
-      >
-        {word}{i < text.split(' ').length - 1 ? ' ' : ''}
-      </motion.span>
-    ))}
-  </motion.span>
-);
-
-const btnTap = { whileHover: { scale: 1.03, y: -2 }, whileTap: { scale: 0.98 } };
+/* Hero entrance is CSS-only (.hero-in + heroRise in global.css): it starts on first
+   paint from the server-rendered HTML instead of waiting for hydration, and animates
+   only opacity/transform so it stays on the compositor. --hd sets the stagger delay. */
+const d = (s) => ({ '--hd': `${s}s` });
 
 /* Static assets in /public */
 const dashboardPreviewSrc = '/assets/dashboard.webp';
+const dashboardPreviewSrcSet =
+  '/assets/dashboard-960.webp 960w, /assets/dashboard-1280.webp 1280w, /assets/dashboard.webp 1920w';
 
 /* Hero - editorial headline, sub, CTAs, then dashboard preview below.
    Background: clean light base with a faint top-down blue wash; the premium
@@ -106,58 +31,51 @@ export const Hero = () => (
       <div className="hero-aurora" aria-hidden="true" />
       <div className="hero-grid-overlay" aria-hidden="true" />
       <div className="hero-copy-stack">
-        <motion.div
+        <div
           className="container"
           style={{ position: 'relative', zIndex: 2, width: '100%' }}
-          variants={stagger}
-          initial="hidden"
-          animate="show"
         >
 
-          {/* Headline - word-by-word blur+slide */}
-          <motion.h1
+          {/* Headline - word-by-word rise */}
+          <h1
             className="reveal d1 display type-display-hero"
             style={{ textAlign: 'center', marginBottom: 'var(--space-sm)', lineHeight: 1.12 }}
-            variants={headlineStagger}
           >
             {/* Line 1 */}
-            <motion.span style={{ display: 'block' }} variants={wordStagger}>
+            <span style={{ display: 'block' }}>
               {['Win', 'Cases.'].map((word, i, arr) => (
                 <React.Fragment key={i}>
-                  <motion.span variants={wordRise} style={{ display: 'inline-block' }}>
+                  <span className="hero-in" style={{ display: 'inline-block', ...d(0.02 + i * 0.06) }}>
                     {word}
-                  </motion.span>
+                  </span>
                   {i < arr.length - 1 && ' '}
                 </React.Fragment>
               ))}
-            </motion.span>
+            </span>
 
-            {/* Line 2: animate the whole em as one unit - blur on the parent works fine */}
-            <motion.em
-              className="text-grad-blue"
-              style={{ display: 'block', fontStyle: 'italic' }}
-              variants={wordRise}
+            {/* Line 2: animate the whole em as one unit */}
+            <em
+              className="text-grad-blue hero-in"
+              style={{ display: 'block', fontStyle: 'italic', ...d(0.12) }}
             >
               We&rsquo;ll Handle All the Technology.
-            </motion.em>
-          </motion.h1>
+            </em>
+          </h1>
 
-          {/* Pills - subtle blur tier */}
-          <motion.div
-            className="reveal hero-pill-row"
-            style={{ textAlign: 'center' }}
-            variants={subtleRise}
+          {/* Pills */}
+          <div
+            className="reveal hero-pill-row hero-in"
+            style={{ textAlign: 'center', ...d(0.14) }}
           >
             {['Global Immigration Case Management', 'Global Immigration Forms', 'Managed Tech Operations', 'Technology Audit'].map((label) => (
               <span key={label} className="pill">{label}</span>
             ))}
-          </motion.div>
+          </div>
 
-          {/* Body copy - medium blur tier, full */}
-          <motion.p
-            className="reveal d2 type-lead hero-lead hero-lead-full"
-            style={{ lineHeight: 1.55, color: 'var(--ink-3)', textAlign: 'center', margin: '0 auto var(--space-md)' }}
-            variants={bodyRise}
+          {/* Body copy - full */}
+          <p
+            className="reveal d2 type-lead hero-lead hero-lead-full hero-in"
+            style={{ lineHeight: 1.55, color: 'var(--ink-3)', textAlign: 'center', margin: '0 auto var(--space-md)', ...d(0.18) }}
           >
             GlobalCodio gives immigration law firms and corporate immigration departments their own AI workforce-built,
             deployed, and managed end-to-end. Our AI Agents handle case management, client communications, renewals,
@@ -165,47 +83,45 @@ export const Hero = () => (
             <strong>while our team runs the entire technology operation.</strong>{' '}
             Connected to a global ecosystem of immigration partners, we help your team cut costs and grow revenue-without ever
             managing technology again.
-          </motion.p>
+          </p>
 
           {/* Body copy - mobile */}
-          <motion.p
-            className="reveal d2 type-lead hero-lead hero-lead-mobile"
-            style={{ lineHeight: 1.48, color: 'var(--ink-3)', textAlign: 'center', margin: '0 auto var(--space-md)' }}
-            variants={bodyRise}
+          <p
+            className="reveal d2 type-lead hero-lead hero-lead-mobile hero-in"
+            style={{ lineHeight: 1.48, color: 'var(--ink-3)', textAlign: 'center', margin: '0 auto var(--space-md)', ...d(0.18) }}
           >
             Your AI workforce for immigration-agents for cases, clients, renewals, and growth,{' '}
             <strong>while our team runs the entire technology operation.</strong>
-          </motion.p>
+          </p>
 
-          {/* CTAs - subtle tier, slide-up */}
-          <motion.div
-            className="reveal d3 hero-cta-row"
-            style={{ display: 'flex', gap: 'var(--space-xs)', justifyContent: 'center', flexWrap: 'wrap', marginBottom: 0 }}
-            variants={subtleRise}
+          {/* CTAs */}
+          <div
+            className="reveal d3 hero-cta-row hero-in"
+            style={{ display: 'flex', gap: 'var(--space-xs)', justifyContent: 'center', flexWrap: 'wrap', marginBottom: 0, ...d(0.24) }}
           >
-            <motion.a href="/contact" className="btn btn-dark" {...btnTap}>
+            <a href={AUDIT_URL} className="btn btn-dark">
               Book your free tech audit
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M3 8h10M9 4l4 4-4 4" />
               </svg>
-            </motion.a>
-            <motion.a href="#operation" className="btn btn-glass" {...btnTap}>
+            </a>
+            <a href="#operation" className="btn btn-glass">
               See how it works
-            </motion.a>
-          </motion.div>
+            </a>
+          </div>
 
-          {/* Trust line - faintest tier */}
-          <motion.div
-            className="reveal d4 hero-trust"
-            variants={subtleRise}
+          {/* Trust line */}
+          <div
+            className="reveal d4 hero-trust hero-in"
+            style={d(0.3)}
             aria-label="Trusted by immigration practices worldwide"
           >
             <span className="hero-trust-copy">
               Built by the founder of <strong>INSZoom</strong> - trusted by 1,000+ immigration firms.
             </span>
-          </motion.div>
+          </div>
 
-        </motion.div>
+        </div>
       </div>
 
       {/* Dashboard preview - hidden on mobile via .hero-dashboard-slot in global.css */}
@@ -236,10 +152,8 @@ export const Hero = () => (
 );
 
 export const HeroDashboard = ({ imageHeight } = {}) => (
-  <motion.div
-    variants={dashRise}
-    initial="hidden"
-    animate="show"
+  <div
+    className="hero-dash-in"
     style={{
       position: 'relative',
       width: '100%',
@@ -422,11 +336,13 @@ export const HeroDashboard = ({ imageHeight } = {}) => (
         overflow: 'hidden',
       }}
     >
-      <motion.img
+      <img
         src={dashboardPreviewSrc}
+        srcSet={dashboardPreviewSrcSet}
+        sizes="(max-width: 1320px) 100vw, 1264px"
         alt="GlobalCodio AI workforce immigration platform dashboard for law firms and corporate teams"
-        width={1200}
-        height={630}
+        width={1920}
+        height={1080}
         loading="eager"
         fetchPriority="high"
         decoding="async"
@@ -466,5 +382,5 @@ export const HeroDashboard = ({ imageHeight } = {}) => (
         </span>
       </div>
     </div>
-  </motion.div>
+  </div>
 );

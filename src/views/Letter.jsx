@@ -19,7 +19,7 @@ export default function Letter() {
         lead="A letter from"
         emphasis="the founder."
         sub="Umesh Vaidyamath - Founder & CEO, GlobalCodio · Founder & CEO, INSZoom (1999-2020)"
-        primary={{ href: '/contact', label: 'Book your free tech audit' }}
+        primary={{ href: '/free-tech-audit', label: 'Book your free tech audit' }}
         secondary={{ href: '/about', label: 'About GlobalCodio' }}
       />
 
@@ -143,7 +143,7 @@ export default function Letter() {
       <CtaBand
         lead="Bring your hardest questions."
         emphasis="We’ll show you what’s possible."
-        primary={{ href: '/contact', label: 'Book your free tech audit' }}
+        primary={{ href: '/free-tech-audit', label: 'Book your free tech audit' }}
         secondary={{ href: '/about', label: 'About GlobalCodio' }}
       />
     </>

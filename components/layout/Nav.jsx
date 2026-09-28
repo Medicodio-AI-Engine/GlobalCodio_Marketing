@@ -129,7 +129,7 @@ export const Nav = () => {
   return (
     <header>
       <div className={`nav-shell${menuOpen ? ' nav-shell-menu-open' : ''}`} style={{ position: 'fixed', top: 'var(--nav-shell-top)', left: 0, right: 0, zIndex: menuOpen ? 200 : 100, display: 'flex', justifyContent: 'center', paddingLeft: 'max(calc(20px * var(--ui-scale)),env(safe-area-inset-left,0px))', paddingRight: 'max(calc(20px * var(--ui-scale)),env(safe-area-inset-right,0px))', pointerEvents: 'none' }}>
-        <motion.nav className={`site-nav${scrolled ? ' is-scrolled' : ''}${menuOpen ? ' is-menu-open' : ''}`} initial={{ y: -18, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, ease: drawerEase }} style={{ pointerEvents: 'auto', width: '100%', maxWidth: 'var(--container-max)', borderRadius: 56, transition: 'background .35s,backdrop-filter .35s,-webkit-backdrop-filter .35s,border-color .35s,box-shadow .35s', ...surface }}>
+        <nav className={`site-nav${scrolled ? ' is-scrolled' : ''}${menuOpen ? ' is-menu-open' : ''}`} style={{ pointerEvents: 'auto', width: '100%', maxWidth: 'var(--container-max)', borderRadius: 56, transition: 'background .35s,backdrop-filter .35s,-webkit-backdrop-filter .35s,border-color .35s,box-shadow .35s', ...surface }}>
           <div className="nav-inner">
             <Link href="/" className="nav-logo-link" aria-label="GlobalCodio home"><Logo className="nav-logo" /></Link>
             <div className="navlinks navlinks-desktop">{SITE_NAV.map((item) => <NavGroup key={item.label} item={item} />)}</div>
@@ -143,7 +143,7 @@ export const Nav = () => {
               </button>
             )}
           </div>
-        </motion.nav>
+        </nav>
       </div>
 
       <AnimatePresence>
