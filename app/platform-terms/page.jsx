@@ -9,8 +9,7 @@ export const revalidate = 3600;
 export const metadata = buildPageMetadata({
   path: '/platform-terms',
   title: 'Platform Terms of Service',
-  description:
-    'The terms of service governing access to and use of the GlobalCodio application, including accounts, fees, data ownership, disclaimers, limitation of liability, and dispute resolution. Published by Medicodio Inc.',
+  description: 'Terms for the GlobalCodio application: accounts, fees, data ownership, disclaimers, limitation of liability and dispute resolution. By Medicodio Inc.',
 });
 
 export default async function PlatformTermsPage() {

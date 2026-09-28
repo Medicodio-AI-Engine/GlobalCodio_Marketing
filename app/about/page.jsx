@@ -2,8 +2,8 @@ import { PAGE_SCHEMAS, buildPageMetadata } from '../../lib/seo.js';
 
 export const metadata = buildPageMetadata({
   path: '/about',
-  title: 'About GlobalCodio - Immigration Technology Since 1999',
-  description: 'GlobalCodio was founded by Umesh Vaidyamath, who co-founded INSZoom in 1999 - the immigration industry\'s first cloud platform, serving 1,000+ law firms before its 2020 acquisition. GlobalCodio is the next chapter: a fully managed, AI-powered immigration technology operation.',
+  title: 'About Us - Immigration Technology Since 1999',
+  description: 'Founded by Umesh Vaidyamath, co-founder of INSZoom (1999), GlobalCodio is a fully managed, AI-powered immigration technology operation for law firms.',
   keywords: ['GlobalCodio about', 'Umesh Vaidyamath', 'INSZoom founder', 'immigration technology company', 'immigration software company history', 'immigration AI company'],
   ogTitle: 'About GlobalCodio | Immigration Technology Since 1999',
   ogDescription: 'Founded by Umesh Vaidyamath, co-founder of INSZoom. 20+ years of immigration technology experience now powering GlobalCodio\'s AI workforce for immigration firms.',

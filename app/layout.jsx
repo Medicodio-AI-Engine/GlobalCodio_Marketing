@@ -35,10 +35,10 @@ export const viewport = {
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'GlobalCodio | AI Workforce for Global Immigration - Deployed and Managed',
+    default: 'GlobalCodio | AI Workforce for Global Immigration',
     template: '%s | GlobalCodio',
   },
-  description: 'GlobalCodio gives immigration law firms and corporate departments their own AI workforce - built, deployed, and managed end-to-end. Cut costs and grow revenue without managing technology.',
+  description: 'Immigration law firms and corporate teams get their own AI workforce, built, deployed and managed end-to-end by GlobalCodio. Cut costs and grow revenue.',
   keywords: ['AI workforce global immigration', 'immigration law firm software', 'immigration case management', 'managed technology operations', 'immigration automation'],
   authors: [{ name: 'GlobalCodio' }],
   creator: 'GlobalCodio',
