@@ -229,6 +229,7 @@ export const Testimonial = () => (
           {
             title: 'Immigration Law Firms',
             href: '/for-law-firms',
+            linkLabel: 'Explore GlobalCodio for law firms',
             quote: 'GlobalCodio handles everything - AI agents for case prep, deadlines, client comms, and renewals, plus audit, consulting, configuration, and managed operations - so your attorneys focus on what matters.',
             body: 'Solo, mid-size, and large law firms practicing immigration law. Pain points: manual case preparation, scaling case volume, growing revenue from existing clients, and managing technology.',
             services: [
@@ -241,6 +242,7 @@ export const Testimonial = () => (
           {
             title: 'Corporate Immigration Departments',
             href: '/for-corporate-teams',
+            linkLabel: 'Explore GlobalCodio for corporate teams',
             quote: 'GlobalCodio handles everything - AI agents for visa tracking, compliance monitoring, and vendor coordination, plus audit, consulting, configuration, and managed operations - so your mobility team focuses on strategy.',
             body: 'In-house mobility, HR, and legal operations teams at mid-to-large employers managing employee visa cases. Pain points: scaling case volume, compliance, vendor management, and cost predictability.',
             services: [
@@ -269,7 +271,7 @@ export const Testimonial = () => (
               {a.body}
               {' '}
               <SmartLink href={a.href} className="feature-card-link" style={{ fontWeight: 600, display: 'inline-flex', verticalAlign: 'middle' }}>
-                Learn more
+                {a.linkLabel}
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 12, height: 12 }} aria-hidden="true">
                   <path d="M3 8h10M9 4l4 4-4 4" />
                 </svg>
@@ -409,10 +411,10 @@ export const ValueLevers = () => (
 /* Real certification badge artwork lives in /public/assets.
    `href` points to each standard's authoritative source. */
 const CERT_BADGES = [
-  { id: 'soc2', src: 'SOC-2-Type-2.webp', name: 'SOC 2 Type II', label: 'SOC 2 Type II', sub: 'Audited annually', href: 'https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2' },
-  { id: 'iso', src: 'ISO.webp', name: 'ISO/IEC 27001', label: 'ISO/IEC 27001', sub: 'Information security - certified to Medicodio Inc.', href: 'https://www.iso.org/standard/27001' },
-  { id: 'gdpr', src: 'GDPR.webp', name: 'GDPR', label: 'GDPR', sub: 'EU data protection', status: 'In Progress', href: 'https://commission.europa.eu/law/law-topic/data-protection_en' },
-  { id: 'ccpa', src: 'CCPA.webp', name: 'CCPA / CPRA', label: 'CCPA / CPRA', sub: 'US privacy law', status: 'In Progress', href: 'https://oag.ca.gov/privacy/ccpa' },
+  { id: 'soc2', src: 'SOC-2-Type-2.webp', w: 356, h: 452, name: 'SOC 2 Type II', label: 'SOC 2 Type II', sub: 'Audited annually', href: 'https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2' },
+  { id: 'iso', src: 'ISO.webp', w: 600, h: 305, name: 'ISO/IEC 27001', label: 'ISO/IEC 27001', sub: 'Information security - certified to Medicodio Inc.', href: 'https://www.iso.org/standard/27001' },
+  { id: 'gdpr', src: 'GDPR.webp', w: 600, h: 531, name: 'GDPR', label: 'GDPR', sub: 'EU data protection', status: 'In Progress', href: 'https://commission.europa.eu/law/law-topic/data-protection_en' },
+  { id: 'ccpa', src: 'CCPA.webp', w: 600, h: 600, name: 'CCPA / CPRA', label: 'CCPA / CPRA', sub: 'US privacy law', status: 'In Progress', href: 'https://oag.ca.gov/privacy/ccpa' },
 ];
 
 const CERT_ASSET = (src) => `/assets/${src}`;
@@ -428,11 +430,13 @@ const CertArrow = () => (
  *  Each logo has its standard name + a "Details →" link to the source. */
 export const CertLogos = ({ className = '', style }) => (
   <div className={`cert-logos ${className}`.trim()} style={style}>
-    {CERT_BADGES.map(({ id, src, name, label, sub, status, href }) => (
+    {CERT_BADGES.map(({ id, src, w, h, name, label, sub, status, href }) => (
       <figure key={id} className="cert-item">
         <img
           className="cert-logo-img"
           src={CERT_ASSET(src)}
+          width={w}
+          height={h}
           alt={`${label} - ${sub}${status ? ` (${status})` : ''}`}
           title={`${label} - ${sub}${status ? ` (${status})` : ''}`}
           loading="lazy"

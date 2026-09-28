@@ -26,6 +26,11 @@ const delayForReveal = (el) => {
   return 0;
 };
 
+/* On the initial page load, content already on screen stays visible as server-rendered
+   instead of fading in after hydration (which delayed LCP by ~2s). Later client-side
+   navigations keep the entrance animation. */
+let isInitialLoad = true;
+
 export function SiteShell({ children }) {
   const pathname = usePathname();
   const [editMode, setEditMode] = useState(false);
@@ -57,11 +62,20 @@ export function SiteShell({ children }) {
     // "blank bottom" gap where the element is technically on screen but hasn't triggered yet.
     const TRIGGER_PCT = 98;
 
+    const initialLoad = isInitialLoad;
+    isInitialLoad = false;
+
     const ctx = gsap.context(() => {
       reveals.forEach((el) => {
         const blur = blurFor(el);
         const rect = el.getBoundingClientRect();
         const vh = window.innerHeight;
+
+        // First load: anything already in the viewport is left exactly as painted
+        if (initialLoad && rect.top < vh && rect.bottom > 0) {
+          el.classList.add('is-in');
+          return;
+        }
 
         // Already in view on load (top half of viewport) - animate immediately, no ScrollTrigger
         if (rect.top < vh * 0.75 && rect.bottom > 0) {

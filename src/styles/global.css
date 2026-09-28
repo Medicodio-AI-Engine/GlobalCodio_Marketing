@@ -4503,6 +4503,22 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   }
 }
 
+/* ── Hero entrance: CSS-only so it runs from the server HTML, no hydration wait.
+   Opacity/transform only (compositor-friendly, no filter blur). --hd = stagger. ── */
+@keyframes heroRise{
+  from{opacity:0;transform:translate3d(0,12px,0);}
+  to{opacity:1;transform:none;}
+}
+/* Dashboard (desktop LCP image) slides without fading so it paints immediately */
+@keyframes heroDashRise{
+  from{transform:translate3d(0,28px,0);}
+  to{transform:none;}
+}
+@media(prefers-reduced-motion:no-preference){
+  .hero-in{animation:heroRise .55s cubic-bezier(.2,.7,.2,1) var(--hd,0s) both;}
+  .hero-dash-in{animation:heroDashRise .8s cubic-bezier(.2,.7,.2,1) .1s both;}
+}
+
 /* ── Feature / pillar cards: hint GPU layer for blur reveal ── */
 .feature-card.reveal,
 .pillar-card.reveal,
@@ -5785,7 +5801,11 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   font-size:calc(13.5px * var(--ui-scale) * var(--ft-font-scale));
   line-height:1.8;
 }
-.ft-brand-links a{color:var(--ink-3);}
+.ft-brand-links a{
+  color:var(--ink-3);
+  /* WCAG 2.5.8 target size: keep each tap target at least 24px tall */
+  display:inline-flex;align-items:center;justify-self:start;min-height:24px;
+}
 /* Corporate disclosure under the footer brand block. Deliberately quiet but
    not smaller than the surrounding footer links - it is a compliance
    statement, not fine print. */
@@ -5841,6 +5861,7 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   gap:var(--space-md);
 }
 .ft-bar-legal a{color:var(--muted);text-decoration:none;}
+.ft-bar-legal a,.ft-legal-btn{display:inline-flex;align-items:center;min-height:24px;}
 .ft-bar-sep{opacity:.4;}
 .ft-bar-tagline{
   letter-spacing:.05em;
@@ -5874,6 +5895,10 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   white-space:nowrap;
 }
 .ft-watermark-accent{color:#d4e4fc;}
+/* Decorative watermark is drawn via generated content so it isn't real text
+   (it is intentionally low-contrast and would otherwise fail contrast audits). */
+.ft-watermark-text::before,
+.ft-watermark-accent::before{content:attr(data-text);}
 .ft-watermark-fade{
   position:absolute;
   left:0;

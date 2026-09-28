@@ -42,7 +42,7 @@ const SERVICE_LAYERS = [
     h: 'Customer Support',
     b: 'Support from people who understand immigration workflows - not a generic helpdesk. Our team knows what an I-129 is, understands USCIS deadlines, and speaks your language. We onboard your whole firm, then stay proactively engaged with regular check-ins and workflow reviews.',
     stat: 'Mon–Fri, 4am–5pm Pacific',
-    links: [{ href: '/customer-support', label: 'Learn more' }],
+    links: [{ href: '/customer-support', label: 'Learn more about customer support' }],
   },
   {
     Icon: Server,
@@ -58,7 +58,7 @@ const SERVICE_LAYERS = [
     h: 'HRMS Integration',
     b: 'Direct integration between CodioCMS and your corporate clients\' HR systems - Workday, SAP SuccessFactors, BambooHR, ADP, Rippling, and others. Employee data syncs automatically, compliance timelines stay current, and your firm meets the integration standard that corporate RFPs now require.',
     stat: 'Included in managed operations',
-    links: [{ href: '/hrms-integration', label: 'Learn more' }],
+    links: [{ href: '/hrms-integration', label: 'Learn more about HRMS integration' }],
   },
   {
     Icon: Workflow,
@@ -73,7 +73,7 @@ const SERVICE_LAYERS = [
     n: '09',
     h: 'RFP Response Support',
     b: 'When corporate clients send you RFPs with deep technical and security questions, we draft your responses. Available as a bundled add-on.',
-    links: [{ href: '/rfp-response', label: 'Learn more' }],
+    links: [{ href: '/rfp-response', label: 'Learn more about RFP response' }],
   },
 ];
 
@@ -203,7 +203,7 @@ export default function Services() {
       <CtaBand
         lead="Stop managing technology."
         emphasis="Start winning cases."
-        primary={{ href: '/contact', label: 'Book your free tech audit' }}
+        primary={{ href: '/free-tech-audit', label: 'Book your free tech audit' }}
         secondary={{ href: 'mailto:info@globalcodio.ai', label: 'Talk to our team' }}
       />
     </>
