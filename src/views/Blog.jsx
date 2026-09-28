@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { urlFor } from '../../lib/sanity';
 
 const CATEGORIES = ['All', 'Product Updates', 'Immigration Tech', 'Guides', 'Case Studies'];
+const POSTS_PER_PAGE = 9;
 
 const AUTHOR = {
   name: 'Umesh Vaidyamath',
@@ -254,15 +255,55 @@ const PostCard = ({ post, featured = false }) => {
   );
 };
 
+function PageButton({ children, onClick, disabled, active, label }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={label}
+      aria-current={active ? 'page' : undefined}
+      style={{
+        fontFamily: 'var(--body)',
+        fontSize: 'calc(13px * var(--ui-scale))',
+        fontWeight: active ? 600 : 400,
+        minWidth: 'calc(36px * var(--ui-scale))',
+        padding: 'calc(7px * var(--ui-scale)) calc(14px * var(--ui-scale))',
+        borderRadius: 999,
+        border: `1.5px solid ${active ? 'var(--blue)' : 'var(--line-2)'}`,
+        background: active ? 'var(--blue)' : '#fff',
+        color: active ? '#fff' : 'var(--ink-3)',
+        cursor: disabled ? 'default' : 'pointer',
+        opacity: disabled ? 0.4 : 1,
+        transition: 'all .18s',
+      }}
+    >
+      {children}
+    </button>
+  );
+}
+
 export default function Blog({ sanityPosts }) {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
+  const [page, setPage] = useState(1);
 
   // Use live Sanity posts when available; fall back to static data
   const allPosts = (sanityPosts && sanityPosts.length > 0) ? sanityPosts : POSTS;
   const filtered = allPosts.filter(p => activeCategory === 'All' || p.category === activeCategory);
   const isEmpty = filtered.length === 0;
+  const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE));
+  const currentPage = Math.min(page, totalPages);
+  const pagePosts = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
+
+  const selectCategory = (cat) => {
+    setActiveCategory(cat);
+    setPage(1);
+  };
+
+  const goToPage = (n) => {
+    setPage(n);
+    document.getElementById('posts')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <>
@@ -308,7 +349,7 @@ export default function Blog({ sanityPosts }) {
                 <button
                   key={cat}
                   type="button"
-                  onClick={() => setActiveCategory(cat)}
+                  onClick={() => selectCategory(cat)}
                   style={{
                     fontFamily: 'var(--body)',
                     fontSize: 'calc(13px * var(--ui-scale))',
@@ -343,7 +384,7 @@ export default function Blog({ sanityPosts }) {
               <GhostCard />
             </div>
 
-            {/* Subscribe card */}
+            {/* Empty-category card */}
             <div style={{
               background: 'linear-gradient(145deg, var(--blue) 0%, var(--blue-ink) 100%)',
               borderRadius: 'calc(20px * var(--ui-scale))',
@@ -354,116 +395,48 @@ export default function Blog({ sanityPosts }) {
               boxShadow: '0 0 60px rgba(25,80,198,.2)',
             }}>
               <div className="mono" style={{ fontSize: 'calc(10px * var(--ui-scale))', letterSpacing: '.14em', color: 'rgba(255,255,255,.55)', marginBottom: 'calc(14px * var(--ui-scale))' }}>
-                COMING SOON
+                NOTHING HERE YET
               </div>
               <h2 className="display" style={{ fontSize: 'calc(32px * var(--ui-scale))', letterSpacing: '-0.02em', lineHeight: 1.15, color: '#fff', marginBottom: 'calc(12px * var(--ui-scale))' }}>
-                The blog is on its way.
+                More posts on the way.
               </h2>
-              <p style={{ fontSize: 'calc(16px * var(--ui-scale))', color: 'rgba(255,255,255,.7)', lineHeight: 1.6, maxWidth: '42ch', margin: '0 auto calc(28px * var(--ui-scale))' }}>
-                Subscribe to get our first post on AI in immigration workflows - straight to your inbox.
+              <p style={{ fontSize: 'calc(16px * var(--ui-scale))', color: 'rgba(255,255,255,.7)', lineHeight: 1.6, maxWidth: '42ch', margin: '0 auto' }}>
+                No posts in this category yet. Check back soon.
               </p>
-              {subscribed ? (
-                <p className="mono" style={{ fontSize: 'calc(13px * var(--ui-scale))', color: 'rgba(255,255,255,.9)', letterSpacing: '.04em' }}>
-                  ✓ You're on the list.
-                </p>
-              ) : (
-                <form
-                  onSubmit={e => { e.preventDefault(); if (email) setSubscribed(true); }}
-                  style={{ display: 'flex', gap: 'calc(8px * var(--ui-scale))', maxWidth: 'calc(420px * var(--ui-scale))', margin: '0 auto' }}
-                >
-                  <input
-                    type="email"
-                    required
-                    placeholder="your@firm.com"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    style={{
-                      flex: 1,
-                      fontFamily: 'var(--body)',
-                      fontSize: 'calc(14px * var(--ui-scale))',
-                      padding: 'calc(12px * var(--ui-scale)) calc(16px * var(--ui-scale))',
-                      borderRadius: 'calc(10px * var(--ui-scale))',
-                      border: '1.5px solid rgba(255,255,255,.25)',
-                      background: 'rgba(255,255,255,.12)',
-                      color: '#fff',
-                      outline: 'none',
-                      boxSizing: 'border-box',
-                    }}
-                  />
-                  <button type="submit" className="btn btn-surface" style={{ flexShrink: 0, whiteSpace: 'nowrap' }}>
-                    Notify me
-                  </button>
-                </form>
-              )}
             </div>
           </div>
         ) : (
-          /* ── Posts grid ── */
-          <div className="blog-posts-grid">
-            {filtered.map((post, i) => (
-              <div key={post.slug} className={`reveal d${(i % 3) + 1}`}>
-                <PostCard post={post} featured={i === 0} />
-              </div>
-            ))}
-          </div>
-        )}
+          <>
+            {/* ── Posts grid ── */}
+            <div className="blog-posts-grid">
+              {pagePosts.map((post, i) => (
+                <div key={post.slug} className={`reveal d${(i % 3) + 1}`}>
+                  <PostCard post={post} featured={currentPage === 1 && i === 0} />
+                </div>
+              ))}
+            </div>
 
-        {/* ── Subscribe strip - full width, low height ── */}
-        <div className="reveal d1" style={{
-          marginTop: 'var(--space-xl)',
-          background: 'linear-gradient(90deg, var(--blue) 0%, var(--blue-ink) 100%)',
-          borderRadius: 'calc(16px * var(--ui-scale))',
-          padding: 'calc(24px * var(--ui-scale)) calc(32px * var(--ui-scale))',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 'var(--space-2xl)',
-          boxShadow: '0 0 40px rgba(25,80,198,.18)',
-          flexWrap: 'wrap',
-        }}>
-          <div>
-            <div className="mono" style={{ fontSize: 'calc(10px * var(--ui-scale))', letterSpacing: '.12em', color: 'rgba(255,255,255,.5)', marginBottom: 'calc(4px * var(--ui-scale))' }}>
-              STAY IN THE LOOP
-            </div>
-            <div className="display" style={{ fontSize: 'calc(20px * var(--ui-scale))', letterSpacing: '-0.01em', color: '#fff', fontWeight: 700 }}>
-              Get new posts in your inbox.
-            </div>
-          </div>
-          {subscribed ? (
-            <p className="mono" style={{ fontSize: 'calc(13px * var(--ui-scale))', color: 'rgba(255,255,255,.9)', letterSpacing: '.04em', flexShrink: 0 }}>
-              ✓ You're on the list.
-            </p>
-          ) : (
-            <form
-              onSubmit={e => { e.preventDefault(); if (email) setSubscribed(true); }}
-              style={{ display: 'flex', gap: 'calc(8px * var(--ui-scale))', flexShrink: 0 }}
-            >
-              <input
-                type="email"
-                required
-                placeholder="your@firm.com"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                className="blog-email-input"
-                style={{
-                  fontFamily: 'var(--body)',
-                  fontSize: 'calc(14px * var(--ui-scale))',
-                  padding: 'calc(10px * var(--ui-scale)) calc(16px * var(--ui-scale))',
-                  borderRadius: 'calc(14px * var(--ui-scale))',
-                  border: '1.5px solid rgba(255,255,255,.25)',
-                  background: 'rgba(255,255,255,.12)',
-                  color: '#fff',
-                  outline: 'none',
-                  width: 'calc(308px * var(--ui-scale))',
-                  boxSizing: 'border-box',
-                }}
-              />
-              <button type="submit" className="btn btn-surface" style={{ whiteSpace: 'nowrap' }}>
-                Notify me
-              </button>
-            </form>
-          )}
-        </div>
+            {/* ── Pagination ── */}
+            {totalPages > 1 && (
+              <nav
+                aria-label="Blog pagination"
+                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 'calc(6px * var(--ui-scale))', flexWrap: 'wrap', marginTop: 'var(--space-2xl)' }}
+              >
+                <PageButton onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1} label="Previous page">
+                  ← Prev
+                </PageButton>
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+                  <PageButton key={n} onClick={() => goToPage(n)} active={n === currentPage} label={`Page ${n}`}>
+                    {n}
+                  </PageButton>
+                ))}
+                <PageButton onClick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages} label="Next page">
+                  Next →
+                </PageButton>
+              </nav>
+            )}
+          </>
+        )}
       </Section>
     </>
   );

@@ -5432,7 +5432,6 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   }
 }
 
-.blog-email-input::placeholder{color:rgba(255,255,255,.6);}
 
 /* ============================================================
    CodioNetwork - Coordination Problem section
