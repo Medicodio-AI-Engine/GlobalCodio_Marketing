@@ -18,10 +18,6 @@ const DATA = {
     'EB Cases Skip the I-864, Not Public Charge',
     'USCIS applies the public charge ground to EB-1, EB-2, EB-3 and EB-5 adjustment applicants and their derivatives - the I-864 exemption does not change that.',
     ['/for-corporate-teams', '/ai-agents', '/platform']),
-  'drafts.blogPost-public-charge-bonds-the-case-file-that-stays-open-five-years': P(
-    'Public Charge Bonds: The Five-Year Case File',
-    'USCIS invites public charge bonds in a NOID, from $1,000 with no ceiling. One means-tested benefit forfeits the bond, and the file stays open five years.',
-    ['/for-law-firms', '/ai-agents', '/platform']),
   'blogPost-duration-of-status-postponed-but-the-forms-shipped-anyway': P(
     'Duration of Status Postponed, New Forms Ship',
     'A judge postponed the Duration of Status rule on September 14, but the new I-539 and I-765 editions still take effect September 15. Be ready for both.',
@@ -60,7 +56,7 @@ const DATA = {
     ['/platform', '/for-law-firms', '/for-corporate-teams']),
   'blogPost-adjustment-of-status-discretion-may-2026-memo': P(
     'Adjustment of Status Discretion: The May Memo',
-    "USCIS's May 21 memo reframed adjustment of status as discretion. The defense is a complete, well-documented file with no gaps at filing.",
+    'USCIS\'s May 21 memo reframed adjustment of status as "discretion and administrative grace." The defense is a complete, well-documented file with no gaps.',
     ['/ai-agents', '/platform', '/for-law-firms']),
   'blogPost-immigration-firms-adopting-ai-the-wrong-way': P(
     'Immigration Firms Are Adopting AI the Wrong Way',
@@ -84,7 +80,7 @@ const DATA = {
     ['/platform', '/network', '/for-corporate-teams']),
   'blogPost-how-ai-agents-handle-rfps': P(
     'How AI Agents Help Immigration Firms Win RFPs',
-    'Corporate clients ask harder technical questions than ever, and firms that answer in detail win. How GlobalCodio drafts your RFP responses, and why it works.',
+    'Corporate clients ask harder technical questions than ever. Firms that answer in detail win. How GlobalCodio drafts your RFP responses, and why it works.',
     ['/rfp-response', '/ai-agents', '/security']),
   'blogPost-what-a-fully-managed-tech-operation-looks-like': P(
     'What a Fully Managed Tech Operation Looks Like',

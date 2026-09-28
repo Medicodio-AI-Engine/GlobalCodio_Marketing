@@ -215,13 +215,13 @@ const PostCard = ({ post, featured = false }) => {
             {post.readTime} min read
           </span>
         </div>
-        <h3 className="display" style={{
+        <h2 className="display" style={{
           fontSize: featured ? 'calc(28px * var(--ui-scale))' : 'calc(20px * var(--ui-scale))',
           letterSpacing: '-0.02em', lineHeight: 1.2, color: 'var(--ink)',
           margin: 0,
         }}>
           {post.title}
-        </h3>
+        </h2>
         <p style={{ fontSize: 'calc(14px * var(--ui-scale))', color: 'var(--ink-3)', lineHeight: 1.65, margin: 0 }}>
           {post.excerpt}
         </p>

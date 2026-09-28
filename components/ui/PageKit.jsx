@@ -161,7 +161,7 @@ export const StepList = ({ steps, revealRows = true }) => (
       <li key={i} className={`step-row${revealRows ? ' reveal' : ''}`}>
         <span className="mono step-index">{String(i + 1).padStart(2, '0')}</span>
         <div className="step-body">
-          <h4 className="step-title">{s.h}</h4>
+          <h3 className="step-title">{s.h}</h3>
           {s.b && <p className="step-text">{s.b}</p>}
         </div>
       </li>
