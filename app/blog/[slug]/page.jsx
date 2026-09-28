@@ -36,12 +36,12 @@ export async function generateMetadata({ params }) {
   const url = `${SITE_URL}/blog/${slug}`;
   try {
     const post = await getPostBySlug(slug);
-    if (!post) return { title: 'Blog - GlobalCodio', alternates: { canonical: url } };
+    if (!post) return { title: 'Blog', alternates: { canonical: url } };
     // Fall back to the site OG image so a post without a featured image still
     // renders a card when shared - LinkedIn is the primary distribution channel.
     const image = postImage(post) || OG_IMAGE;
     return {
-      title: `${post.title} - GlobalCodio`,
+      title: post.title,
       description: post.excerpt,
       alternates: { canonical: url },
       openGraph: {
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }) {
       },
     };
   } catch {
-    return { title: 'Blog - GlobalCodio', alternates: { canonical: url } };
+    return { title: 'Blog', alternates: { canonical: url } };
   }
 }
 
