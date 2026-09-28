@@ -41,8 +41,10 @@ export async function generateMetadata({ params }) {
     // renders a card when shared - LinkedIn is the primary distribution channel.
     const image = postImage(post) || OG_IMAGE;
     return {
-      title: post.title,
-      description: post.excerpt,
+      // Search gets the short SEO pair when set; the page headline, excerpt and
+      // social cards below keep the full versions.
+      title: post.seoTitle || post.title,
+      description: post.seoDescription || post.excerpt,
       alternates: { canonical: url },
       openGraph: {
         type: 'article',

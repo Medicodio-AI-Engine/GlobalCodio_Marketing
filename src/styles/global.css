@@ -2693,6 +2693,7 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
 .letter-signature-role{color:var(--ink-3);margin:0;}
 
 /* Blog author signoff (matches codioops-foot / network-foot) */
+.related-pages,
 .author-signoff,
 .network-foot,
 .sec-codiocms .codioops-foot,
@@ -2737,6 +2738,22 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   display:inline-flex;align-items:center;gap:calc(6px * var(--ui-scale));
 }
 .author-signoff-link svg{width:calc(13px * var(--ui-scale));height:calc(13px * var(--ui-scale));flex-shrink:0;}
+
+/* Blog "Where GlobalCodio fits" - product pages the post leads to */
+.related-pages{margin-top:var(--space-2xl);display:flex;flex-direction:column;gap:var(--space-md);}
+.related-pages-list{
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(calc(180px * var(--ui-scale)),1fr));
+  gap:var(--space-lg);
+}
+.related-pages-item{display:flex;flex-direction:column;gap:calc(4px * var(--ui-scale));text-decoration:none;}
+.related-pages-label{
+  display:inline-flex;align-items:center;gap:calc(6px * var(--ui-scale));
+  font-size:var(--text-body-sm);font-weight:600;color:var(--blue);
+}
+.related-pages-label svg{width:calc(13px * var(--ui-scale));height:calc(13px * var(--ui-scale));flex-shrink:0;transition:transform .25s var(--ease-out);}
+.related-pages-item:hover .related-pages-label svg{transform:translateX(3px);}
+.related-pages-blurb{font-size:var(--text-body-sm);color:var(--ink-3);line-height:1.45;}
 
 /* What makes us different - manifesto 2-col */
 .diff-sec{
@@ -3592,6 +3609,7 @@ section#letter.sec{padding-top:calc(var(--sec-py) * 0.4);}
   .network-console-nav{border-right:none;border-bottom:1px solid var(--line);}
   .network-detail-callout{flex-direction:column;align-items:stretch;text-align:left;}
   .network-detail-callout-pill{align-self:flex-start;}
+  .related-pages{padding:var(--space-lg);}
   .network-foot,
   .author-signoff{
     grid-template-columns:1fr;

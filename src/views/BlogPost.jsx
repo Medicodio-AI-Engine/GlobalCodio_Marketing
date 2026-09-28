@@ -8,6 +8,7 @@ import { Section, SmartLink, CtaBand } from '../../components/ui/PageKit';
 import NotFound from './NotFound.jsx';
 import { POSTS_DATA } from './Blog.jsx';
 import { urlFor } from '../../lib/sanity';
+import { resolveRelatedPages } from '../../lib/relatedPages.js';
 
 // ── Image helper ──────────────────────────────────────────────────────────────
 function resolveImageUrl(img, width = 800) {
@@ -302,6 +303,33 @@ function AuthorSection({ author }) {
   );
 }
 
+// ── Related product pages ─────────────────────────────────────────────────────
+// Every post links to 2-3 commercial pages, so crawlers and readers reach them
+// from the article, not only from the nav and footer.
+function RelatedPages({ paths }) {
+  const pages = resolveRelatedPages(paths);
+  return (
+    <nav className="related-pages reveal" aria-label="Where GlobalCodio fits">
+      <span className="mono author-signoff-eyebrow">WHERE GLOBALCODIO FITS</span>
+      <ul className="related-pages-list">
+        {pages.map(p => (
+          <li key={p.path}>
+            <Link href={p.path} className="related-pages-item">
+              <span className="related-pages-label">
+                {p.label}
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </span>
+              <span className="related-pages-blurb">{p.blurb}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 // ── Main BlogPost component ───────────────────────────────────────────────────
 // sanityPost: full post object from server fetch (preferred)
 // slug: passed from the page route as fallback key into static POSTS_DATA
@@ -428,6 +456,8 @@ export default function BlogPost({ sanityPost, slug }) {
           ) : (
             <LegacyContent content={post.content} />
           )}
+
+          <RelatedPages paths={post.relatedPages} />
 
           {/* Author section - only when the author opts in and has a bio */}
           {shouldShowAuthorSection(post.author) && (

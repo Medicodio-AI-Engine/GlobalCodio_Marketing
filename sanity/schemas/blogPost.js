@@ -1,3 +1,5 @@
+import { RELATED_PAGES } from '../../lib/relatedPages.js';
+
 export const blogPost = {
   name: 'blogPost',
   title: 'Blog Post',
@@ -85,6 +87,36 @@ export const blogPost = {
       title: 'Body',
       type: 'blockContent',
       description: 'Full article content. Use the annotation toolbar for per-span font size, weight, and color controls.',
+    },
+
+    // ── Search & linking ───────────────────────────────────
+    // The headline and excerpt stay as written; these give Google a short
+    // version. The site appends " | GlobalCodio" to the SEO title itself.
+    {
+      name: 'seoTitle',
+      title: 'SEO Title',
+      type: 'string',
+      description: 'Shown in Google results instead of the headline. Aim for 45 characters or fewer - " | GlobalCodio" is added automatically. Falls back to the Title.',
+      validation: Rule => Rule.max(50).warning('Over 50 characters - Google will cut it off.'),
+    },
+    {
+      name: 'seoDescription',
+      title: 'SEO Description',
+      type: 'text',
+      rows: 2,
+      description: 'Shown under the title in Google results. 140-155 characters. Falls back to the Excerpt.',
+      validation: Rule => Rule.max(160).warning('Over 160 characters - Google will cut it off.'),
+    },
+    {
+      name: 'relatedPages',
+      title: 'Related Product Pages',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: {
+        list: Object.entries(RELATED_PAGES).map(([value, { label }]) => ({ title: label, value })),
+      },
+      description: 'Pick 2-3 product pages this post leads readers to. Shown as "Where GlobalCodio fits" at the end of the post. Defaults to Platform, AI Agents and For Law Firms.',
+      validation: Rule => Rule.max(3).unique(),
     },
   ],
 
